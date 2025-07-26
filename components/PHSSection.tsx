@@ -1,23 +1,26 @@
+
 import React from 'react';
-import { Wind, Info, Bug, Stethoscope, Search, Image, Lungs, Microscope, Activity, FlaskConical, History, FileText } from './icons';
+import { Wind, Info, Bug, Stethoscope, Search, Image, Lungs, Microscope, Activity, FlaskConical, History, FileText, TrendingUp, Pill, CheckCircle, AlertTriangle, Shield, HandHeart } from './icons';
 import { Accordion } from './Accordion';
 
 const InfoCard: React.FC<{ 
   title: string; 
   children: React.ReactNode; 
   icon: React.ReactNode; 
-  color: 'blue' | 'green' | 'orange' | 'purple' 
+  color: 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'teal'
 }> = ({ title, children, icon, color }) => {
     const colors = {
-        blue: 'border-blue-500 bg-blue-50 text-blue-800',
-        green: 'border-green-500 bg-green-50 text-green-800',
-        orange: 'border-orange-500 bg-orange-50 text-orange-800',
-        purple: 'border-purple-500 bg-purple-50 text-purple-800',
+        blue: { border: 'border-blue-500', bg: 'bg-blue-50', text: 'text-blue-800' },
+        green: { border: 'border-green-500', bg: 'bg-green-50', text: 'text-green-800' },
+        orange: { border: 'border-orange-500', bg: 'bg-orange-50', text: 'text-orange-800' },
+        purple: { border: 'border-purple-500', bg: 'bg-purple-50', text: 'text-purple-800' },
+        red: { border: 'border-red-500', bg: 'bg-red-50', text: 'text-red-800' },
+        teal: { border: 'border-teal-500', bg: 'bg-teal-50', text: 'text-teal-800' },
     };
     
     return (
-        <div className={`p-4 rounded-lg border-l-4 ${colors[color]} h-full`}>
-            <h4 className={`font-semibold flex items-center mb-2 ${colors[color]}`}>
+        <div className={`p-4 rounded-lg border-l-4 ${colors[color].border} ${colors[color].bg} h-full`}>
+            <h4 className={`font-semibold flex items-center mb-2 ${colors[color].text}`}>
                 {icon}
                 <span className="ml-2">{title}</span>
             </h4>
@@ -31,113 +34,113 @@ export const PHSSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <Wind className="w-7 h-7 mr-3 text-blue-500" />
-        Pneumopathies d'hypersensibilité (PHS)
+        Hypersensitivity Pneumonitis (HP)
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        Une maladie immuno-médiée complexe résultant d'une exposition à un large éventail d'antigènes inhalés.
+        A complex immune-mediated disease resulting from exposure to a wide range of inhaled antigens.
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
         <h3 className="text-xl font-semibold text-slate-800 mb-3">Introduction</h3>
         <p className="text-slate-700 mb-4 text-base">
-            La pneumopathie d'hypersensibilité (PHS) est une maladie pulmonaire interstitielle diffuse (PID) qui survient chez des individus susceptibles après une exposition répétée à un ou plusieurs antigènes inhalés. Historiquement classée en formes aiguë, subaiguë et chronique, la compréhension moderne a évolué. En raison du manque de consensus et des difficultés diagnostiques, les sociétés savantes (ATS/JRS/ALAT) ont récemment proposé des lignes directrices pour standardiser l'approche.
+            Hypersensitivity pneumonitis (HP) is a diffuse interstitial lung disease (ILD) that occurs in susceptible individuals after repeated exposure to one or more inhaled antigens. Historically classified into acute, subacute, and chronic forms, modern understanding has evolved. Due to a lack of consensus and diagnostic difficulties, professional societies (ATS/JRS/ALAT) have recently proposed guidelines to standardize the approach.
         </p>
         <p className="text-slate-700 text-base">
-            La PHS fibrosante chronique peut être difficile à distinguer de la FPI, soulignant l'importance d'une anamnèse minutieuse et d'une approche diagnostique multidisciplinaire pour identifier l'antigène causal, ce qui est crucial pour le pronostic.
+            Chronic fibrotic HP can be difficult to distinguish from IPF, highlighting the importance of a thorough history and a multidisciplinary diagnostic approach to identify the causative antigen, which is crucial for prognosis.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6 rounded-r-lg">
             <h4 className="text-base font-semibold text-blue-800 mb-2 flex items-center">
                 <Info className="w-5 h-5 mr-2" />
-                Points Clés (ATS/JRS/ALAT 2020)
+                Key Points (ATS/JRS/ALAT 2020)
             </h4>
             <ul className="list-disc list-inside space-y-1 text-slate-700 text-base">
-                <li>La PHS est maintenant classée en deux phénotypes : <strong>PHS non-fibrosante</strong> (principalement inflammatoire) et <strong>PHS fibrosante</strong>.</li>
-                <li>Le diagnostic est intégratif et repose sur une combinaison de trois piliers :
+                <li>HP is now classified into two phenotypes: <strong>non-fibrotic HP</strong> (mainly inflammatory) and <strong>fibrotic HP</strong>.</li>
+                <li>The diagnosis is integrative and based on a combination of three pillars:
                     <ol className="list-decimal list-inside pl-6 mt-1 text-sm">
-                        <li><strong>Exposition</strong> à un antigène compatible (anamnèse, IgGs spécifiques).</li>
-                        <li><strong>Imagerie TDM-HR</strong> typique.</li>
-                        <li><strong>Lymphocytose</strong> au Lavage Broncho-Alvéolaire (LBA).</li>
+                        <li><strong>Exposure</strong> to a compatible antigen (history, specific IgGs).</li>
+                        <li>Typical <strong>HRCT imaging</strong>.</li>
+                        <li><strong>Lymphocytosis</strong> in Bronchoalveolar Lavage (BAL).</li>
                     </ol>
                 </li>
-                <li>La <strong>Discussion Multidisciplinaire (DMD)</strong> est essentielle pour établir un diagnostic confiant.</li>
-                <li>L'<strong>éviction de l'antigène</strong> est la pierre angulaire du traitement, lorsque c'est possible.</li>
+                <li><strong>Multidisciplinary Discussion (MDD)</strong> is essential to establish a confident diagnosis.</li>
+                <li><strong>Antigen avoidance</strong> is the cornerstone of treatment, when possible.</li>
             </ul>
         </div>
     </div>
     
     <div className="space-y-4">
-        <Accordion title="Agents Causals et Sources d'Exposition" icon={<Bug className="w-5 h-5 text-white" />}>
+        <Accordion title="Causal Agents and Exposure Sources" icon={<Bug className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">Des centaines d'antigènes peuvent causer une PHS. Voici les plus courants :</p>
+                <p className="text-slate-700 text-base">Hundreds of antigens can cause HP. Here are the most common:</p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    <InfoCard title="Moisissures et Champignons" icon={<Bug className="w-5 h-5"/>} color="green">
+                    <InfoCard title="Molds and Fungi" icon={<Bug className="w-5 h-5"/>} color="green">
                         <ul className="list-disc list-inside">
-                            <li><strong>Poumon de fermier :</strong> Actinomycètes thermophiles dans le foin moisi.</li>
-                            <li><strong>Poumon des climatiseurs/humidificateurs :</strong> Contamination par des moisissures.</li>
-                            <li><strong>Subérose :</strong> Poussière de liège moisi.</li>
+                            <li><strong>Farmer's Lung:</strong> Thermophilic actinomycetes in moldy hay.</li>
+                            <li><strong>Air conditioner/humidifier lung:</strong> Contamination by molds.</li>
+                            <li><strong>Suberosis:</strong> Moldy cork dust.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Protéines Aviaires" icon={<Bug className="w-5 h-5"/>} color="blue">
+                    <InfoCard title="Avian Proteins" icon={<Bug className="w-5 h-5"/>} color="blue">
                         <ul className="list-disc list-inside">
-                            <li><strong>Maladie des éleveurs d'oiseaux :</strong> Exposition aux déjections, sérum et plumes de pigeons, perruches, canaris, etc.</li>
-                            <li><strong>Poumon des duvets :</strong> Antigènes dans les oreillers et couettes en plumes.</li>
+                            <li><strong>Bird Fancier's Lung:</strong> Exposure to droppings, serum, and feathers of pigeons, parakeets, canaries, etc.</li>
+                            <li><strong>Feather Duvet Lung:</strong> Antigens in feather pillows and duvets.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Bactéries" icon={<Bug className="w-5 h-5"/>} color="purple">
+                    <InfoCard title="Bacteria" icon={<Bug className="w-5 h-5"/>} color="purple">
                          <ul className="list-disc list-inside">
-                            <li><strong>Poumon des bains à remous (Hot tub lung) :</strong> Exposition aux aérosols de <i>Mycobacterium avium complex</i>.</li>
-                            <li><strong>Poumon des travailleurs de scierie :</strong> Contamination bactérienne du bois.</li>
+                            <li><strong>Hot Tub Lung:</strong> Exposure to aerosols of <i>Mycobacterium avium complex</i>.</li>
+                            <li><strong>Sawmill Worker's Lung:</strong> Bacterial contamination of wood.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Agents Chimiques" icon={<Bug className="w-5 h-5"/>} color="orange">
+                    <InfoCard title="Chemical Agents" icon={<Bug className="w-5 h-5"/>} color="orange">
                         <ul className="list-disc list-inside">
-                            <li><strong>Poumon des peintres :</strong> Exposition aux isocyanates dans les peintures et mousses de polyuréthane.</li>
-                            <li><strong>Fluides d'usinage contaminés.</strong></li>
+                            <li><strong>Painter's Lung:</strong> Exposure to isocyanates in paints and polyurethane foams.</li>
+                            <li><strong>Contaminated machining fluids.</strong></li>
                         </ul>
                     </InfoCard>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Manifestations Cliniques" icon={<Stethoscope className="w-5 h-5 text-white" />}>
+        <Accordion title="Clinical Manifestations" icon={<Stethoscope className="w-5 h-5 text-white" />}>
             <div className="p-4 grid md:grid-cols-2 gap-6">
                 <div className="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-lg">
-                    <h4 className="font-semibold text-orange-800 text-lg mb-2">PHS Non-Fibrosante</h4>
+                    <h4 className="font-semibold text-orange-800 text-lg mb-2">Non-Fibrotic HP</h4>
                     <div className="space-y-3 text-base text-slate-700">
                         <div>
-                            <h5 className="font-medium">Symptômes</h5>
+                            <h5 className="font-medium">Symptoms</h5>
                              <ul className="list-disc list-inside space-y-1 text-sm">
-                                <li>Apparition subaiguë (jours/semaines) après exposition : toux, dyspnée.</li>
-                                <li>Syndrome pseudo-grippal fréquent : fièvre, frissons, malaise, perte de poids.</li>
-                                <li>Parfois oppression thoracique.</li>
+                                <li>Subacute onset (days/weeks) after exposure: cough, dyspnea.</li>
+                                <li>Frequent flu-like syndrome: fever, chills, malaise, weight loss.</li>
+                                <li>Sometimes chest tightness.</li>
                             </ul>
                         </div>
                          <div>
-                            <h5 className="font-medium">Examen Physique</h5>
+                            <h5 className="font-medium">Physical Examination</h5>
                              <ul className="list-disc list-inside space-y-1 text-sm">
-                                <li>Crépitants fins bilatéraux.</li>
-                                <li>"Piaulements" ou "squeaks" mi-inspiratoires très caractéristiques.</li>
+                                <li>Bilateral fine crackles.</li>
+                                <li>Very characteristic mid-inspiratory "squawks" or "chirps".</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                  <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
-                    <h4 className="font-semibold text-red-800 text-lg mb-2">PHS Fibrosante</h4>
+                    <h4 className="font-semibold text-red-800 text-lg mb-2">Fibrotic HP</h4>
                     <div className="space-y-3 text-base text-slate-700">
                         <div>
-                            <h5 className="font-medium">Symptômes</h5>
+                            <h5 className="font-medium">Symptoms</h5>
                              <ul className="list-disc list-inside space-y-1 text-sm">
-                                <li>Dyspnée d'effort et toux sèche d'installation insidieuse et progressive.</li>
-                                <li>Le lien temporel avec l'exposition est souvent absent ou difficile à établir.</li>
-                                <li>Perte de poids et fatigue possibles.</li>
+                                <li>Insidious and progressive exertional dyspnea and dry cough.</li>
+                                <li>The temporal link with exposure is often absent or difficult to establish.</li>
+                                <li>Weight loss and fatigue are possible.</li>
                             </ul>
                         </div>
                          <div>
-                            <h5 className="font-medium">Examen Physique</h5>
+                            <h5 className="font-medium">Physical Examination</h5>
                              <ul className="list-disc list-inside space-y-1 text-sm">
-                                <li>Crépitants de type "velcro", similaires à la FPI.</li>
-                                <li>Hippocratisme digital possible dans les formes avancées.</li>
+                                <li>"Velcro-like" crackles, similar to IPF.</li>
+                                <li>Digital clubbing possible in advanced forms.</li>
                             </ul>
                         </div>
                     </div>
@@ -145,84 +148,135 @@ export const PHSSection: React.FC = () => (
             </div>
         </Accordion>
 
-        <Accordion title="Évaluation Initiale" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Initial Evaluation" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-6">
                 <div className="p-4 bg-slate-100 border border-slate-300 rounded-lg">
-                    <h4 className="font-semibold text-slate-800 mb-2">Objectifs principaux de l'évaluation</h4>
+                    <h4 className="font-semibold text-slate-800 mb-2">Main objectives of the evaluation</h4>
                     <ul className="list-disc list-inside space-y-1 text-base text-slate-700">
-                        <li>Identifier les <strong>expositions potentielles</strong>.</li>
-                        <li>Déterminer la <strong>sévérité</strong> de l'atteinte respiratoire.</li>
-                        <li>Identifier les <strong>caractéristiques typiques</strong> à l'imagerie et au LBA.</li>
-                        <li>Guider la décision en <strong>discussion multidisciplinaire</strong>.</li>
+                        <li>Identify <strong>potential exposures</strong>.</li>
+                        <li>Determine the <strong>severity</strong> of respiratory impairment.</li>
+                        <li>Identify <strong>typical features</strong> on imaging and BAL.</li>
+                        <li>Guide the decision in a <strong>multidisciplinary discussion</strong>.</li>
                     </ul>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                   <div className="md:col-span-1 space-y-4">
-                        <InfoCard title="1. Anamnèse d'exposition détaillée" icon={<History className="w-5 h-5"/>} color="blue">
-                            <p>C'est l'<strong>étape cruciale</strong>. Interrogatoire systématique sur les expositions potentielles (domestiques, professionnelles, loisirs). L'antigène n'est pas identifié dans près de 60% des cas.</p>
+                   <div className="md:col-span-2">
+                        <InfoCard title="1. Detailed Exposure History" icon={<History className="w-5 h-5"/>} color="blue">
+                            <p>This is the <strong>crucial step</strong>. Systematic questioning about potential exposures (domestic, occupational, hobbies). The antigen is not identified in nearly 60% of cases.</p>
                         </InfoCard>
                    </div>
-                   <div className="md:col-span-1 space-y-4">
-                        <InfoCard title="2. Bilan Biologique" icon={<FlaskConical className="w-5 h-5"/>} color="purple">
-                            <p><strong>Sérologies (IgG spécifiques) :</strong> Leur positivité prouve une exposition, pas la maladie. Leur utilité est controversée en raison de nombreux faux positifs et négatifs.</p>
-                        </InfoCard>
-                         <InfoCard title="3. Explorations Fonctionnelles Respiratoires (EFR)" icon={<Activity className="w-5 h-5"/>} color="green">
-                           <p>Profil typiquement <strong>restrictif</strong>, mais peut être obstructif ou mixte. La <strong>baisse de la DLCO</strong> est quasi constante. Le TM6 recherche une désaturation à l'effort.</p>
-                        </InfoCard>
-                   </div>
+                    <InfoCard title="2. Laboratory Workup" icon={<FlaskConical className="w-5 h-5"/>} color="purple">
+                        <p><strong>Serologies (specific IgGs):</strong> Positivity proves exposure, not the disease. Their usefulness is controversial due to many false positives and negatives.</p>
+                    </InfoCard>
+                     <InfoCard title="3. Pulmonary Function Tests (PFTs)" icon={<Activity className="w-5 h-5"/>} color="green">
+                       <p>Typically a <strong>restrictive</strong> profile, but can be obstructive or mixed. A <strong>decrease in DLCO</strong> is almost constant. The 6MWT looks for exertional desaturation.</p>
+                    </InfoCard>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Évaluation Secondaire" icon={<Microscope className="w-5 h-5 text-white" />}>
+        <Accordion title="Secondary Evaluation" icon={<Microscope className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-6">
                 <p className="text-slate-700 text-base">
-                    Lorsque l'évaluation initiale ne permet pas d'établir un diagnostic confiant de PHS, des examens complémentaires peuvent être nécessaires. La décision est prise au cas par cas, idéalement après discussion multidisciplinaire.
+                    When the initial evaluation does not allow for a confident diagnosis of HP, further tests may be necessary. The decision is made on a case-by-case basis, ideally after multidisciplinary discussion.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <InfoCard title="1. Lavage Broncho-Alvéolaire (LBA)" icon={<Lungs className="w-5 h-5"/>} color="blue">
-                        <p><strong>Rôle :</strong> Outil le plus sensible pour détecter une alvéolite, mais non spécifique.</p>
+                    <InfoCard title="1. Bronchoalveolar Lavage (BAL)" icon={<Lungs className="w-5 h-5"/>} color="blue">
+                        <p><strong>Role:</strong> The most sensitive tool for detecting alveolitis, but nonspecific.</p>
                         <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                            <li><strong>Résultat clé :</strong> Une <strong>lymphocytose marquée</strong> (souvent &gt; 30-40%) est un argument diagnostique majeur.</li>
-                            <li><strong>Limites :</strong> Peut être normale dans les formes fibrosantes chroniques ou chez les fumeurs (seuil &gt; 20%). Peut se voir dans d'autres PID.</li>
-                            <li><strong>Utilité principale :</strong> Très utile pour différencier une PID fibrosante indéterminée (ex: suspicion de FPI vs PHS fibrosante).</li>
+                            <li><strong>Key result:</strong> Marked <strong>lymphocytosis</strong> (often > 30-40%) is a major diagnostic argument.</li>
+                            <li><strong>Limitations:</strong> Can be normal in chronic fibrotic forms or in smokers (threshold > 20%). Can be seen in other ILDs.</li>
+                            <li><strong>Main utility:</strong> Very useful for differentiating an indeterminate fibrosing ILD (e.g., suspected IPF vs. fibrotic HP).</li>
                         </ul>
                     </InfoCard>
 
-                    <InfoCard title="2. Biopsie Pulmonaire" icon={<Microscope className="w-5 h-5"/>} color="orange">
-                        <p><strong>Objectif :</strong> Obtenir une preuve histologique lorsque le diagnostic est incertain.</p>
+                    <InfoCard title="2. Lung Biopsy" icon={<Microscope className="w-5 h-5"/>} color="orange">
+                        <p><strong>Objective:</strong> To obtain histological proof when the diagnosis is uncertain.</p>
                         <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                            <li><strong>Biopsies transbronchiques (BTTB) :</strong> Rendement faible (11-40%), souvent insuffisant pour un diagnostic de certitude. Un résultat négatif n'exclut pas la PHS.</li>
-                            <li><strong>Cryobiopsie transbronchique (Cryo-TBB) :</strong> Échantillons plus grands. Précision diagnostique proche de la biopsie chirurgicale dans les centres experts, mais données limitées dans la PHS. Risques de pneumothorax et saignement.</li>
-                            <li><strong>Biopsie pulmonaire chirurgicale (VATS) :</strong> Le gold standard lorsque l'histologie est nécessaire, permettant des prélèvements de grande taille dans plusieurs lobes.</li>
+                            <li><strong>Transbronchial Biopsies (TBB):</strong> Low yield (11-40%), often insufficient for a definitive diagnosis. A negative result does not rule out HP.</li>
+                            <li><strong>Transbronchial Cryobiopsy (TBLC):</strong> Larger samples. Diagnostic accuracy close to surgical biopsy in expert centers, but limited data in HP. Risks of pneumothorax and bleeding.</li>
+                            <li><strong>Surgical Lung Biopsy (VATS):</strong> The gold standard when histology is necessary, allowing for large samples from several lobes.</li>
                         </ul>
                     </InfoCard>
 
-                    <InfoCard title="3. Histopathologie" icon={<FileText className="w-5 h-5"/>} color="purple">
+                    <InfoCard title="3. Histopathology" icon={<FileText className="w-5 h-5"/>} color="purple">
                          <div className="space-y-2">
                             <div>
-                                <h5 className="font-semibold text-purple-700">PHS Non-Fibrosante (Triade classique)</h5>
+                                <h5 className="font-semibold text-purple-700">Non-Fibrotic HP (Classic Triad)</h5>
                                 <ul className="list-disc list-inside text-sm">
-                                    <li>Pneumopathie interstitielle cellulaire, à prédominance lymphocytaire et bronchiolocentrique.</li>
-                                    <li>Bronchiolite cellulaire chronique.</li>
-                                    <li>Granulomes épithélioïdes mal formés, non nécrosants.</li>
+                                    <li>Cellular interstitial pneumonia, with lymphocytic and bronchiolocentric predominance.</li>
+                                    <li>Chronic cellular bronchiolitis.</li>
+                                    <li>Poorly formed, non-necrotizing epithelioid granulomas.</li>
                                 </ul>
                             </div>
                              <div>
-                                <h5 className="font-semibold text-purple-700">PHS Fibrosante</h5>
+                                <h5 className="font-semibold text-purple-700">Fibrotic HP</h5>
                                 <ul className="list-disc list-inside text-sm">
-                                   <li>Peut mimer un pattern de PIC/UIP ou de PINS fibrosante.</li>
-                                   <li>La présence de signes évocateurs (inflammation lymphocytaire péribronchiolaire, granulomes isolés) est la clé du diagnostic.</li>
+                                   <li>Can mimic a UIP or fibrotic NSIP pattern.</li>
+                                   <li>The presence of suggestive signs (peribronchiolar lymphocytic inflammation, isolated granulomas) is key to the diagnosis.</li>
                                 </ul>
                             </div>
                         </div>
                     </InfoCard>
                     
-                    <InfoCard title="4. Test de Provocation par Inhalation" icon={<Wind className="w-5 h-5"/>} color="green">
-                        <p><strong>Principe :</strong> Ré-exposer le patient à l'antigène suspecté en milieu contrôlé pour confirmer le lien de causalité.</p>
+                    <InfoCard title="4. Inhalation Challenge Test" icon={<Wind className="w-5 h-5"/>} color="green">
+                        <p><strong>Principle:</strong> Re-expose the patient to the suspected antigen in a controlled environment to confirm the causal link.</p>
                          <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                            <li><strong>Indication :</strong> Réservé aux cas où le diagnostic reste incertain et où l'identification de l'agent causal est cruciale (ex: maintien au poste de travail).</li>
-                            <li><strong>Limites :</strong> Non standardisé, risque d'induire une réaction sévère, réalisé uniquement dans des centres très spécialisés.</li>
+                            <li><strong>Indication:</strong> Reserved for cases where the diagnosis remains uncertain and identifying the causal agent is crucial (e.g., maintaining employment).</li>
+                            <li><strong>Limitations:</strong> Not standardized, risk of inducing a severe reaction, performed only in highly specialized centers.</li>
+                        </ul>
+                    </InfoCard>
+                </div>
+            </div>
+        </Accordion>
+
+        <Accordion title="Evolution and Prognosis" icon={<TrendingUp className="w-5 h-5 text-white" />}>
+            <div className="p-4 space-y-4">
+                <p className="text-slate-700 text-base">The prognosis of HP is highly variable and depends mainly on the presence of fibrosis and the possibility of antigen avoidance.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <InfoCard title="Non-Fibrotic HP" icon={<CheckCircle className="w-5 h-5"/>} color="green">
+                        <p><strong>Generally favorable prognosis.</strong> The disease can be reversible, especially if the causative antigen is identified and completely avoided.</p>
+                    </InfoCard>
+                    <InfoCard title="Fibrotic HP" icon={<AlertTriangle className="w-5 h-5"/>} color="red">
+                        <p><strong>More severe prognosis,</strong> with a risk of progressive fibrosis similar to other fibrosing ILDs. Median survival is reduced, especially with a UIP pattern on HRCT.</p>
+                    </InfoCard>
+                </div>
+                <div className="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-lg">
+                    <h4 className="font-semibold text-amber-800 text-lg mb-2">Factors of Poor Prognosis</h4>
+                    <ul className="list-disc list-inside space-y-1 text-base text-slate-700">
+                        <li>Inability to identify or avoid the causative antigen.</li>
+                        <li>Presence and extent of fibrosis (especially honeycombing and a UIP pattern).</li>
+                        <li>Older age and male sex.</li>
+                        <li>Smoking history.</li>
+                        <li>Lower baseline respiratory function (FVC, DLCO).</li>
+                    </ul>
+                </div>
+            </div>
+        </Accordion>
+
+        <Accordion title="Treatment of HP" icon={<Pill className="w-5 h-5 text-white" />}>
+            <div className="p-4 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="md:col-span-2">
+                        <InfoCard title="Step 1: Antigen Avoidance" icon={<Wind className="w-5 h-5"/>} color="blue">
+                            <p><strong>This is the absolute cornerstone of treatment.</strong></p>
+                            <p>Complete and definitive avoidance of the responsible antigen is the most effective measure and can lead to stabilization or even improvement, especially in non-fibrotic forms.</p>
+                        </InfoCard>
+                    </div>
+                    <InfoCard title="Corticosteroids" icon={<Pill className="w-5 h-5"/>} color="orange">
+                        <p>Indicated for severe or persistent inflammatory symptoms, primarily in non-fibrotic HP. They can accelerate initial recovery but their long-term benefit on fibrosis is not demonstrated.</p>
+                    </InfoCard>
+                    <InfoCard title="Immunosuppressants" icon={<Shield className="w-5 h-5"/>} color="purple">
+                        <p>Agents like <strong>Mycophenolate (MMF)</strong> or <strong>Azathioprine</strong> may be considered in fibrotic HP or as a steroid-sparing strategy, although evidence is limited.</p>
+                    </InfoCard>
+                    <InfoCard title="Antifibrotics" icon={<TrendingUp className="w-5 h-5"/>} color="green">
+                        <p>Crucial for <strong>fibrotic HP with a progressive phenotype (PPF)</strong>. <strong>Nintedanib</strong> is indicated to slow the decline in FVC, often in addition to other treatments.</p>
+                    </InfoCard>
+                    <InfoCard title="Supportive Care" icon={<HandHeart className="w-5 h-5"/>} color="teal">
+                         <ul className="list-disc list-inside space-y-1 text-base">
+                            <li><strong>Oxygen therapy</strong> for hypoxemia.</li>
+                            <li><strong>Pulmonary rehabilitation</strong> to improve quality of life.</li>
+                            <li>Discussion of <strong>lung transplantation</strong> for advanced and progressive forms.</li>
                         </ul>
                     </InfoCard>
                 </div>

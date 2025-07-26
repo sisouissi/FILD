@@ -51,14 +51,14 @@ const PrerequisitesSection: React.FC<{
                     onClick={() => setPrerequisites(p => ({ ...p, [id]: true }))}
                     className={`px-3 py-1 text-xs rounded-md transition-colors ${value === true ? 'bg-green-500 text-white shadow' : 'bg-slate-200 hover:bg-slate-300'}`}
                 >
-                    Oui
+                    Yes
                 </button>
                 <button
                     type="button"
                     onClick={() => setPrerequisites(p => ({ ...p, [id]: false }))}
                     className={`px-3 py-1 text-xs rounded-md transition-colors ${value === false ? 'bg-red-500 text-white shadow' : 'bg-slate-200 hover:bg-slate-300'}`}
                 >
-                    Non
+                    No
                 </button>
             </div>
         </div>
@@ -66,11 +66,11 @@ const PrerequisitesSection: React.FC<{
 
     return (
         <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-            <h4 className="font-semibold text-lg text-slate-800 mb-4">Prérequis</h4>
+            <h4 className="font-semibold text-lg text-slate-800 mb-4">Prerequisites</h4>
             <div className="space-y-3">
-                <PrereqItem id="hasPID" label="Le patient a-t-il une PID (prouvée par TDM/biopsie) ?" value={prerequisites.hasPID} />
-                <PrereqItem id="hasDefinedCTD" label="Le patient remplit-il les critères d'une connectivite définie ?" value={prerequisites.hasDefinedCTD} />
-                <PrereqItem id="hasOtherCause" label="Y a-t-il une autre cause identifiable pour la PID (ex: PHS, toxicité...) ?" value={prerequisites.hasOtherCause} />
+                <PrereqItem id="hasPID" label="Does the patient have ILD (proven by HRCT/biopsy)?" value={prerequisites.hasPID} />
+                <PrereqItem id="hasDefinedCTD" label="Does the patient meet criteria for a defined Connective Tissue Disease?" value={prerequisites.hasDefinedCTD} />
+                <PrereqItem id="hasOtherCause" label="Is there another identifiable cause for the ILD (e.g., HP, toxicity...)?" value={prerequisites.hasOtherCause} />
             </div>
         </div>
     );
@@ -103,16 +103,16 @@ export const IPAFClassifierTool: React.FC = () => {
         const { hasPID, hasDefinedCTD, hasOtherCause } = prerequisites;
 
         if (hasPID === null || hasDefinedCTD === null || hasOtherCause === null) {
-            return { conclusion: 'pending', message: 'Veuillez répondre à toutes les questions sur les prérequis pour obtenir une conclusion.' };
+            return { conclusion: 'pending', message: 'Please answer all prerequisite questions to get a conclusion.' };
         }
         if (hasPID === false) {
-            return { conclusion: 'fail', message: "Le patient doit avoir une PID confirmée pour être éligible à la classification IPAF." };
+            return { conclusion: 'fail', message: "The patient must have confirmed ILD to be eligible for IPAF classification." };
         }
         if (hasDefinedCTD === true) {
-            return { conclusion: 'fail', message: "Le patient a une connectivite définie, il s'agit d'une PID-connectivite, pas d'une IPAF." };
+            return { conclusion: 'fail', message: "The patient has a defined connective tissue disease; this is CTD-ILD, not IPAF." };
         }
         if (hasOtherCause === true) {
-            return { conclusion: 'fail', message: "Le patient a une autre cause pour sa PID. La classification IPAF ne s'applique pas." };
+            return { conclusion: 'fail', message: "The patient has another cause for their ILD. IPAF classification does not apply." };
         }
 
         const clinicalCount = answers.clinical.length > 0 ? 1 : 0;
@@ -121,9 +121,9 @@ export const IPAFClassifierTool: React.FC = () => {
         const totalDomainsWithValue = clinicalCount + serologicalCount + morphologicalCount;
 
         if (totalDomainsWithValue >= 2) {
-            return { conclusion: 'success', message: 'Le patient remplit les critères de classification pour une Pneumopathie Interstitielle avec Caractéristiques Auto-immunes (IPAF).' };
+            return { conclusion: 'success', message: 'The patient meets the classification criteria for Interstitial Pneumonia with Autoimmune Features (IPAF).' };
         } else {
-            return { conclusion: 'fail', message: `Le patient ne remplit pas les critères de classification IPAF. Il manque des critères dans au moins ${2 - totalDomainsWithValue} domaine(s) pour atteindre le seuil requis.` };
+            return { conclusion: 'fail', message: `The patient does not meet the IPAF classification criteria. Criteria are missing in at least ${2 - totalDomainsWithValue} domain(s) to reach the required threshold.` };
         }
     }, [answers, prerequisites]);
     
@@ -139,7 +139,7 @@ export const IPAFClassifierTool: React.FC = () => {
         const isSuccess = result.conclusion === 'success';
         const Icon = isSuccess ? CheckCircle : XCircle;
         const colorClass = isSuccess ? 'bg-green-100 border-green-500 text-green-800' : 'bg-red-100 border-red-500 text-red-800';
-        const title = isSuccess ? 'Critères IPAF REMPLIS' : 'Critères IPAF NON REMPLIS';
+        const title = isSuccess ? 'IPAF Criteria MET' : 'IPAF Criteria NOT MET';
 
         return (
             <div className={`p-5 rounded-lg border-l-4 ${colorClass}`}>
@@ -154,7 +154,7 @@ export const IPAFClassifierTool: React.FC = () => {
 
     return (
         <div className="bg-slate-50 p-4 sm:p-6 rounded-lg border border-slate-200 space-y-6">
-            <h3 className="text-xl font-bold text-slate-900">Outil de classification IPAF</h3>
+            <h3 className="text-xl font-bold text-slate-900">IPAF Classification Tool</h3>
             
             <PrerequisitesSection prerequisites={prerequisites} setPrerequisites={setPrerequisites} />
             
@@ -180,7 +180,7 @@ export const IPAFClassifierTool: React.FC = () => {
                     className="flex items-center px-4 py-2 bg-slate-600 text-white font-semibold rounded-lg shadow-md hover:bg-slate-700 transition-colors"
                 >
                     <RotateCcw className="w-4 h-4 mr-2" />
-                    Réinitialiser l'outil
+                    Reset Tool
                 </button>
             </div>
         </div>

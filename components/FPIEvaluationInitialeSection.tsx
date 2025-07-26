@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Activity, History, FlaskConical, Image, ClipboardList, AlertTriangle, Info } from './icons';
 import { Accordion } from './Accordion';
@@ -9,7 +8,7 @@ const TDMCard = ({ title, characteristics, confidence, borderColorClass }: { tit
         <ul className="list-disc list-inside space-y-1 text-base text-slate-700">
             {characteristics.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
-        <p className={`mt-3 text-base font-semibold ${borderColorClass.replace('border-', 'text-').replace('-500', '-700')}`}>Confiance pour un pattern de PIC/UIP : {confidence}</p>
+        <p className={`mt-3 text-base font-semibold ${borderColorClass.replace('border-', 'text-').replace('-500', '-700')}`}>Confidence for a UIP pattern: {confidence}</p>
     </div>
 );
 
@@ -18,16 +17,16 @@ export const FPIEvaluationInitialeSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <Activity className="w-7 h-7 mr-3 text-blue-500" />
-        Evaluation initiale
+        Initial Evaluation
       </h2>
        <p className="text-slate-600 mt-2 text-base">
-        Démarche structurée pour l'évaluation initiale d'un patient suspect de Fibrose Pulmonaire Idiopathique (FPI).
+        A structured approach for the initial evaluation of a patient with suspected Idiopathic Pulmonary Fibrosis (IPF).
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
         <p className="text-slate-700 mb-4 text-base">
-            L'évaluation initiale de la FPI est une étape cruciale qui repose sur une approche multidisciplinaire. L'objectif n'est pas seulement de suspecter la FPI, mais surtout d'éliminer avec rigueur toutes les autres causes possibles de pneumopathie interstitielle fibrosante. Une démarche méthodique est essentielle pour éviter les erreurs diagnostiques et orienter correctement la prise en charge.
+            The initial evaluation of IPF is a crucial step that relies on a multidisciplinary approach. The goal is not only to suspect IPF, but more importantly, to rigorously rule out all other possible causes of fibrosing interstitial lung disease. A methodical process is essential to avoid diagnostic errors and to properly guide management.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-r-sm">
             <div className="flex">
@@ -35,13 +34,13 @@ export const FPIEvaluationInitialeSection: React.FC = () => (
                 <Info className="h-5 w-5 text-blue-400" aria-hidden="true" />
               </div>
               <div className="ml-3">
-                <h3 className="text-base font-medium text-blue-800">Objectifs de l'Évaluation Initiale</h3>
+                <h3 className="text-base font-medium text-blue-800">Objectives of the Initial Evaluation</h3>
                 <div className="mt-2 text-base text-blue-700">
                   <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Écarter les diagnostics différentiels</strong> (connectivites, PHS, toxicités...).</li>
-                    <li><strong>Évaluer la probabilité d'une FPI</strong> en se basant sur la clinique et la TDM-HR.</li>
-                    <li><strong>Quantifier la sévérité</strong> de l'atteinte fonctionnelle respiratoire.</li>
-                    <li>Déterminer la nécessité d'une <strong>confirmation histologique</strong>.</li>
+                    <li><strong>Rule out differential diagnoses</strong> (CTD, HP, toxicities...).</li>
+                    <li><strong>Assess the probability of IPF</strong> based on clinical and HRCT findings.</li>
+                    <li><strong>Quantify the severity</strong> of the respiratory functional impairment.</li>
+                    <li>Determine the need for <strong>histological confirmation</strong>.</li>
                   </ul>
                 </div>
               </div>
@@ -50,94 +49,94 @@ export const FPIEvaluationInitialeSection: React.FC = () => (
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Anamnèse et Examen Clinique" icon={<History className="w-5 h-5 text-white" />}>
+        <Accordion title="History and Physical Examination" icon={<History className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">La première étape est de confirmer la suspicion clinique de FPI et d'exclure les autres causes de PID fibrosantes.</p>
+                <p className="text-base">The first step is to confirm the clinical suspicion of IPF and exclude other causes of fibrosing ILD.</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Confirmer le tableau clinique :</strong> Dyspnée d'effort, toux sèche, âge supérieur à 60 ans, tabagisme, râles crépitants type "velcro".</li>
-                    <li><strong>Éliminer les diagnostics différentiels :</strong>
+                    <li><strong>Confirm the clinical picture:</strong> Exertional dyspnea, dry cough, age over 60, smoking history, "velcro-like" crackles.</li>
+                    <li><strong>Rule out differential diagnoses:</strong>
                         <ul className="list-['-_'] list-inside pl-6 mt-1 space-y-1">
-                            <li><strong>Expositions :</strong> Recherche minutieuse d'expositions professionnelles (amiante, silice) ou domestiques (oiseaux, moisissures) pour écarter une pneumoconiose ou une PHS fibrosante.</li>
-                            <li><strong>Connectivites :</strong> Interrogatoire et examen clinique complets à la recherche de signes extra-pulmonaires (arthralgies, Raynaud, rash cutané, sécheresse oculaire/buccale...).</li>
-                            <li><strong>Médicaments :</strong> Revue de tous les traitements passés et actuels connus pour leur toxicité pulmonaire.</li>
+                            <li><strong>Exposures:</strong> Meticulous search for occupational (asbestos, silica) or domestic (birds, molds) exposures to rule out pneumoconiosis or fibrotic HP.</li>
+                            <li><strong>Connective Tissue Diseases:</strong> Comprehensive history and physical exam looking for extra-pulmonary signs (arthralgia, Raynaud's, skin rash, dry eyes/mouth...).</li>
+                            <li><strong>Medications:</strong> Review of all past and current treatments known for their pulmonary toxicity.</li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Examens Biologiques" icon={<FlaskConical className="w-5 h-5 text-white" />}>
+        <Accordion title="Laboratory Tests" icon={<FlaskConical className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">Le bilan biologique vise principalement à rechercher une cause sous-jacente à la PID. Il n'existe pas de marqueur sanguin spécifique de la FPI.</p>
+                <p className="text-base">The main goal of lab workup is to search for an underlying cause of the ILD. There is no specific blood marker for IPF.</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Bilan standard :</strong> NFS, bilan métabolique complet, tests hépatiques.</li>
-                    <li><strong>Bilan auto-immun de base :</strong> Anticorps antinucléaires (AAN), Facteur Rhumatoïde (FR), anticorps anti-peptides citrullinés (anti-CCP).</li>
-                    <li><strong>Bilan étendu (si suspicion) :</strong> Anticorps spécifiques des myosites (anti-Jo1, etc.), Sclérodermie (anti-Scl70, etc.), ANCA.</li>
-                    <li><strong>Précipitines :</strong> À discuter si une PHS est suspectée.</li>
+                    <li><strong>Standard panel:</strong> CBC, complete metabolic panel, liver function tests.</li>
+                    <li><strong>Basic autoimmune panel:</strong> Antinuclear antibodies (ANA), Rheumatoid Factor (RF), anti-cyclic citrullinated peptide (anti-CCP) antibodies.</li>
+                    <li><strong>Extended panel (if suspected):</strong> Specific antibodies for myositis (anti-Jo1, etc.), Scleroderma (anti-Scl70, etc.), ANCA.</li>
+                    <li><strong>Precipitins:</strong> To be considered if HP is suspected.</li>
                 </ul>
                 <div className="flex items-start bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r-sm mt-3">
                     <AlertTriangle className="h-5 w-5 text-amber-500 mr-3 mt-1 flex-shrink-0" />
-                    <p className="text-base text-amber-800">Un bilan auto-immun faiblement positif (AAN, FR à bas titre) peut se voir chez les patients avec FPI sans signifier une connectivite. L'interprétation doit être prudente et intégrée au contexte clinique.</p>
+                    <p className="text-base text-amber-800">A weakly positive autoimmune panel (low-titer ANA, RF) can be seen in patients with IPF without indicating a connective tissue disease. Interpretation must be cautious and integrated with the clinical context.</p>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Explorations Fonctionnelles Respiratoires (EFR)" icon={<ClipboardList className="w-5 h-5 text-white" />}>
+        <Accordion title="Pulmonary Function Tests (PFTs)" icon={<ClipboardList className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">Les EFR confirment la nature restrictive de l'atteinte et quantifient sa sévérité.</p>
+                <p className="text-base">PFTs confirm the restrictive nature of the impairment and quantify its severity.</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Profil typique :</strong> Syndrome restrictif avec une diminution de la Capacité Vitale Forcée (CVF) et de la Capacité Pulmonaire Totale (CPT).</li>
-                    <li><strong>Rapport VEMS/CVF :</strong> Normal ou augmenté.</li>
-                    <li><strong>Transfert du CO (DLCO) :</strong> Diminution précoce et souvent disproportionnée par rapport à la baisse des volumes. C'est un marqueur important de la sévérité et du pronostic.</li>
-                    <li><strong>Test de marche de 6 minutes (TM6) :</strong> Évalue la tolérance à l'effort et recherche une désaturation en oxygène, un critère pronostique majeur.</li>
+                    <li><strong>Typical profile:</strong> Restrictive pattern with a decrease in Forced Vital Capacity (FVC) and Total Lung Capacity (TLC).</li>
+                    <li><strong>FEV1/FVC ratio:</strong> Normal or increased.</li>
+                    <li><strong>Diffusing capacity for CO (DLCO):</strong> Early and often disproportionate decrease compared to the decline in volumes. It is an important marker of severity and prognosis.</li>
+                    <li><strong>6-Minute Walk Test (6MWT):</strong> Assesses exercise tolerance and looks for oxygen desaturation, a major prognostic factor.</li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Imagerie par Tomodensitométrie à Haute Résolution (TDM-HR)" icon={<Image className="w-5 h-5 text-white" />}>
+        <Accordion title="High-Resolution Computed Tomography (HRCT)" icon={<Image className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">La TDM-HR est l'examen clé. L'analyse par un radiologue expérimenté permet de classer l'aspect de la fibrose en 4 patterns, qui déterminent la probabilité du diagnostic de FPI et la nécessité d'une biopsie.</p>
+                <p className="text-slate-700 text-base">HRCT is the key examination. Analysis by an experienced radiologist allows for classification of the fibrosis into 4 patterns, which determine the probability of an IPF diagnosis and the need for a biopsy.</p>
                 <div className="space-y-4">
                     <TDMCard 
-                        title="Pattern de PIC/UIP Certain"
+                        title="Definite UIP Pattern"
                         characteristics={[
-                            "Distribution sous-pleurale et basale prédominante.",
-                            "Rayons de miel (honeycombing), avec ou sans bronchectasies de traction.",
-                            "Présence de réticulations.",
-                            "Absence d'aspects atypiques."
+                            "Predominantly subpleural and basal distribution.",
+                            "Honeycombing, with or without traction bronchiectasis.",
+                            "Presence of reticulation.",
+                            "Absence of atypical features."
                         ]}
-                        confidence="Très élevée (plus de 90%)"
+                        confidence="Very high (over 90%)"
                         borderColorClass="border-green-500"
                     />
                      <TDMCard 
-                        title="Pattern de PIC/UIP Probable"
+                        title="Probable UIP Pattern"
                         characteristics={[
-                            "Distribution sous-pleurale et basale prédominante.",
-                            "Réticulations fines à grossières.",
-                            "Bronchectasies/bronchiolectasies de traction.",
-                            "Absence de rayons de miel et d'aspects atypiques."
+                            "Predominantly subpleural and basal distribution.",
+                            "Fine to coarse reticulation.",
+                            "Traction bronchiectasis/bronchiolectasis.",
+                            "Absence of honeycombing and atypical features."
                         ]}
-                        confidence="Élevée (70-89%)"
+                        confidence="High (70-89%)"
                         borderColorClass="border-yellow-500"
                     />
                      <TDMCard 
-                        title="Pattern Indéterminé pour la PIC/UIP"
+                        title="Indeterminate for UIP Pattern"
                         characteristics={[
-                            "Fibrose de distribution variable (p.ex. diffuse ou péribronchovasculaire).",
-                            "Présence de réticulations, mais sans les critères d'UIP certain/probable.",
-                            "Peut présenter des aspects subtils suggérant une autre maladie, mais non concluants."
+                            "Variable distribution of fibrosis (e.g., diffuse or peribronchovascular).",
+                            "Presence of reticulation, but without criteria for definite/probable UIP.",
+                            "May have subtle features suggesting another disease, but inconclusive."
                         ]}
-                        confidence="Basse (51-69%)"
+                        confidence="Low (51-69%)"
                         borderColorClass="border-orange-500"
                     />
                      <TDMCard 
-                        title="Pattern en faveur d'un Diagnostic Alternatif"
+                        title="Pattern Suggestive of an Alternative Diagnosis"
                         characteristics={[
-                            "Kystes multiples, nodules diffus, verre dépoli prédominant, consolidations.",
-                            "Distribution péri-lymphatique ou péri-bronchovasculaire marquée.",
-                            "Piégeage aérique important (signe des 3 densités dans la PHS)."
+                            "Multiple cysts, diffuse nodules, predominant ground-glass opacity, consolidations.",
+                            "Marked perilymphatic or peribronchovascular distribution.",
+                            "Significant air trapping (three density sign in HP)."
                         ]}
-                        confidence="Très basse (≤50%)"
+                        confidence="Very low (≤50%)"
                         borderColorClass="border-red-500"
                     />
                 </div>

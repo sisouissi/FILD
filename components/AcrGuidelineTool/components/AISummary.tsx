@@ -61,7 +61,7 @@ export const AISummary: React.FC<AISummaryProps> = ({ summary, isLoading, error 
         <div className="space-y-4">
             <h3 className="font-bold text-xl text-gray-800 flex items-center">
                 <BrainCircuit className="w-6 h-6 mr-3 text-blue-600" />
-                Synthèse Clinique (générée par IA)
+                Clinical Summary (AI-generated)
             </h3>
             <div className="relative p-5 bg-blue-50/50 rounded-xl border-2 border-blue-200/50">
                 <div className="text-sm max-w-none text-gray-800 leading-relaxed">
@@ -70,12 +70,12 @@ export const AISummary: React.FC<AISummaryProps> = ({ summary, isLoading, error 
                 <button
                     onClick={handleCopy}
                     className="absolute top-3 right-3 p-1.5 text-gray-500 hover:bg-blue-100 hover:text-blue-700 rounded-md transition-colors"
-                    aria-label="Copier la synthèse"
+                    aria-label="Copy summary"
                 >
-                    {copied ? <span className="text-xs font-semibold text-blue-700">Copié!</span> : <Copy className="w-4 h-4" />}
+                    {copied ? <span className="text-xs font-semibold text-blue-700">Copied!</span> : <Copy className="w-4 h-4" />}
                 </button>
                  <p className="text-xs text-gray-500 mt-4 pt-3 border-t border-blue-200/60">
-                    Avertissement : Cette synthèse est générée par une IA et est destinée à servir de support. Elle ne remplace pas le jugement clinique et doit être vérifiée par un professionnel de santé.
+                    Disclaimer: This summary is AI-generated and intended for support purposes only. It does not replace clinical judgment and must be verified by a healthcare professional.
                 </p>
             </div>
         </div>

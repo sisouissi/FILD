@@ -25,9 +25,9 @@ const ReferenceItem: React.FC<{ reference: Reference }> = ({ reference }) => (
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            aria-label={`Lire l'article: ${reference.title} (lien ${index + 1})`}
+            aria-label={`Read the article: ${reference.title} (link ${index + 1})`}
           >
-            Voir la publication {reference.urls.length > 1 ? index + 1 : ''}
+            View Publication {reference.urls.length > 1 ? index + 1 : ''}
             <ExternalLink className="w-4 h-4 ml-1.5" />
           </a>
         ))}
@@ -49,7 +49,7 @@ export const ReferencesModal: React.FC<ReferencesModalProps> = ({ onClose }) => 
   const sortedYears = Object.keys(groupedReferences).map(Number).sort((a, b) => b - a);
 
   return (
-    <Modal isOpen={true} onClose={onClose} title="Références Scientifiques Clés">
+    <Modal isOpen={true} onClose={onClose} title="Key Scientific References">
       <div>
         {sortedYears.map(year => (
           <section key={year} aria-labelledby={`year-${year}`}>

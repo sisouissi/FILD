@@ -27,7 +27,7 @@ const FormattedText: React.FC<{ text: string }> = React.memo(({ text }) => {
     );
 });
 
-export const AISummary: React.FC<AISummaryProps> = ({ summary, isLoading, error, title="Synthèse Clinique (générée par IA)" }) => {
+export const AISummary: React.FC<AISummaryProps> = ({ summary, isLoading, error, title="Clinical Summary (AI-generated)" }) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -73,9 +73,9 @@ export const AISummary: React.FC<AISummaryProps> = ({ summary, isLoading, error,
                 <button
                     onClick={handleCopy}
                     className="absolute top-3 right-3 p-1.5 text-slate-500 hover:bg-blue-100 hover:text-blue-700 rounded-md transition-colors"
-                    aria-label="Copier la synthèse"
+                    aria-label="Copy summary"
                 >
-                    {copied ? <span className="text-xs font-semibold text-blue-700">Copié!</span> : <Copy className="w-4 h-4" />}
+                    {copied ? <span className="text-xs font-semibold text-blue-700">Copied!</span> : <Copy className="w-4 h-4" />}
                 </button>
             </div>
         </div>

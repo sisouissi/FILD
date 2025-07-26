@@ -7,7 +7,7 @@ const TableRow: React.FC<{ header?: boolean; cells: string[]; }> = ({ header = f
     <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-3 ${header ? 'bg-slate-100 font-bold text-slate-800' : 'border-t border-slate-200 text-slate-700'}`}>
         {cells.map((cell, index) => (
             <div key={index} className="text-base">
-                <strong className="md:hidden font-semibold">{['Type de PID', 'Caractéristiques', 'Pronostic'][index]}: </strong>
+                <strong className="md:hidden font-semibold">{['Type of ILD', 'Characteristics', 'Prognosis'][index]}: </strong>
                 {cell}
             </div>
         ))}
@@ -38,91 +38,91 @@ export const AutresPIDSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <ListChecks className="w-7 h-7 mr-3 text-blue-500" />
-        Autres PID Fibrosantes
+        Other Fibrosing ILDs
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        Cette section couvre les PID fibrosantes hors FPI, PINS, PHS, IPAF et PID associées aux connectivites.
+        This section covers fibrosing ILDs other than IPF, NSIP, HP, IPAF, and CTD-ILD.
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-        <h3 className="text-xl font-semibold text-slate-800 mb-3">1. Définition et Cadre Général</h3>
+        <h3 className="text-xl font-semibold text-slate-800 mb-3">1. Definition and General Framework</h3>
         <p className="text-slate-700 text-base">
-            Les pneumopathies interstitielles diffuses (PID) fibrosantes qui ne rentrent pas dans les catégories les plus courantes (FPI, PINS, PHS, IPAF, connectivites) forment un groupe hétérogène. Leur point commun est une tendance à la fibrose progressive du parenchyme pulmonaire. L'identification d'une cause spécifique (exposition, maladie systémique rare) est un enjeu majeur.
+            Fibrosing interstitial lung diseases (ILDs) that do not fit into the most common categories (IPF, NSIP, HP, IPAF, connective tissue diseases) form a heterogeneous group. Their common feature is a tendency towards progressive fibrosis of the lung parenchyma. Identifying a specific cause (exposure, rare systemic disease) is a major challenge.
         </p>
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Principales Entités" icon={<ListChecks className="w-5 h-5 text-white" />}>
+        <Accordion title="Main Entities" icon={<ListChecks className="w-5 h-5 text-white" />}>
             <div className="p-4">
-                <p className="text-slate-600 mb-4 text-base">Le tableau suivant résume les caractéristiques des principales entités fibrosantes restantes.</p>
+                <p className="text-slate-600 mb-4 text-base">The following table summarizes the characteristics of the main remaining fibrosing entities.</p>
                 <div className="border border-slate-200 rounded-lg overflow-hidden">
-                    <TableRow header cells={['Type de PID', 'Caractéristiques principales', 'Aspects pronostiques']} />
-                    <TableRow cells={['Pneumoconioses (asbestose, silicose, bérylliose)', 'Fibrose séquellaire d’expositions professionnelles prolongées (particules minérales, amiante, silice, etc.).', 'Progression variable ; risque de complications tumorales (cancer du poumon, mésothéliome).']} />
-                    <TableRow cells={['Sarcoïdose fibrosante', '~10-20% des formes prolongées, prédominance de nodules, fibrose médiastino-hilaire, lésions diffuses.', 'Surmortalité liée à l’atteinte respiratoire et aux complications (HTP, infections, aspergillome).']} />
-                    <TableRow cells={['PID inclassables', 'Cas indéterminés malgré évaluation complète : discordance clinico-radio-histologique ou absence de biopsie réelle.', 'Mortalité élevée si critère de fibrose extensive.']} />
-                    <TableRow cells={['Pneumopathies du fumeur (DIP/BIP)', 'Lésions liées à l’exposition tabagique : DIP (pneumopathie interstitielle desquamative) et BIP (bronchiolite respiratoire avec PID).', 'Généralement meilleur pronostic, meilleure réponse aux corticostéroïdes et à l’arrêt du tabac.']} />
-                    <TableRow cells={['Médicamenteuses/toxiques', 'Divers médicaments (amiodarone, méthotrexate…), radiations, gaz toxiques.', 'L’arrêt du toxique peut stabiliser la maladie ; parfois fibrose irréversible.']} />
-                    <TableRow cells={['Histiocytose à cellules de Langerhans', 'Surtout chez les jeunes fumeurs, évolution de nodules à kystes puis fibrose.', 'Risque d’insuffisance respiratoire chronique ; possible stabilisation si sevrage tabagique.']} />
-                    <TableRow cells={['LAM (Lymphangioléiomyomatose)', 'Maladie rare (surtout femmes), prolifération des cellules musculaires lisses, kystes pulmonaires diffus.', 'Evolution progressive, risque de pneumothorax et d’insuffisance respiratoire.']} />
-                    <TableRow cells={['FEPP (Fibroélastose pleuro-parenchymateuse)', 'Fibrose sous-pleurale marquée, prédominance dans les lobes supérieurs.', 'Rare, évolution lentement progressive.']} />
+                    <TableRow header cells={['Type of ILD', 'Main Characteristics', 'Prognostic Aspects']} />
+                    <TableRow cells={['Pneumoconioses (asbestosis, silicosis, berylliosis)', 'Fibrosis resulting from prolonged occupational exposures (mineral particles, asbestos, silica, etc.).', 'Variable progression; risk of tumor complications (lung cancer, mesothelioma).']} />
+                    <TableRow cells={['Fibrotic Sarcoidosis', '~10-20% of prolonged forms, predominance of nodules, mediastinal-hilar fibrosis, diffuse lesions.', 'Increased mortality related to respiratory involvement and complications (PAH, infections, aspergilloma).']} />
+                    <TableRow cells={['Unclassifiable ILD', 'Indeterminate cases despite complete evaluation: clinical-radio-histological discordance or lack of actual biopsy.', 'High mortality if criteria for extensive fibrosis are met.']} />
+                    <TableRow cells={['Smoking-related ILD (DIP/RB-ILD)', 'Lesions related to tobacco exposure: DIP (desquamative interstitial pneumonia) and RB-ILD (respiratory bronchiolitis with ILD).', 'Generally better prognosis, better response to corticosteroids and smoking cessation.']} />
+                    <TableRow cells={['Drug-induced/Toxic', 'Various drugs (amiodarone, methotrexate…), radiation, toxic gases.', 'Stopping the toxin may stabilize the disease; sometimes irreversible fibrosis.']} />
+                    <TableRow cells={['Langerhans Cell Histiocytosis', 'Mainly in young smokers, progression from nodules to cysts then fibrosis.', 'Risk of chronic respiratory failure; possible stabilization with smoking cessation.']} />
+                    <TableRow cells={['LAM (Lymphangioleiomyomatosis)', 'Rare disease (mostly women), proliferation of smooth muscle cells, diffuse pulmonary cysts.', 'Progressive evolution, risk of pneumothorax and respiratory failure.']} />
+                    <TableRow cells={['PPFE (Pleuroparenchymal Fibroelastosis)', 'Marked subpleural fibrosis, predominantly in the upper lobes.', 'Rare, slowly progressive course.']} />
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Critères de Progression de la Fibrose" icon={<TrendingUp className="w-5 h-5 text-white" />}>
+        <Accordion title="Criteria for Fibrosis Progression" icon={<TrendingUp className="w-5 h-5 text-white" />}>
             <div className="p-4 text-slate-700 text-base">
-                <p className="mb-3">La progression est définie par au moins un des critères suivants, malgré le traitement ou l'arrêt du facteur causal :</p>
+                <p className="mb-3">Progression is defined by at least one of the following criteria, despite treatment or cessation of the causal factor:</p>
                 <ul className="list-disc list-inside space-y-2">
-                    <li>Déclin de la capacité vitale forcée (CVF) <strong>supérieur à 10%</strong> sur un an.</li>
-                    <li>Déclin de la CVF de <strong>5-10%</strong> sur un an, associé à une <strong>aggravation des symptômes</strong> ou à une <strong>extension radiologique</strong> de la fibrose.</li>
+                    <li>Decline in forced vital capacity (FVC) <strong>greater than 10%</strong> over one year.</li>
+                    <li>Decline in FVC of <strong>5-10%</strong> over one year, associated with <strong>worsening symptoms</strong> or <strong>radiological extension</strong> of fibrosis.</li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Démarche Diagnostique" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Diagnostic Approach" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <InfoCard title="Scanner thoracique HRCT" icon={<Search className="w-5 h-5"/>} color="blue">
-                    <p>Examen clé pour déterminer le pattern de fibrose, sa distribution et rechercher des signes orientant vers une étiologie spécifique.</p>
+                <InfoCard title="HRCT Chest Scan" icon={<Search className="w-5 h-5"/>} color="blue">
+                    <p>Key examination to determine the pattern of fibrosis, its distribution, and to look for signs pointing to a specific etiology.</p>
                 </InfoCard>
-                <InfoCard title="Recherche de Causes" icon={<Search className="w-5 h-5"/>} color="orange">
-                    <p>Anamnèse détaillée sur les expositions environnementales, professionnelles et médicamenteuses.</p>
+                <InfoCard title="Search for Causes" icon={<Search className="w-5 h-5"/>} color="orange">
+                    <p>Detailed history of environmental, occupational, and medication exposures.</p>
                 </InfoCard>
-                <InfoCard title="Tests Spécifiques" icon={<Search className="w-5 h-5"/>} color="purple">
-                    <p>En fonction de l'orientation : sérologies, dosage d'auto-anticorps, exploration de l'exposition (amiante, silice).</p>
+                <InfoCard title="Specific Tests" icon={<Search className="w-5 h-5"/>} color="purple">
+                    <p>Depending on the orientation: serologies, autoantibody testing, investigation of exposure (asbestos, silica).</p>
                 </InfoCard>
-                <InfoCard title="Biopsie Pulmonaire" icon={<Search className="w-5 h-5"/>} color="green">
-                    <p>Réservée aux cas où le diagnostic reste indéterminé ou discordant après l'évaluation non-invasive.</p>
+                <InfoCard title="Lung Biopsy" icon={<Search className="w-5 h-5"/>} color="green">
+                    <p>Reserved for cases where the diagnosis remains indeterminate or discordant after non-invasive evaluation.</p>
                 </InfoCard>
             </div>
         </Accordion>
         
-        <Accordion title="Prise en Charge" icon={<Pill className="w-5 h-5 text-white" />}>
+        <Accordion title="Management" icon={<Pill className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-4">
-                <InfoCard title="Arrêt de l'Exposition" icon={<Pill className="w-5 h-5"/>} color="blue">
-                    <p>Étape primordiale et indispensable lorsqu'une cause toxique ou médicamenteuse est identifiée.</p>
+                <InfoCard title="Cessation of Exposure" icon={<Pill className="w-5 h-5"/>} color="blue">
+                    <p>A crucial and indispensable step when a toxic or drug-related cause is identified.</p>
                 </InfoCard>
-                <InfoCard title="Traitements Spécifiques" icon={<Pill className="w-5 h-5"/>} color="orange">
-                    <p>Corticothérapie et/ou immunosuppresseurs peuvent être indiqués dans certaines entités comme la sarcoïdose ou la DIP.</p>
+                <InfoCard title="Specific Treatments" icon={<Pill className="w-5 h-5"/>} color="orange">
+                    <p>Corticosteroids and/or immunosuppressants may be indicated in certain entities such as sarcoidosis or DIP.</p>
                 </InfoCard>
-                <InfoCard title="Traitements Anti-fibrosants" icon={<Pill className="w-5 h-5"/>} color="purple">
-                    <p>De plus en plus proposés en cas de phénotype fibrosant progressif (notamment le nintédanib).</p>
+                <InfoCard title="Antifibrotic Treatments" icon={<Pill className="w-5 h-5"/>} color="purple">
+                    <p>Increasingly offered in cases of a progressive fibrosing phenotype (notably nintedanib).</p>
                 </InfoCard>
-                 <InfoCard title="Mesures de Support" icon={<Pill className="w-5 h-5"/>} color="green">
-                    <p>Oxygénothérapie, réhabilitation respiratoire et discussion de la transplantation pulmonaire pour les formes évoluées.</p>
+                 <InfoCard title="Supportive Measures" icon={<Pill className="w-5 h-5"/>} color="green">
+                    <p>Oxygen therapy, pulmonary rehabilitation, and discussion of lung transplantation for advanced forms.</p>
                 </InfoCard>
             </div>
         </Accordion>
         
-        <Accordion title="Suivi" icon={<Stethoscope className="w-5 h-5 text-white" />}>
+        <Accordion title="Follow-up" icon={<Stethoscope className="w-5 h-5 text-white" />}>
             <div className="p-4 text-slate-700 text-base">
-                <p>Le suivi est essentiel et doit être régulier. Il repose sur :</p>
+                <p>Follow-up is essential and must be regular. It is based on:</p>
                 <ul className="list-disc list-inside space-y-2 mt-3">
-                    <li>L'évaluation clinique des symptômes.</li>
-                    <li>La surveillance de la fonction respiratoire par <strong>EFR</strong> (CVF, DLCO).</li>
-                    <li>L'imagerie thoracique en cas d'évolution ou pour le dépistage de complications.</li>
+                    <li>Clinical evaluation of symptoms.</li>
+                    <li>Monitoring of respiratory function by <strong>PFTs</strong> (FVC, DLCO).</li>
+                    <li>Chest imaging in case of progression or for screening for complications.</li>
                 </ul>
-                <p className="mt-3">Le traitement est adapté en fonction de l'évolution clinique et radiologique.</p>
+                <p className="mt-3">Treatment is adapted according to clinical and radiological evolution.</p>
             </div>
         </Accordion>
     </div>
@@ -133,7 +133,7 @@ export const AutresPIDSection: React.FC = () => (
         Conclusion
       </h3>
       <p className="text-slate-700 text-base">
-        En dehors des grandes entités, les PID fibrosantes représentent un défi diagnostique et thérapeutique. Le point commun est le risque de progression de la fibrose. L'identification d'une cause traitable est primordiale, et une prise en charge spécifique, souvent multidisciplinaire, est nécessaire pour ralentir la dégradation fonctionnelle respiratoire.
+        Outside of the major entities, fibrosing ILDs represent a diagnostic and therapeutic challenge. The common point is the risk of fibrosis progression. Identifying a treatable cause is paramount, and specific, often multidisciplinary management is necessary to slow the decline in respiratory function.
       </p>
     </div>
 

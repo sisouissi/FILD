@@ -51,68 +51,68 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-blue-800 mb-4 flex items-center">
                 <Stethoscope className="w-5 h-5 mr-2" />
-                Évaluation initiale - Anamnèse et examen physique
+                Initial assessment - History and physical exam
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <h4 className="font-medium text-slate-800">Évaluation clinique :</h4>
+                  <h4 className="font-medium text-slate-800">Clinical evaluation:</h4>
                   <div className="space-y-2 text-sm text-slate-700">
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Début aigu des symptômes</span>
+                      <span>Acute onset of symptoms</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Début subaigu des symptômes</span>
+                      <span>Subacute onset of symptoms</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Début chronique des symptômes</span>
+                      <span>Chronic onset of symptoms</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Exposition professionnelle/environnementale</span>
+                      <span>Occupational/environmental exposure</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Antécédents de tabagisme</span>
+                      <span>Smoking history</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Antécédents de maladie du tissu conjonctif</span>
+                      <span>History of connective tissue disease</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Antécédents familiaux de FPI</span>
+                      <span>Family history of IPF</span>
                     </label>
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <h4 className="font-medium text-slate-800">Examens complémentaires :</h4>
+                  <h4 className="font-medium text-slate-800">Additional tests:</h4>
                   <div className="space-y-2 text-sm text-slate-700">
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" defaultChecked />
-                      <span>TDM HR thoracique (protocole FPI)</span>
+                      <span>Chest HRCT (IPF protocol)</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" />
-                      <span>Comparaison avec imageries antérieures</span>
+                      <span>Comparison with previous imaging</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" defaultChecked />
-                      <span>Spirométrie, volumes, DLCO</span>
+                      <span>Spirometry, volumes, DLCO</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" defaultChecked />
-                      <span>Test d'effort avec oxymétrie</span>
+                      <span>Exercise test with oximetry</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" defaultChecked />
-                      <span>CBC, panel métabolique</span>
+                      <span>CBC, metabolic panel</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input type="checkbox" className="rounded" defaultChecked />
-                      <span>ANA, facteur rhumatoïde</span>
+                      <span>ANA, rheumatoid factor</span>
                     </label>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
                 onClick={() => navigateToStep('environmental')}
                 className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center"
               >
-                Continuer l'évaluation
+                Continue assessment
                 <ChevronRight className="w-4 h-4 ml-2" />
               </button>
             </div>
@@ -137,16 +137,16 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-orange-800 mb-4 flex items-center">
                 <Search className="w-5 h-5 mr-2" />
-                Étiologies environnementales ou iatrogènes
+                Environmental or iatrogenic etiologies
               </h3>
-              <p className="text-slate-700 mb-4">Y a-t-il des étiologies environnementales ou iatrogènes probables ?</p>
+              <p className="text-slate-700 mb-4">Are there probable environmental or iatrogenic etiologies?</p>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium mb-2 text-slate-800">Étiologies à considérer :</h4>
+                <h4 className="font-medium mb-2 text-slate-800">Etiologies to consider:</h4>
                 <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• Pneumonie d'hypersensibilité</li>
-                  <li>• Pneumoconioses (silice, amiante)</li>
-                  <li>• Médicaments pneumotoxiques</li>
-                  <li>• Radiothérapie thoracique</li>
+                  <li>• Hypersensitivity pneumonitis</li>
+                  <li>• Pneumoconioses (silica, asbestos)</li>
+                  <li>• Pneumotoxic drugs</li>
+                  <li>• Chest radiotherapy</li>
                 </ul>
               </div>
             </div>
@@ -156,15 +156,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
                 onClick={() => navigateToStep('removeCause')}
                 className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
               >
-                <div className="font-medium text-green-700">Oui</div>
-                <div className="text-sm text-slate-600">Étiologie identifiée</div>
+                <div className="font-medium text-green-700">Yes</div>
+                <div className="text-sm text-slate-600">Etiology identified</div>
               </button>
               <button
                 onClick={() => navigateToStep('extrapulmonary')}
                 className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
               >
-                <div className="font-medium text-red-700">Non</div>
-                <div className="text-sm text-slate-600">Aucune étiologie évidente</div>
+                <div className="font-medium text-red-700">No</div>
+                <div className="text-sm text-slate-600">No obvious etiology</div>
               </button>
             </div>
           </div>
@@ -176,39 +176,39 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-red-800 mb-4 flex items-center">
                 <AlertTriangle className="w-5 h-5 mr-2" />
-                Prise en charge étiologique
+                Etiologic management
               </h3>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Actions immédiates :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Immediate actions:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <CheckCircle className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-slate-700">Éliminer la cause identifiée</span>
+                    <span className="text-sm text-slate-700">Remove the identified cause</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-slate-700">Considérer glucocorticoïdes systémiques</span>
+                    <span className="text-sm text-slate-700">Consider systemic glucocorticoids</span>
                   </li>
                 </ul>
               </div>
             </div>
             
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
-              <h4 className="font-medium text-slate-800 mb-4">Y a-t-il une récupération clinique ?</h4>
+              <h4 className="font-medium text-slate-800 mb-4">Is there clinical recovery?</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <button
                   onClick={() => navigateToStep('noFurtherSteps')}
                   className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-green-700">Oui</div>
-                  <div className="text-sm text-slate-600">Amélioration clinique</div>
+                  <div className="font-medium text-green-700">Yes</div>
+                  <div className="text-sm text-slate-600">Clinical improvement</div>
                 </button>
                 <button
                   onClick={() => navigateToStep('extrapulmonary')}
                   className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-red-700">Non</div>
-                  <div className="text-sm text-slate-600">Pas d'amélioration</div>
+                  <div className="font-medium text-red-700">No</div>
+                  <div className="text-sm text-slate-600">No improvement</div>
                 </button>
               </div>
             </div>
@@ -220,15 +220,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
             <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center">
               <CheckCircle className="w-5 h-5 mr-2" />
-              Diagnostic établi
+              Diagnosis established
             </h3>
-            <p className="text-slate-700 mb-4">Aucune étape diagnostique supplémentaire nécessaire.</p>
+            <p className="text-slate-700 mb-4">No further diagnostic steps necessary.</p>
             <div className="bg-white p-4 rounded-lg border">
-              <h4 className="font-medium text-slate-800 mb-2">Recommandations :</h4>
+              <h4 className="font-medium text-slate-800 mb-2">Recommendations:</h4>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Poursuivre l'éviction de la cause</li>
-                <li>• Suivi clinique régulier</li>
-                <li>• Adaptation du traitement</li>
+                <li>• Continue avoidance of the cause</li>
+                <li>• Regular clinical follow-up</li>
+                <li>• Treatment adjustment</li>
               </ul>
             </div>
           </div>
@@ -240,15 +240,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-purple-800 mb-4 flex items-center">
                 <Activity className="w-5 h-5 mr-2" />
-                Maladie extrapulmonaire suspectée
+                Suspected extra-pulmonary disease
               </h3>
-              <p className="text-slate-700 mb-4">Le patient présente-t-il des signes de maladie extrapulmonaire ?</p>
+              <p className="text-slate-700 mb-4">Does the patient show signs of extra-pulmonary disease?</p>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">À considérer :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">To consider:</h4>
                 <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• Maladie du tissu conjonctif</li>
-                  <li>• Vascularites</li>
-                  <li>• Sarcoïdose extrapulmonaire</li>
+                  <li>• Connective tissue disease</li>
+                  <li>• Vasculitis</li>
+                  <li>• Extra-pulmonary sarcoidosis</li>
                 </ul>
               </div>
             </div>
@@ -258,15 +258,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
                 onClick={() => navigateToStep('serologyBiopsy')}
                 className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
               >
-                <div className="font-medium text-green-700">Oui</div>
-                <div className="text-sm text-slate-600">Signes présents</div>
+                <div className="font-medium text-green-700">Yes</div>
+                <div className="text-sm text-slate-600">Signs present</div>
               </button>
               <button
                 onClick={() => navigateToStep('multidisciplinary')}
                 className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
               >
-                <div className="font-medium text-red-700">Non</div>
-                <div className="text-sm text-slate-600">Aucun signe évident</div>
+                <div className="font-medium text-red-700">No</div>
+                <div className="text-sm text-slate-600">No obvious signs</div>
               </button>
             </div>
           </div>
@@ -278,33 +278,33 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4 flex items-center">
                 <Microscope className="w-5 h-5 mr-2" />
-                Investigations complémentaires
+                Further investigations
               </h3>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Examens recommandés :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Recommended tests:</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• Sérologies pour maladies du tissu conjonctif</li>
-                  <li>• Biopsie du site extrapulmonaire affecté</li>
+                  <li>• Serologies for connective tissue diseases</li>
+                  <li>• Biopsy of the affected extra-pulmonary site</li>
                 </ul>
               </div>
             </div>
             
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
-              <h4 className="font-medium text-slate-800 mb-4">Maladie systémique confirmée ?</h4>
+              <h4 className="font-medium text-slate-800 mb-4">Systemic disease confirmed?</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <button
                   onClick={() => navigateToStep('systemicManagement')}
                   className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-green-700">Oui</div>
-                  <div className="text-sm text-slate-600">Maladie confirmée</div>
+                  <div className="font-medium text-green-700">Yes</div>
+                  <div className="text-sm text-slate-600">Disease confirmed</div>
                 </button>
                 <button
                   onClick={() => navigateToStep('multidisciplinary')}
                   className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-red-700">Non</div>
-                  <div className="text-sm text-slate-600">Pas de diagnostic confirmé</div>
+                  <div className="font-medium text-red-700">No</div>
+                  <div className="text-sm text-slate-600">No diagnosis confirmed</div>
                 </button>
               </div>
             </div>
@@ -316,15 +316,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
             <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center">
               <Heart className="w-5 h-5 mr-2" />
-              Prise en charge de la maladie systémique
+              Management of the systemic disease
             </h3>
-            <p className="text-slate-700 mb-4">Évaluation et prise en charge appropriées pour la maladie sous-jacente.</p>
+            <p className="text-slate-700 mb-4">Appropriate evaluation and management for the underlying disease.</p>
             <div className="bg-white p-4 rounded-lg border">
-              <h4 className="font-medium text-slate-800 mb-2">Prochaines étapes :</h4>
+              <h4 className="font-medium text-slate-800 mb-2">Next steps:</h4>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Collaboration avec spécialiste</li>
-                <li>• Traitement spécifique</li>
-                <li>• Surveillance pulmonaire</li>
+                <li>• Collaboration with specialist</li>
+                <li>• Specific treatment</li>
+                <li>• Pulmonary monitoring</li>
               </ul>
             </div>
           </div>
@@ -336,35 +336,35 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-blue-800 mb-4 flex items-center">
                 <Users className="w-5 h-5 mr-2" />
-                Discussion multidisciplinaire
+                Multidisciplinary discussion
               </h3>
-              <p className="text-slate-700 mb-4">Évaluation du pattern radiologique avec l'équipe.</p>
+              <p className="text-slate-700 mb-4">Evaluation of the radiological pattern with the team.</p>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Patterns à évaluer :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Patterns to evaluate:</h4>
                 <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• FPI (UIP définitive ou probable)</li>
-                  <li>• Pneumonie d'hypersensibilité chronique</li>
-                  <li>• Autres FPI (NSIP, DIP, COP)</li>
+                  <li>• IPF (definite or probable UIP)</li>
+                  <li>• Chronic hypersensitivity pneumonitis</li>
+                  <li>• Other IPF (NSIP, DIP, COP)</li>
                 </ul>
               </div>
             </div>
             
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
-              <h4 className="font-medium text-slate-800 mb-4">Diagnostic clinico-radiologique confiant ?</h4>
+              <h4 className="font-medium text-slate-800 mb-4">Confident clinical-radiological diagnosis?</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <button
                   onClick={() => navigateToStep('empiricTherapy')}
                   className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-green-700">Oui</div>
-                  <div className="text-sm text-slate-600">Diagnostic confiant</div>
+                  <div className="font-medium text-green-700">Yes</div>
+                  <div className="text-sm text-slate-600">Confident diagnosis</div>
                 </button>
                 <button
                   onClick={() => navigateToStep('clinicalRadiologic')}
                   className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-red-700">Non</div>
-                  <div className="text-sm text-slate-600">Investigations nécessaires</div>
+                  <div className="font-medium text-red-700">No</div>
+                  <div className="text-sm text-slate-600">Further investigation needed</div>
                 </button>
               </div>
             </div>
@@ -376,15 +376,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
             <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center">
               <CheckCircle className="w-5 h-5 mr-2" />
-              Traitement empirique
+              Empiric therapy
             </h3>
-            <p className="text-slate-700 mb-4">Procéder avec le traitement basé sur le diagnostic empirique.</p>
+            <p className="text-slate-700 mb-4">Proceed with treatment based on the empiric diagnosis.</p>
             <div className="bg-white p-4 rounded-lg border">
-              <h4 className="font-medium text-slate-800 mb-2">Recommandations :</h4>
+              <h4 className="font-medium text-slate-800 mb-2">Recommendations:</h4>
               <ul className="space-y-1 text-sm text-slate-600">
-                <li>• Initier le traitement approprié</li>
-                <li>• Surveillance étroite</li>
-                <li>• Réévaluation régulière</li>
+                <li>• Initiate appropriate treatment</li>
+                <li>• Close monitoring</li>
+                <li>• Regular re-evaluation</li>
               </ul>
             </div>
           </div>
@@ -396,15 +396,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-orange-800 mb-4 flex items-center">
                 <Search className="w-5 h-5 mr-2" />
-                Signes clinico-radiologiques spécifiques
+                Specific clinical-radiological signs
               </h3>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Pathologies suggérées :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Suggested pathologies:</h4>
                 <ul className="text-sm space-y-1 text-slate-600">
-                  <li>• Sarcoïdose pulmonaire</li>
-                  <li>• Bérylliose</li>
-                  <li>• Pneumonie d'hypersensibilité aiguë</li>
-                  <li>• Carcinomatose lymphangitique</li>
+                  <li>• Pulmonary sarcoidosis</li>
+                  <li>• Berylliosis</li>
+                  <li>• Acute hypersensitivity pneumonitis</li>
+                  <li>• Lymphangitic carcinomatosis</li>
                 </ul>
               </div>
             </div>
@@ -414,15 +414,15 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
                 onClick={() => navigateToStep('bronchoscopy')}
                 className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
               >
-                <div className="font-medium text-green-700">Oui</div>
-                <div className="text-sm text-slate-600">Signes évocateurs</div>
+                <div className="font-medium text-green-700">Yes</div>
+                <div className="text-sm text-slate-600">Suggestive signs</div>
               </button>
               <button
                 onClick={() => navigateToStep('surgicalBiopsy')}
                 className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
               >
-                <div className="font-medium text-red-700">Non</div>
-                <div className="text-sm text-slate-600">PH chronique/FPI probable</div>
+                <div className="font-medium text-red-700">No</div>
+                <div className="text-sm text-slate-600">Probable chronic HP/IPF</div>
               </button>
             </div>
           </div>
@@ -434,34 +434,34 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
             <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
               <h3 className="text-lg font-semibold text-indigo-800 mb-4 flex items-center">
                 <Activity className="w-5 h-5 mr-2" />
-                Bronchoscopie avec BAL et TBB
+                Bronchoscopy with BAL and TBB
               </h3>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Examens :</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Tests:</h4>
                 <ul className="space-y-1 text-sm text-slate-600">
-                  <li>• Lavage broncho-alvéolaire (BAL)</li>
-                  <li>• Biopsies transbronchiques (TBB)</li>
-                  <li>• EBUS si indiqué</li>
+                  <li>• Bronchoalveolar lavage (BAL)</li>
+                  <li>• Transbronchial biopsies (TBB)</li>
+                  <li>• EBUS if indicated</li>
                 </ul>
               </div>
             </div>
             
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-6">
-              <h4 className="font-medium text-slate-800 mb-4">Diagnostic établi ?</h4>
+              <h4 className="font-medium text-slate-800 mb-4">Diagnosis established?</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <button
                   onClick={() => navigateToStep('appropriateManagement')}
                   className="p-4 border-2 border-green-500 rounded-lg hover:bg-green-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-green-700">Oui</div>
-                  <div className="text-sm text-slate-600">Diagnostic établi</div>
+                  <div className="font-medium text-green-700">Yes</div>
+                  <div className="text-sm text-slate-600">Diagnosis established</div>
                 </button>
                 <button
                   onClick={() => navigateToStep('surgicalBiopsy')}
                   className="p-4 border-2 border-red-500 rounded-lg hover:bg-red-50 transition-colors text-left"
                 >
-                  <div className="font-medium text-red-700">Non</div>
-                  <div className="text-sm text-slate-600">Pas de diagnostic</div>
+                  <div className="font-medium text-red-700">No</div>
+                  <div className="text-sm text-slate-600">No diagnosis</div>
                 </button>
               </div>
             </div>
@@ -473,9 +473,9 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
             <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center">
               <CheckCircle className="w-5 h-5 mr-2" />
-              Prise en charge appropriée
+              Appropriate management
             </h3>
-            <p className="text-slate-700">Évaluation et prise en charge selon la maladie identifiée.</p>
+            <p className="text-slate-700">Evaluation and management according to the identified disease.</p>
           </div>
         );
 
@@ -484,12 +484,12 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
           <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
             <h3 className="text-lg font-semibold text-red-800 mb-4 flex items-center">
               <FileText className="w-5 h-5 mr-2" />
-              Biopsie chirurgicale
+              Surgical biopsy
             </h3>
-            <p className="text-slate-700 mb-4">Biopsie pulmonaire chirurgicale ou cryo-TBB si candidat approprié.</p>
+            <p className="text-slate-700 mb-4">Surgical lung biopsy or cryo-TBB if appropriate candidate.</p>
             <div className="bg-white p-4 rounded-lg border">
               <p className="text-sm text-slate-600">
-                Diagnostic consensuel basé sur discussion multidisciplinaire incluant radiologie et pathologie pulmonaire.
+                Consensus diagnosis based on multidisciplinary discussion including radiology and lung pathology.
               </p>
             </div>
           </div>
@@ -501,38 +501,38 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
   };
 
   const titles: Record<string, string> = {
-      assessment: 'Évaluation initiale',
-      environmental: 'Étiologies environnementales',
-      removeCause: 'Élimination de la cause',
-      noFurtherSteps: 'Diagnostic établi',
-      extrapulmonary: 'Maladie extrapulmonaire',
-      serologyBiopsy: 'Investigations complémentaires',
-      systemicManagement: 'Prise en charge systémique',
-      multidisciplinary: 'Discussion multidisciplinaire',
-      empiricTherapy: 'Traitement empirique',
-      clinicalRadiologic: 'Signes clinico-radiologiques spécifiques',
-      bronchoscopy: 'Bronchoscopie avec BAL et TBB',
-      appropriateManagement: 'Prise en charge appropriée',
-      surgicalBiopsy: 'Biopsie chirurgicale',
+      assessment: 'Initial assessment',
+      environmental: 'Environmental etiologies',
+      removeCause: 'Cause removal',
+      noFurtherSteps: 'Diagnosis established',
+      extrapulmonary: 'Extra-pulmonary disease',
+      serologyBiopsy: 'Further investigations',
+      systemicManagement: 'Systemic management',
+      multidisciplinary: 'Multidisciplinary discussion',
+      empiricTherapy: 'Empiric therapy',
+      clinicalRadiologic: 'Specific clinical-radiological signs',
+      bronchoscopy: 'Bronchoscopy with BAL and TBB',
+      appropriateManagement: 'Appropriate management',
+      surgicalBiopsy: 'Surgical biopsy',
   };
 
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-bold text-slate-800">
-            Démarche diagnostique détaillée
+            Detailed diagnostic process
         </h2>
         <button
             onClick={resetApp}
             className="px-4 py-2 text-sm font-medium bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-100 transition-colors shadow-sm"
         >
-            Recommencer
+            Restart
         </button>
       </div>
 
       <div className="bg-blue-50 border-y border-blue-200 p-3">
         <div className="text-sm text-blue-700">
-          <span className="font-semibold">Étape actuelle :</span> {titles[currentStep] || ''}
+          <span className="font-semibold">Current step:</span> {titles[currentStep] || ''}
         </div>
       </div>
 
@@ -551,12 +551,12 @@ export const DiagnosticProcessAlgorithm: React.FC = () => {
               }`}
           >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Précédent
+              Back
           </button>
           {['noFurtherSteps', 'systemicManagement', 'empiricTherapy', 'appropriateManagement', 'surgicalBiopsy'].includes(currentStep) && (
               <div className="flex items-center text-green-600">
                   <CheckCircle className="w-5 h-5 mr-2" />
-                  <span className="font-medium">Parcours diagnostique terminé</span>
+                  <span className="font-medium">Diagnostic pathway complete</span>
               </div>
           )}
         </div>

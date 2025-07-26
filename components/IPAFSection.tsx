@@ -29,149 +29,149 @@ export const IPAFSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <BrainCircuit className="w-7 h-7 mr-3 text-blue-500" />
-        PID avec manifestations auto-immunes (IPAF)
+        Interstitial Pneumonia with Autoimmune Features (IPAF)
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        Une catégorie de recherche pour les patients à la frontière entre les PID idiopathiques et celles associées aux connectivites.
+        A research classification for patients at the intersection of idiopathic ILD and connective tissue disease-associated ILD.
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 text-base">
-        <h3 className="text-xl font-semibold text-slate-800 mb-3">Pourquoi le concept d'IPAF a-t-il été proposé ?</h3>
+        <h3 className="text-xl font-semibold text-slate-800 mb-3">Why was the concept of IPAF proposed?</h3>
         <p className="text-slate-700 mb-4">
-            Une proportion non négligeable de patients atteints de PID présente des caractéristiques cliniques, sérologiques ou radiologiques qui évoquent une maladie auto-immune, sans pour autant remplir les critères stricts d'une connectivite définie (comme la polyarthrite rhumatoïde ou la sclérodermie).
+            A significant proportion of patients with ILD have clinical, serological, or radiological features that suggest an autoimmune disease, without meeting the strict criteria for a defined connective tissue disease (such as rheumatoid arthritis or scleroderma).
         </p>
         <p className="text-slate-700 mb-4">
-            Avant 2015, cette "zone grise" était décrite par une multitude de termes ("connectivite indifférenciée", "PID à dominante pulmonaire", etc.), ce qui freinait la recherche. Les critères de classification de l'IPAF ont été proposés par un groupe de travail ERS/ATS pour unifier la terminologie et stimuler la recherche sur ce groupe de patients.
+            Before 2015, this "gray area" was described by a multitude of terms ("undifferentiated connective tissue disease," "lung-dominant CTD," etc.), which hindered research. The IPAF classification criteria were proposed by an ERS/ATS task force to unify terminology and stimulate research on this group of patients.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6 rounded-r-lg">
-            <h4 className="text-base font-semibold text-blue-800 mb-2 flex items-center"><Info className="w-5 h-5 mr-2" />Points Clés</h4>
+            <h4 className="text-base font-semibold text-blue-800 mb-2 flex items-center"><Info className="w-5 h-5 mr-2" />Key Points</h4>
             <ul className="list-disc list-inside space-y-1 text-slate-700 text-base">
-                <li>L'IPAF n'est <strong>pas un diagnostic</strong>, mais une <strong>catégorie de classification pour la recherche</strong>.</li>
-                <li>Elle identifie les patients avec une PID qui ont des arguments pour une auto-immunité sous-jacente.</li>
-                <li>L'objectif est d'étudier leur évolution, leur pronostic et leur réponse au traitement de manière standardisée.</li>
+                <li>IPAF is <strong>not a diagnosis</strong>, but a <strong>research classification category</strong>.</li>
+                <li>It identifies patients with ILD who have evidence of underlying autoimmunity.</li>
+                <li>The goal is to study their evolution, prognosis, and response to treatment in a standardized manner.</li>
             </ul>
         </div>
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Critères de Classification (ERS/ATS 2015)" icon={<CheckCircle className="w-5 h-5 text-white" />}>
+        <Accordion title="Classification Criteria (ERS/ATS 2015)" icon={<CheckCircle className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-slate-700">
                 <div className="p-4 bg-slate-100 rounded-lg border border-slate-300 text-center">
-                    <p className="font-bold text-slate-800">La classification IPAF nécessite la présence d'une PID (prouvée par TDM ou biopsie) chez un patient sans autre cause identifiée et qui ne remplit pas les critères d'une connectivite définie, <strong>ET</strong> :</p>
-                    <p className="text-xl font-bold text-blue-600 mt-2">Au moins 1 critère dans au moins 2 des 3 domaines suivants</p>
+                    <p className="font-bold text-slate-800">IPAF classification requires the presence of ILD (proven by HRCT or biopsy) in a patient with no other identified cause who does not meet the criteria for a defined connective tissue disease, <strong>AND</strong>:</p>
+                    <p className="text-xl font-bold text-blue-600 mt-2">At least 1 criterion in at least 2 of the following 3 domains</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-4">
                     <CriteriaCard 
-                        title="Domaine Clinique"
+                        title="Clinical Domain"
                         icon={<Stethoscope className="w-5 h-5" />}
                         color="blue"
                         items={[
-                            "Mains de mécanicien",
-                            "Ulcérations digitales",
-                            "Arthrite inflammatoire / raideur matinale ≥60 min",
-                            "Télangiectasies palmaires",
-                            "Phénomène de Raynaud",
-                            "Œdème digital inexpliqué",
-                            "Signe de Gottron"
+                            "Mechanic's hands",
+                            "Digital ulceration",
+                            "Inflammatory arthritis / morning stiffness ≥60 min",
+                            "Palmar telangiectasias",
+                            "Raynaud's phenomenon",
+                            "Unexplained digital edema",
+                            "Gottron sign"
                         ]}
                     />
                      <CriteriaCard 
-                        title="Domaine Sérologique"
+                        title="Serological Domain"
                         icon={<FlaskConical className="w-5 h-5" />}
                         color="purple"
                         items={[
-                            "AAN ≥1:320 (diffus, moucheté, homogène)",
-                            "AAN (tout titre, aspect nucléolé ou centromère)",
-                            "Facteur Rhumatoïde ≥2x LSN",
-                            "Anti-CCP, anti-ADNdb, anti-Ro, anti-La",
+                            "ANA ≥1:320 (diffuse, speckled, homogeneous)",
+                            "ANA (any titer, nucleolar or centromere pattern)",
+                            "Rheumatoid Factor ≥2x ULN",
+                            "Anti-CCP, anti-dsDNA, anti-Ro, anti-La",
                             "Anti-RNP, anti-Smith",
-                            "Anti-Scl-70, anti-synthétase, anti-MDA5"
+                            "Anti-Scl-70, antisynthetase, anti-MDA5"
                         ]}
                     />
                      <CriteriaCard 
-                        title="Domaine Morphologique"
+                        title="Morphological Domain"
                         icon={<Image className="w-5 h-5" />}
                         color="teal"
                         items={[
-                           "Pattern TDM ou histologique de PINS, PO, LIP",
-                           "Atteinte histologique spécifique (agrégats lymphoïdes, etc.)",
-                           "Atteinte multi-compartiments (plèvre, péricarde, voies aériennes, vasculaire inexpliquée)"
+                           "HRCT or histological pattern of NSIP, OP, LIP",
+                           "Specific histology (lymphoid aggregates with germinal centers, etc.)",
+                           "Multi-compartment involvement (unexplained pleuritis, pericarditis, airway disease, vasculopathy)"
                         ]}
                     />
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Évaluation Initiale et Rôle de la Biopsie" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Initial Evaluation and Role of Biopsy" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700 text-base">
-                 <p>Actuellement, il n'existe pas de consensus sur les meilleures pratiques pour l'investigation et la gestion initiale des patients répondant aux critères de l'IPAF.</p>
+                 <p>Currently, there is no consensus on the best practices for the initial investigation and management of patients meeting IPAF criteria.</p>
                  <ul className="list-disc list-inside space-y-2">
                     <li>
-                        <strong>Pronostic du pattern UIP :</strong> Un pattern UIP (certain ou probable) à la TDM ou à la biopsie dans un contexte d'IPAF est associé à une mortalité similaire à celle de la FPI.
+                        <strong>Prognosis of the UIP pattern:</strong> A UIP pattern (definite or probable) on HRCT or biopsy in an IPAF context is associated with mortality similar to that of IPF.
                     </li>
                      <li>
-                        <strong>Indication de la biopsie :</strong> Le seuil pour une biopsie est plus bas chez un patient jeune, surtout si c'est une femme, même avec un pattern TDM d'UIP probable. Chez un patient plus âgé avec un profil typique de FPI, une biopsie n'est pas forcément nécessaire.
+                        <strong>Indication for biopsy:</strong> The threshold for a biopsy is lower in a young patient, especially a woman, even with a probable UIP pattern on HRCT. In an older patient with a typical IPF profile, a biopsy is not necessarily required.
                     </li>
                      <li>
-                        <strong>Importance de l'histologie :</strong> Une PINS histologique supporterait une approche immunosuppressive, tandis qu'une UIP histologique inciterait à la prudence avec les immunosuppresseurs et à une considération plus précoce des antifibrosants en cas de progression.
+                        <strong>Importance of histology:</strong> Histological NSIP would support an immunosuppressive approach, whereas histological UIP would prompt caution with immunosuppressants and earlier consideration of antifibrotics in case of progression.
                     </li>
                 </ul>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-lg">
                     <p className="text-sm text-blue-800">
-                       La discussion en <strong>équipe multidisciplinaire</strong> (pneumologue, radiologue, pathologiste, rhumatologue) est indispensable pour tous les cas complexes d'IPAF afin de peser le pour et le contre d'investigations invasives.
+                       A <strong>multidisciplinary team</strong> discussion (pulmonologist, radiologist, pathologist, rheumatologist) is essential for all complex IPAF cases to weigh the pros and cons of invasive investigations.
                     </p>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Suivi et Évolution dans le Temps" icon={<Clock className="w-5 h-5 text-white" />}>
+        <Accordion title="Follow-up and Evolution Over Time" icon={<Clock className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-3 text-slate-700 text-base">
-                <p>La PID peut être la première manifestation d'une connectivite. Il est donc crucial de surveiller l'évolution des patients classés IPAF.</p>
+                <p>ILD can be the first manifestation of a connective tissue disease. It is therefore crucial to monitor the evolution of patients classified as IPAF.</p>
                  <ul className="list-disc list-inside space-y-2">
                     <li>
-                        <strong>Évolution vers une connectivite définie :</strong> Des études montrent que jusqu'à 13.5% des patients IPAF peuvent développer une connectivite définie (Sjögren, PR, myosite) dans un délai moyen de 31 mois.
+                        <strong>Evolution to a defined connective tissue disease:</strong> Studies show that up to 13.5% of IPAF patients may develop a defined connective tissue disease (Sjögren's, RA, myositis) within a mean of 31 months.
                     </li>
                      <li>
-                        <strong>Surveillance continue :</strong> Tous les patients avec une PID doivent être réévalués à chaque visite pour des signes ou symptômes de connectivite.
+                        <strong>Continuous monitoring:</strong> All patients with ILD should be re-evaluated at each visit for signs or symptoms of connective tissue disease.
                     </li>
                      <li>
-                        <strong>Évaluation rhumatologique :</strong> Une évaluation formelle par un rhumatologue doit être envisagée pour les cas d'IPAF afin de ne pas manquer un diagnostic de connectivite qui pourrait orienter le traitement.
+                        <strong>Rheumatological evaluation:</strong> A formal evaluation by a rheumatologist should be considered for IPAF cases to not miss a diagnosis of connective tissue disease that could guide treatment.
                     </li>
                      <li>
-                        <strong>Répétition des examens :</strong> Répéter le bilan d'anticorps étendu (pas seulement les AAN) doit être considéré, surtout en cas de pattern TDM de PINS/PO ou de nouveaux signes cliniques.
+                        <strong>Repeating tests:</strong> Repeating the extended antibody panel (not just ANA) should be considered, especially in case of an NSIP/OP HRCT pattern or new clinical signs.
                     </li>
                 </ul>
             </div>
         </Accordion>
         
-        <Accordion title="Prise en Charge Thérapeutique de l'IPAF" icon={<Pill className="w-5 h-5 text-white" />}>
+        <Accordion title="Therapeutic Management of IPAF" icon={<Pill className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-3 text-slate-700 text-base">
-                <p>Il n'y a pas d'essais contrôlés randomisés spécifiques à l'IPAF. La prise en charge est donc individualisée et largement extrapolée des études sur les PID des connectivites.</p>
+                <p>There are no randomized controlled trials specific to IPAF. Management is therefore individualized and largely extrapolated from studies on CTD-ILD.</p>
                  <ul className="list-disc list-inside space-y-2">
                      <li>
-                        <strong>Mesures générales :</strong> La réhabilitation respiratoire, l'oxygénothérapie si nécessaire, le traitement du RGO, et la prévention des infections sont indiqués.
+                        <strong>General measures:</strong> Pulmonary rehabilitation, oxygen therapy if necessary, treatment of GERD, and prevention of infections are indicated.
                     </li>
                      <li>
-                        <strong>Immunosuppresseurs :</strong> C'est l'approche la plus courante. La majorité des patients dans les cohortes reçoivent des glucocorticoïdes et/ou des immunosuppresseurs (mycophénolate, azathioprine, rituximab...).
+                        <strong>Immunosuppressants:</strong> This is the most common approach. The majority of patients in cohorts receive glucocorticoids and/or immunosuppressants (mycophenolate, azathioprine, rituximab...).
                     </li>
                      <li>
-                        <strong>Antifibrotiques :</strong> Historiquement peu utilisés, leur place est en cours d'évaluation. Ils pourraient être pertinents pour les patients IPAF avec un phénotype progressif fibrosant, surtout si le pattern radiologique ou histologique est de type UIP.
+                        <strong>Antifibrotics:</strong> Historically underused, their role is being evaluated. They could be relevant for IPAF patients with a progressive fibrosing phenotype, especially if the radiological or histological pattern is UIP-like.
                     </li>
                      <li>
-                        <strong>Transplantation pulmonaire :</strong> Doit être considérée pour les patients avec une maladie avancée et progressive.
+                        <strong>Lung transplantation:</strong> Should be considered for patients with advanced and progressive disease.
                     </li>
                 </ul>
                  <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mt-4 rounded-lg">
                     <p className="text-sm text-amber-800">
-                        La stratégie thérapeutique est décidée au cas par cas en DMD, en tenant compte du profil clinique, sérologique, radiologique et surtout de l'évolution de la maladie.
+                        The therapeutic strategy is decided on a case-by-case basis in MDD, taking into account the clinical, serological, radiological profile, and especially the evolution of the disease.
                     </p>
                 </div>
             </div>
         </Accordion>
 
         <div className="mt-8">
-            <Accordion title="Outil d'aide à la classification de l'IPAF (ERS/ATS 2015)" icon={<ClipboardPlus className="w-5 h-5 text-white" />} variant="danger">
+            <Accordion title="IPAF Classification Aid Tool (ERS/ATS 2015)" icon={<ClipboardPlus className="w-5 h-5 text-white" />} variant="danger">
                 <div className="p-2 md:p-4">
                     <IPAFClassifierTool />
                 </div>

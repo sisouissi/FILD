@@ -5,7 +5,7 @@ export type Step = 'patient-info' | 'recommendations';
 export interface ConnectiviteType {
     value: string;
     label: string;
-    risk: 'faible' | 'modéré' | 'élevé';
+    risk: 'low' | 'moderate' | 'high';
 }
 
 export interface RiskFactor {
@@ -26,7 +26,7 @@ export interface PatientData {
 }
 
 export interface RiskLevelInfo {
-    level: 'faible' | 'modéré' | 'élevé';
+    level: 'low' | 'moderate' | 'high';
     color: string;
     icon: React.ComponentType<{ className?: string }>;
 }

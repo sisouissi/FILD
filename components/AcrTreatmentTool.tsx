@@ -46,7 +46,7 @@ export const AcrTreatmentTool: React.FC = () => {
             const summary = await generateTreatmentSummary(sard, context);
             setAiSummary(summary);
         } catch (e) {
-            setSummaryError(e instanceof Error ? e.message : "Une erreur inconnue est survenue.");
+            setSummaryError(e instanceof Error ? e.message : "An unknown error occurred.");
         } finally {
             setIsGenerating(false);
         }
@@ -54,21 +54,21 @@ export const AcrTreatmentTool: React.FC = () => {
 
     return (
         <div className="bg-slate-50 p-4 rounded-lg border text-slate-800">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">Outil d'Aide au Traitement</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-4">Treatment Decision Aid</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                    <label htmlFor="sard-treatment-select" className="block text-sm font-medium text-slate-700 mb-1">1. Connectivite :</label>
+                    <label htmlFor="sard-treatment-select" className="block text-sm font-medium text-slate-700 mb-1">1. Connective Tissue Disease:</label>
                     <select id="sard-treatment-select" value={sard} onChange={e => setSard(e.target.value as SARDType)} className="w-full p-2 border-gray-300 rounded-md shadow-sm">
                         {Object.keys(TREATMENT_DATA.firstLine).map(key => <option key={key} value={key}>{SARD_LABELS[key] || key}</option>)}
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="context-select" className="block text-sm font-medium text-slate-700 mb-1">2. Contexte Clinique :</label>
+                    <label htmlFor="context-select" className="block text-sm font-medium text-slate-700 mb-1">2. Clinical Context:</label>
                     <select id="context-select" value={context} onChange={e => setContext(e.target.value as TreatmentContext)} className="w-full p-2 border-gray-300 rounded-md shadow-sm">
-                        <option value="firstLine">Traitement de 1ère ligne</option>
-                        <option value="progression">Progression sous traitement</option>
-                        <option value="rp-ild">PID Rapidement Progressive (RP-ILD)</option>
+                        <option value="firstLine">First-line Treatment</option>
+                        <option value="progression">Progression on treatment</option>
+                        <option value="rp-ild">Rapidly Progressive ILD (RP-ILD)</option>
                     </select>
                 </div>
             </div>
@@ -78,13 +78,13 @@ export const AcrTreatmentTool: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                     {recommendations.recommended && (
                         <div className="space-y-2">
-                            <h5 className="font-semibold text-green-800">Recommandé</h5>
+                            <h5 className="font-semibold text-green-800">Recommended</h5>
                             <ul className="space-y-1 text-sm"><RecommendationItem item={recommendations.recommended} level="for" /></ul>
                         </div>
                     )}
                      {recommendations.options && (
                         <div className="space-y-2">
-                            <h5 className="font-semibold text-green-800">Options Conditionnelles</h5>
+                            <h5 className="font-semibold text-green-800">Conditional Options</h5>
                             <ul className="space-y-1 text-sm">
                                 {recommendations.options.map((opt, i) => <RecommendationItem key={i} item={opt} level="for" />)}
                             </ul>
@@ -92,7 +92,7 @@ export const AcrTreatmentTool: React.FC = () => {
                     )}
                     {recommendations.against && (
                         <div className="space-y-2">
-                            <h5 className="font-semibold text-orange-800">Déconseillé Conditionnellement</h5>
+                            <h5 className="font-semibold text-orange-800">Conditionally Not Recommended</h5>
                              <ul className="space-y-1 text-sm">
                                 {recommendations.against.map((opt, i) => <RecommendationItem key={i} item={opt} level="against" />)}
                             </ul>
@@ -100,7 +100,7 @@ export const AcrTreatmentTool: React.FC = () => {
                     )}
                     {recommendations.strong_against && (
                          <div className="space-y-2">
-                            <h5 className="font-semibold text-red-800">Fortement Déconseillé</h5>
+                            <h5 className="font-semibold text-red-800">Strongly Not Recommended</h5>
                             <ul className="space-y-1 text-sm"><RecommendationItem item={recommendations.strong_against} level="strong-against" /></ul>
                         </div>
                     )}
@@ -114,9 +114,9 @@ export const AcrTreatmentTool: React.FC = () => {
                     disabled={isGenerating}
                     className="w-full inline-flex items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400"
                 >
-                    Générer une Synthèse IA
+                    Generate AI Summary
                 </button>
-                <AISummary summary={aiSummary} isLoading={isGenerating} error={summaryError} />
+                <AISummary summary={aiSummary} isLoading={isGenerating} error={summaryError} title="Therapeutic Summary (AI-generated)" />
             </div>
         </div>
     );

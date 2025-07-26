@@ -184,7 +184,7 @@ export const PHSSection: React.FC = () => (
                         <p><strong>Role:</strong> The most sensitive tool for detecting alveolitis, but nonspecific.</p>
                         <ul className="list-disc list-inside text-sm space-y-1 mt-2">
                             <li><strong>Key result:</strong> Marked <strong>lymphocytosis</strong> (often above 30-40%) is a major diagnostic argument.</li>
-                            <li><strong>Limitations:</strong> Can be normal in chronic fibrotic forms or in smokers (threshold > 20%). Can be seen in other ILDs.</li>
+                            <li><strong>Limitations:</strong> Can be normal in chronic fibrotic forms or in smokers (threshold above 20%). Can be seen in other ILDs.</li>
                             <li><strong>Main utility:</strong> Very useful for differentiating an indeterminate fibrosing ILD (e.g., suspected IPF vs. fibrotic HP).</li>
                         </ul>
                     </InfoCard>

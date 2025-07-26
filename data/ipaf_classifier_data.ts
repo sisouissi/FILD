@@ -9,7 +9,7 @@ export const IPAF_CLASSIFIER_DATA: IPAFDomain[] = [
         criteria: [
             { id: 'mechanic_hands', label: "Mechanic's hands" },
             { id: 'ulceration', label: 'Digital ulceration' },
-            { id: 'arthritis', label: 'Inflammatory arthritis or morning stiffness ≥60 min' },
+            { id: 'arthritis', label: 'Inflammatory arthritis or morning stiffness of 60 min or more' },
             { id: 'telangiectasia', label: 'Palmar telangiectasias' },
             { id: 'raynaud', label: "Raynaud's phenomenon" },
             { id: 'edema', label: 'Unexplained digital edema' },
@@ -21,9 +21,9 @@ export const IPAF_CLASSIFIER_DATA: IPAFDomain[] = [
         title: 'Serological Domain',
         icon: FlaskConical,
         criteria: [
-            { id: 'ana_high', label: 'ANA ≥ 1:320 (diffuse, speckled, homogeneous)' },
+            { id: 'ana_high', label: 'ANA of 1:320 or higher (diffuse, speckled, homogeneous)' },
             { id: 'ana_specific', label: 'ANA (any titer, nucleolar or centromere pattern)' },
-            { id: 'rf_high', label: 'Rheumatoid Factor ≥ 2x ULN' },
+            { id: 'rf_high', label: 'Rheumatoid Factor of 2x ULN or higher' },
             { id: 'anti_ccp', label: 'Anti-CCP' },
             { id: 'anti_dsdna', label: 'Anti-double-stranded DNA (dsDNA)' },
             { id: 'anti_ssa_ssb', label: 'Anti-Ro (SS-A) or Anti-La (SS-B)' },

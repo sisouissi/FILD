@@ -3,10 +3,30 @@ import type { PatientData } from '../components/AcrGuidelineTool/types';
 import { connectiviteTypes, riskFactors, symptoms } from '../components/AcrGuidelineTool/constants';
 import { SARD_LABELS } from '../data/acr_treatment_data';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let ai: GoogleGenAI | null = null;
+let initError: string | null = null;
+
+try {
+  if (!process.env.API_KEY) {
+    throw new Error("An API Key must be provided. Please ensure it is set in the execution environment.");
+  }
+  ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+} catch (e) {
+  console.error("Failed to initialize GoogleGenAI:", e);
+  initError = e instanceof Error ? e.message : "An unknown error occurred during AI service initialization.";
+}
+
+const getAIService = (): GoogleGenAI => {
+    if (initError) throw new Error(`AI Service is not available: ${initError}`);
+    if (!ai) throw new Error("AI Service could not be initialized.");
+    return ai;
+};
+
 
 // --- API for Screening Tool ---
 export const generateScreeningSummary = async (patientData: PatientData, riskLevel: string): Promise<string> => {
+    const aiService = getAIService();
+    
     const connectiviteLabel = connectiviteTypes.find(c => c.value === patientData.connectiviteType)?.label || 'Unspecified';
     const riskFactorsList = patientData.riskFactors.length > 0 ? 
         patientData.riskFactors.map(rf => riskFactors.find(r => r.value === rf)?.label).filter(Boolean).join(', ') : 
@@ -33,7 +53,7 @@ export const generateScreeningSummary = async (patientData: PatientData, riskLev
 4.  If applicable, add a **Special Attention** section for high-risk connective tissue diseases like SSc or IIM.`;
     
     try {
-        const response = await ai.models.generateContent({
+        const response = await aiService.models.generateContent({
             model: 'gemini-2.5-flash',
             contents: prompt,
             config: {
@@ -43,13 +63,15 @@ export const generateScreeningSummary = async (patientData: PatientData, riskLev
         return response.text;
     } catch (error) {
         console.error("Error generating summary with Gemini API:", error);
-        throw new Error("Summary generation failed. Could not connect to the AI service.");
+        throw new Error("The AI summary could not be generated. There might be an issue with the AI service or the request.");
     }
 };
 
 
 // --- API for Treatment Tool ---
 export const generateTreatmentSummary = async (sard: string, context: string): Promise<string> => {
+    const aiService = getAIService();
+
     const contextLabels: Record<string, string> = {
         firstLine: "First-line treatment",
         progression: "ILD progression on treatment",
@@ -70,8 +92,8 @@ export const generateTreatmentSummary = async (sard: string, context: string): P
 3.  Include any important notes or precautions mentioned in the guidelines for this specific scenario.`;
 
     try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+        const response = await aiService.models.generateContent({
+            model: 'gem-2.5-flash',
             contents: prompt,
             config: {
                 systemInstruction: systemInstruction,
@@ -80,6 +102,6 @@ export const generateTreatmentSummary = async (sard: string, context: string): P
         return response.text;
     } catch (error) {
         console.error("Error generating treatment summary with Gemini API:", error);
-        throw new Error("Summary generation failed. Could not connect to the AI service.");
+        throw new Error("The AI summary could not be generated. There might be an issue with the AI service or the request.");
     }
 };

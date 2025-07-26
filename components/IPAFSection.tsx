@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrainCircuit, Info, CheckCircle, AlertTriangle, Stethoscope, FlaskConical, Image, Search, Clock, Pill, ClipboardPlus } from './icons';
 import { Accordion } from './Accordion';
@@ -69,7 +68,7 @@ export const IPAFSection: React.FC = () => (
                         items={[
                             "Mechanic's hands",
                             "Digital ulceration",
-                            "Inflammatory arthritis / morning stiffness ≥60 min",
+                            "Inflammatory arthritis / morning stiffness of 60 minutes or more",
                             "Palmar telangiectasias",
                             "Raynaud's phenomenon",
                             "Unexplained digital edema",
@@ -81,9 +80,9 @@ export const IPAFSection: React.FC = () => (
                         icon={<FlaskConical className="w-5 h-5" />}
                         color="purple"
                         items={[
-                            "ANA ≥1:320 (diffuse, speckled, homogeneous)",
+                            "ANA of 1:320 or higher (diffuse, speckled, homogeneous)",
                             "ANA (any titer, nucleolar or centromere pattern)",
-                            "Rheumatoid Factor ≥2x ULN",
+                            "Rheumatoid Factor of 2x ULN or higher",
                             "Anti-CCP, anti-dsDNA, anti-Ro, anti-La",
                             "Anti-RNP, anti-Smith",
                             "Anti-Scl-70, antisynthetase, anti-MDA5"

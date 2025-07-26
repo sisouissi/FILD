@@ -71,8 +71,8 @@ export const FPIPronosticSuiviSection: React.FC = () => (
                     <h4 className="font-semibold text-teal-800 mb-2">Dynamic Markers: Functional Decline is Key</h4>
                     <p className="text-base text-slate-700">The <strong>evolutionary trajectory</strong> is a more powerful predictor of survival than baseline values. Signs of rapid progression include:</p>
                      <ul className="list-disc list-inside space-y-1 text-base text-slate-700 pl-4">
-                        <li>Decline in <strong>absolute FVC of ≥ 5-10%</strong> over 6 to 12 months.</li>
-                        <li>Decline in <strong>absolute DLCO of ≥ 15%</strong> over 6 to 12 months.</li>
+                        <li>Decline in <strong>absolute FVC of 5-10% or more</strong> over 6 to 12 months.</li>
+                        <li>Decline in <strong>absolute DLCO of 15% or more</strong> over 6 to 12 months.</li>
                         <li>Decrease in <strong>6MWT distance of more than 30 meters</strong> in 6 months.</li>
                         <li>Worsening hypoxemia or increased oxygen requirements.</li>
                         <li>Hospitalization for a respiratory cause.</li>

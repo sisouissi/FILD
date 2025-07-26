@@ -132,7 +132,7 @@ export const PINSSection: React.FC = () => (
                             <div className="bg-white p-2 rounded border">
                                 <h6 className="font-semibold">Serological Domain</h6>
                                 <ul className="list-disc list-inside pl-2">
-                                    <li>ANA ≥1:320 (or nucleolar/centromere)</li>
+                                    <li>ANA of 1:320 or higher (or nucleolar/centromere)</li>
                                     <li>RF above 2x ULN</li>
                                     <li>Anti-CCP, anti-dsDNA, anti-Ro, anti-La</li>
                                     <li>Anti-RNP, anti-Smith, anti-Scl-70</li>
@@ -430,7 +430,7 @@ export const PINSSection: React.FC = () => (
                  <div className="flex items-start bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-sm mt-4">
                     <CheckCircle className="h-5 w-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
                     <p className="text-blue-800">
-                        Consider PJP prophylaxis for patients on corticosteroids > 20mg/day for more than one month, or on multiple immunosuppressants.
+                        Consider PJP prophylaxis for patients on corticosteroids above 20mg/day for more than one month, or on multiple immunosuppressants.
                     </p>
                 </div>
             </div>

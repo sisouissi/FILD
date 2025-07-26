@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AlertTriangle, TrendingUp, Activity, Search, Pill, Heart, Info, Stethoscope, Image, Bug, CheckCircle, XCircle, PlusCircle, HandHeart } from './icons';
 import { Accordion } from './Accordion';
@@ -106,7 +105,7 @@ export const ExacerbationAigueSection: React.FC = () => (
                             title="Oxygen Therapy"
                             icon={<CheckCircle className="w-5 h-5"/>}
                             content={<>
-                                <p className="text-base"><strong>Goal:</strong> Maintain SpO2 ≥ 90%.</p>
+                                <p className="text-base"><strong>Goal:</strong> Maintain SpO2 at or above 90%.</p>
                                 <p className="text-base"><strong>Means:</strong> High-flow nasal cannula (HFNC) is often necessary due to severe hypoxemia and high patient inspiratory flow.</p>
                             </>}
                             bgColorClass="bg-green-50"

@@ -13,7 +13,7 @@ export const riskFactors: RiskFactor[] = [
   { value: 'anti-scl70', label: 'Anti-Scl-70 (topoisomerase I) positive' },
   { value: 'anti-synthetase', label: 'Antisynthetase antibody (e.g., anti-Jo1)' },
   { value: 'anti-mda5', label: 'Anti-MDA5 antibody positive' },
-  { value: 'age', label: 'Age > 60 years' },
+  { value: 'age', label: 'Age over 60 years' },
   { value: 'sexeM', label: 'Male sex' },
   { value: 'tabac', label: 'Smoking (current or past)' },
   { value: 'rgo', label: 'Gastroesophageal reflux (GERD)' },

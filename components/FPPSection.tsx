@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TrendingUp, Info, CheckCircle, AlertTriangle, Stethoscope, Pill, Search, HandHeart, Activity, ChevronRight } from './icons';
 import { Accordion } from './Accordion';
@@ -117,7 +116,7 @@ export const FPPSection: React.FC = () => (
                     <ul className="space-y-2 text-base text-slate-700">
                         <li className="p-2 bg-white border border-red-200 rounded-md">
                             <strong className="block text-red-700">1. Significant functional decline:</strong><br/>
-                            Relative decline in Forced Vital Capacity (FVC) ≥ 10% of the predicted value.
+                            Relative decline in Forced Vital Capacity (FVC) of 10% or more of the predicted value.
                         </li>
                          <li className="p-2 bg-white border border-red-200 rounded-md">
                             <strong className="block text-red-700">2. Moderate functional decline + Worsening:</strong><br/>

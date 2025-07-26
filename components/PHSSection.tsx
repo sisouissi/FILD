@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Wind, Info, Bug, Stethoscope, Search, Image, Lungs, Microscope, Activity, FlaskConical, History, FileText, TrendingUp, Pill, CheckCircle, AlertTriangle, Shield, HandHeart } from './icons';
 import { Accordion } from './Accordion';
@@ -50,8 +49,8 @@ export const PHSSection: React.FC = () => (
             Chronic fibrotic HP can be difficult to distinguish from IPF, highlighting the importance of a thorough history and a multidisciplinary diagnostic approach to identify the causative antigen, which is crucial for prognosis.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6 rounded-r-lg">
-            <h4 className="text-base font-semibold text-blue-800 mb-2 flex items-center">
-                <Info className="w-5 h-5 mr-2" />
+            <h4 className="text-base font-semibold text-blue-800 mb-2">
+                <Info className="w-5 h-5 mr-2 inline-block" />
                 Key Points (ATS/JRS/ALAT 2020)
             </h4>
             <ul className="list-disc list-inside space-y-1 text-slate-700 text-base">
@@ -184,7 +183,7 @@ export const PHSSection: React.FC = () => (
                     <InfoCard title="1. Bronchoalveolar Lavage (BAL)" icon={<Lungs className="w-5 h-5"/>} color="blue">
                         <p><strong>Role:</strong> The most sensitive tool for detecting alveolitis, but nonspecific.</p>
                         <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                            <li><strong>Key result:</strong> Marked <strong>lymphocytosis</strong> (often > 30-40%) is a major diagnostic argument.</li>
+                            <li><strong>Key result:</strong> Marked <strong>lymphocytosis</strong> (often above 30-40%) is a major diagnostic argument.</li>
                             <li><strong>Limitations:</strong> Can be normal in chronic fibrotic forms or in smokers (threshold > 20%). Can be seen in other ILDs.</li>
                             <li><strong>Main utility:</strong> Very useful for differentiating an indeterminate fibrosing ILD (e.g., suspected IPF vs. fibrotic HP).</li>
                         </ul>

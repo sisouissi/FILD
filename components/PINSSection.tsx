@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ClipboardList, AlertTriangle, Activity, Stethoscope, Search, Pill, CheckCircle, Image, Users, HandHeart, History, FlaskConical, Lungs, Microscope, FileText } from './icons';
 import { Accordion } from './Accordion';
@@ -134,7 +133,7 @@ export const PINSSection: React.FC = () => (
                                 <h6 className="font-semibold">Serological Domain</h6>
                                 <ul className="list-disc list-inside pl-2">
                                     <li>ANA ≥1:320 (or nucleolar/centromere)</li>
-                                    <li>RF > 2x ULN</li>
+                                    <li>RF above 2x ULN</li>
                                     <li>Anti-CCP, anti-dsDNA, anti-Ro, anti-La</li>
                                     <li>Anti-RNP, anti-Smith, anti-Scl-70</li>
                                     <li>Antisynthetase (Jo-1...), anti-MDA5</li>
@@ -174,7 +173,7 @@ export const PINSSection: React.FC = () => (
         <Accordion title="Epidemiology" icon={<Activity className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-slate-700 text-base">
                 <p>
-                    Nonspecific interstitial pneumonia (NSIP) is a relatively rare lung disease, and its prevalence is not clearly established. It is estimated to account for 14% to 36% of cases of idiopathic interstitial pneumonias. NSIP is the second most common idiopathic interstitial pneumonia, after usual interstitial pneumonia (UIP/IPF). It tends to affect younger patients (e.g., &lt;50 years) compared to IPF. Most patients with NSIP are women, and the majority have no history of smoking.
+                    Nonspecific interstitial pneumonia (NSIP) is a relatively rare lung disease, and its prevalence is not clearly established. It is estimated to account for 14% to 36% of cases of idiopathic interstitial pneumonias. NSIP is the second most common idiopathic interstitial pneumonia, after usual interstitial pneumonia (UIP/IPF). It tends to affect younger patients (e.g., below 50 years) compared to IPF. Most patients with NSIP are women, and the majority have no history of smoking.
                 </p>
 
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">

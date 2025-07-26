@@ -25,7 +25,7 @@ export const connectivitesData = {
                 title: "STEP 3: Targeted complementary investigations",
                 borderColor: "border-indigo-500", bgColor: "bg-indigo-50", textColor: "text-indigo-800",
                 sections: [
-                    { title: "If high suspicion of CTD with negative ANA:", items: ["Isolated anti-Ro52: risk of progressive ILD", "Anti-MDA5: rapidly progressive pneumonitis", "Search for rare antibodies: anti-PmScl, anti-Ku"] },
+                    { title: "If high suspicion of CTD with negative ANA:", items: ["Isolated anti-Ro52", "Repeat ANA in 6 months", "Lung biopsy if diagnosis is uncertain"] },
                     { title: "Activity and prognostic markers:", items: ["Ferritin: suspicion of anti-MDA5 myositis", "Aldolase, CK, LDH: muscle involvement", "KL-6, SP-D: pulmonary fibrosis markers"] }
                 ]
             }
@@ -45,7 +45,7 @@ export const connectivitesData = {
             cases: [
                 { title: "ILD with negative ANA (15-20% of cases)", items: ["Test for isolated anti-Ro52", "Repeat ANA in 6 months", "Lung biopsy if diagnosis is uncertain"] },
                 { title: "Overlap syndromes", items: ["Scleromyositis: Anti-PM/Scl + anti-Ku", "Lupus-scleroderma: Anti-U1RNP", "RA-scleroderma: ACPA + anti-Scl70"] },
-                { title: "Rapidly progressive forms", isUrgent: true, items: ["Urgent workup (< 48h):\n- Anti-MDA5 (dermatomyositis)\n- Anti-RNA pol III (scleroderma)\n- Consumed complement (lupus)\n- Ferritin > 1000 (macrophage activation syndrome)"] }
+                { title: "Rapidly progressive forms", isUrgent: true, items: ["Urgent workup (below 48h):\n- Anti-MDA5 (dermatomyositis)\n- Anti-RNA pol III (scleroderma)\n- Consumed complement (lupus)\n- Ferritin above 1000 (macrophage activation syndrome)"] }
             ]
         },
         followUp: {

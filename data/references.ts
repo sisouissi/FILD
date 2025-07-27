@@ -12,6 +12,14 @@ export interface Reference {
 export const references: Reference[] = [
   // 2025
   {
+    id: 'moodley2025',
+    title: 'A Comprehensive Review of Interstitial Lung Abnormalities',
+    authors: 'Moodley Y, Mackintosh JA.',
+    journal: 'Respirology',
+    year: 2025,
+    urls: ['https://onlinelibrary.wiley.com/doi/epdf/10.1111/resp.70026']
+  },
+  {
     id: 'larici2025',
     title: 'ESR Essentials: imaging in fibrotic lung diseases-practice recommendations by the European Society of Thoracic Imaging.',
     authors: 'Larici AR, Biederer J, Cicchetti G, et al.',
@@ -64,13 +72,12 @@ export const references: Reference[] = [
   },
   // 2023
   {
-    id: 'patel2023ila',
+    id: 'patel2023',
     title: 'Interstitial lung abnormalities: do symptoms matter?',
     authors: 'Patel AS.',
     journal: 'ERJ Open Res',
     year: 2023,
-    volume: '9',
-    pages: '00502-2023',
+    volume: '9(5)',
     urls: ['https://publications.ersnet.org/content/erjor/9/5/00502-2023']
   },
   {
@@ -171,9 +178,9 @@ export const references: Reference[] = [
   },
   // 2021
   {
-    id: 'chae2021ila',
+    id: 'chae2021',
     title: 'Interstitial Lung Abnormalities: What Radiologists Should Know',
-    authors: 'Chae KJ, Jin GY, Goo JM, Chung MJ.',
+    authors: 'Chae KJ, Jin GY, Goo JM, et al.',
     journal: 'Korean J Radiol',
     year: 2021,
     volume: '22(3)',
@@ -251,16 +258,6 @@ export const references: Reference[] = [
     urls: ['https://publications.ersnet.org/content/errev/30/162/210177']
   },
   // 2020
-  {
-    id: 'walsh2020ila',
-    title: 'Interstitial lung abnormalities: An update for the clinician',
-    authors: 'Walsh SLF, Devaraj A, Enghelmayer JI, et al.',
-    journal: 'Respirology',
-    year: 2020,
-    volume: '25',
-    pages: '698-706',
-    urls: ['https://onlinelibrary.wiley.com/doi/10.1111/resp.13700']
-  },
   {
     id: 'fukihara2020',
     title: 'Probable usual interstitial pneumonia pattern on chest CT: is it sufficient for a diagnosis of idiopathic pulmonary fibrosis?',

@@ -107,12 +107,3 @@ export interface DiseasePathway {
 }
 
 export type TherapeuticAlgorithmData = DiseasePathway[];
-
-// Types for ILA Algorithm Tool
-export interface ILAAlgorithmAnswers {
-    context: 'symptoms' | 'lcs' | 'incidental' | '';
-    patientInfo: string[];
-    extent: '>10' | '<=10' | '';
-    fibrotic: 'yes' | 'no' | '';
-    distribution: 'basal_peripheral' | 'other' | '';
-}

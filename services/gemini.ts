@@ -1,208 +1,212 @@
-
-import { GoogleGenAI } from "@google/genai";
 import type { PatientData } from '../components/AcrGuidelineTool/types';
 import { connectiviteTypes, riskFactors, symptoms } from '../components/AcrGuidelineTool/constants';
-import { TREATMENT_DATA, SARD_LABELS } from '../data/acr_treatment_data';
-import type { ILAAlgorithmAnswers } from '../types';
+import { SARD_LABELS } from '../data/acr_treatment_data';
+import type { ILAAlgorithmAnswers } from '../components/ILAAlgorithmTool';
 
-// --- API for Screening Tool (Mocked) ---
-export const generateScreeningSummary = async (patientData: PatientData, riskLevel: string): Promise<string> => {
-    // Simuler un délai d'API pour l'expérience utilisateur
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    const connectiviteLabel = connectiviteTypes.find(c => c.value === patientData.connectiviteType)?.label || 'Non spécifiée';
-    const riskFactorsList = patientData.riskFactors.length > 0 ? 
-        patientData.riskFactors.map(rf => riskFactors.find(r => r.value === rf)?.label).filter(Boolean).join(', ') : 
-        'aucun';
-    const symptomsList = patientData.currentSymptoms.length > 0 ? 
-        patientData.currentSymptoms.map(s => symptoms.find(sym => sym.value === s)?.label).filter(Boolean).join(', ') : 
-        'aucun';
-
-    let summary = "**Synthèse Clinique**\n\n";
-    
-    // Profil du patient
-    summary += "**Profil du Patient**\n\n";
-    if (patientData.hasPID) {
-        summary += `Patient avec pneumopathie interstitielle diffuse confirmée dans le contexte d'une ${connectiviteLabel}. `;
-        if (patientData.currentSymptoms.length > 0) {
-            summary += `Symptômes actuels : ${symptomsList}. `;
-        }
-    } else {
-        summary += `Patient avec ${connectiviteLabel} présentant un risque **${riskLevel}** de développer une PID. `;
-        if (patientData.riskFactors.length > 0) {
-            summary += `Facteurs de risque identifiés : ${riskFactorsList}. `;
-        }
-        if (patientData.currentSymptoms.length > 0) {
-            summary += `Symptômes évocateurs : ${symptomsList}. `;
-        }
+/**
+ * A helper function that wraps the native fetch API to provide automatic retries.
+ * @param url The URL to fetch.
+ * @param options The request options, including an AbortSignal.
+ * @param retries The number of times to retry on failure.
+ * @returns A Promise that resolves to the Response.
+ */
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  retries = 2
+): Promise<Response> {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      if (options.signal?.aborted) {
+        throw new DOMException('The user aborted a request.', 'AbortError');
+      }
+      return await fetch(url, options);
+    } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') {
+        throw err; // Re-throw AbortError immediately to stop retries
+      }
+      if (i === retries) {
+        console.error(`Fetch failed after ${retries} retries:`, err);
+        throw err; // Throw the final error after all retries are exhausted
+      }
+      // Wait before retrying
+      await new Promise(res => setTimeout(res, 1000 * (i + 1)));
     }
-    summary += "\n";
-
-    // Recommandations
-    summary += "**Recommandations Prioritaires (ACR 2023)**\n\n";
-    
-    if (patientData.hasPID) {
-        // Suivi d'une PID confirmée
-        if (patientData.connectiviteType === 'IIM' || patientData.connectiviteType === 'SSc') {
-            summary += "• EFR de suivi tous les **3-6 mois** la première année\n";
-        } else {
-            summary += "• EFR de suivi tous les **3-12 mois** la première année\n";
-        }
-        summary += "• TDM-HR de suivi selon indication clinique\n";
-        summary += "• Test de désaturation ambulatoire tous les 3-12 mois\n";
-        summary += "• Suivi multidisciplinaire pneumo-rhumatologique\n";
-    } else {
-        // Dépistage
-        if (riskLevel === 'élevé') {
-            summary += "• **EFR + TDM-HR combinés** (approche recommandée)\n";
-            summary += "• Réévaluation tous les **3-6 mois**\n";
-        } else if (riskLevel === 'modéré') {
-            summary += "• **EFR de dépistage** (recommandé conditionnellement)\n";
-            summary += "• TDM-HR si EFR anormales\n";
-            summary += "• Réévaluation tous les **6-12 mois**\n";
-        } else {
-            summary += "• Surveillance clinique de routine\n";
-            summary += "• EFR si symptômes respiratoires\n";
-        }
-    }
-
-    // Surveillance
-    summary += "\n**Surveillance et Suivi**\n\n";
-    summary += "• Approche multidisciplinaire pneumo-rhumatologique\n";
-    summary += "• Éducation sur les signes d'alarme (dyspnée, toux persistante)\n";
-    
-    if (patientData.hasPID) {
-        summary += "• Surveillance progression : baisse CVF ≥10% = signe majeur\n";
-    }
-
-    // Points d'attention spécifiques
-    if (patientData.connectiviteType === 'SSc') {
-        summary += "\n**⚠️ Attention Particulière**\n\n";
-        summary += "• Sclérodermie : risque élevé de PID précoce et progressive\n";
-        summary += "• Rechercher anticorps anti-Scl70 si non fait\n";
-    } else if (patientData.connectiviteType === 'IIM') {
-        summary += "\n**⚠️ Attention Particulière**\n\n";
-        summary += "• Myopathie inflammatoire : PID peut précéder l'atteinte musculaire\n";
-        summary += "• Vigilance pour formes rapidement progressives\n";
-    }
-
-    return summary;
-};
+  }
+  // This line should be unreachable
+  throw new Error("Fetch with retry failed unexpectedly.");
+}
 
 
-// --- API for Treatment Tool (Mocked) ---
-export const generateTreatmentSummary = async (sard: string, context: string): Promise<string> => {
-     await new Promise(resolve => setTimeout(resolve, 1500));
-
-    const contextLabels: Record<string, string> = {
-        firstLine: "Traitement de première ligne",
-        progression: "Progression de la PID sous traitement",
-        'rp-ild': "PID Rapidement Progressive (RP-ILD)"
-    };
-    
-    const recommendations = TREATMENT_DATA[context as keyof typeof TREATMENT_DATA][sard as keyof typeof TREATMENT_DATA['firstLine']];
-    
-    let summary = `**Synthèse Thérapeutique pour ${SARD_LABELS[sard] || sard}**\n\n`;
-    summary += `**Contexte :** ${contextLabels[context] || context}\n\n`;
-    
-    if (recommendations.recommended) {
-        summary += `**Recommandé :**\n• ${recommendations.recommended}\n\n`;
-    }
-    if (recommendations.options) {
-        summary += `**Options Conditionnelles :**\n${recommendations.options.map(o => `• ${o}`).join('\n')}\n\n`;
-    }
-    if (recommendations.against) {
-        summary += `**Déconseillé Conditionnellement :**\n${recommendations.against.map(o => `• ${o}`).join('\n')}\n\n`;
-    }
-    if (recommendations.strong_against) {
-        summary += `**Fortement Déconseillé :**\n• ${recommendations.strong_against}\n\n`;
-    }
-    if (recommendations.note) {
-        summary += `**Note importante :**\n${recommendations.note}\n`;
-    }
-    return summary;
-};
-
-// --- API for ILA Decision Tool (Real Gemini Call) ---
-export const generateILAmanagementSummary = async (
-  answers: ILAAlgorithmAnswers,
-  recommendationTitle: string,
-  onChunk: (chunk: string) => void,
-  onDone: () => void,
-  onError: (error: Error) => void,
-  signal: AbortSignal
-) => {
+/**
+ * A generic function to call the backend AI generation service and handle a streaming response.
+ * @param prompt The main prompt for the AI.
+ * @param systemInstruction The system instruction to guide the AI's behavior.
+ * @param onStreamUpdate Callback function to handle incoming text chunks.
+ * @param onStreamEnd Callback function to signal the end of the stream.
+ * @param onStreamError Callback function to handle any errors.
+ * @param signal AbortSignal to allow for request cancellation.
+ */
+async function generateAITextStream(
+  prompt: string,
+  systemInstruction: string,
+  onStreamUpdate: (chunk: string) => void,
+  onStreamEnd: () => void,
+  onStreamError: (error: Error) => void,
+  signal?: AbortSignal
+): Promise<void> {
   try {
-    const apiKey = process.env.API_KEY;
-
-    if (!apiKey) {
-        throw new Error("Le service AI n'est pas disponible: La variable d'environnement API_KEY doit être configurée.");
-    }
-    const ai = new GoogleGenAI({ apiKey });
-
-    const contextMap = {
-      symptoms: 'Évaluation pour des symptômes respiratoires',
-      lcs: 'Programme de dépistage du cancer du poumon',
-      incidental: 'Découverte fortuite sur un scanner non dédié',
-      '': 'Non spécifié'
-    };
-    
-    const patientInfoMap = {
-        'history': 'Antécédents médicaux significatifs (ex: Cancer, Radiothérapie thoracique)',
-        'symptoms': 'Présence de symptômes respiratoires (Dyspnée, Toux)',
-        'sard': 'Signes de maladie rhumatismale auto-immune systémique (SARD)',
-        'family': 'Antécédents familiaux de fibrose pulmonaire',
-    };
-
-    const patientInfoText = answers.patientInfo.length > 0 ? answers.patientInfo.map(pi => patientInfoMap[pi as keyof typeof patientInfoMap]).join(', ') : 'Aucun';
-
-    const prompt = `
-Génère un plan de prise en charge clinique concis et bien structuré pour un patient présentant des Anomalies Pulmonaires Interstitielles (ILA), basé sur les recommandations de la Fleischner Society et d'autres directives pertinentes. La sortie doit être en français et utiliser le format Markdown pour la mise en forme (texte en gras avec **).
-
-**Données du patient :**
-- **Contexte du scanner :** ${contextMap[answers.context]}
-- **Antécédents pertinents du patient :** ${patientInfoText}
-- **Étendue des ILA :** ${answers.extent === '>10' ? '>10% de n\'importe quelle zone pulmonaire' : '<=10% de n\'importe quelle zone pulmonaire'}
-- **Caractéristiques fibrosantes :** ${answers.fibrotic === 'yes' ? 'Présentes' : 'Absentes'}
-- **Distribution (si non-fibrosante) :** ${answers.fibrotic === 'no' ? (answers.distribution === 'basal_peripheral' ? 'Prédominance basale et périphérique' : 'Autre') : 'N/A'}
-
-**Recommandation basée sur l'algorithme :** ${recommendationTitle}
-
-**Instructions :**
-1.  **Résumé :** Commence par un bref résumé du profil de risque du patient en fonction des données fournies.
-2.  **Rationnel :** Explique brièvement le rationnel derrière la recommandation "${recommendationTitle}", en le reliant aux caractéristiques spécifiques des ILA (fibrosante, étendue, distribution).
-3.  **Plan de prise en charge :** Fournis des étapes claires et réalisables. Cela devrait inclure :
-    -   Orientations (ex: vers la pneumologie, réunion de concertation pluridisciplinaire).
-    -   Imagerie de suivi recommandée (ex: type de scanner, calendrier).
-    -   Tests fonctionnels recommandés (ex: EFR, Test de Marche de 6 minutes).
-    -   Conseils de prise en charge générale (ex: sevrage tabagique, éducation du patient).
-4.  **Ton :** Professionnel, clinique et directif.
-
-La réponse doit être structurée et facile à lire pour un clinicien.
-`;
-    
-    const responseStream = await ai.models.generateContentStream({
-        model: "gemini-2.5-flash",
-        contents: prompt,
+    const response = await fetchWithRetry('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, systemInstruction }),
+      signal,
     });
 
-    if (signal.aborted) {
-        onDone();
-        return;
-    };
-    
-    for await (const chunk of responseStream) {
-        if (signal.aborted) {
-            onDone();
-            return;
-        }
-        onChunk(chunk.text);
+    if (!response.ok || !response.body) {
+      const errorData = await response.json().catch(() => ({ error: `Request failed with status ${response.status}` }));
+      throw new Error(errorData.error || `Request failed with status ${response.status}`);
     }
-    
-    onDone();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+       if (signal?.aborted) {
+          reader.cancel();
+          throw new DOMException('The user aborted a request.', 'AbortError');
+      }
+      const { done, value } = await reader.read();
+      if (done) {
+        break;
+      }
+      onStreamUpdate(decoder.decode(value, { stream: true }));
+    }
+
+    onStreamEnd();
 
   } catch (error) {
-    console.error("Error generating ILA management summary:", error);
-    onError(error as Error);
+    if (error instanceof Error && error.name === 'AbortError') {
+      console.log("Stream fetch aborted by client.");
+      return;
+    }
+    console.error("Error fetching from streaming /api/generate:", error);
+    const err = error instanceof Error
+      ? new Error(`AI Service is not available: ${error.message}`)
+      : new Error("An unknown error occurred while contacting the AI service.");
+    onStreamError(err);
   }
+}
+
+// --- API for Screening Tool ---
+export const generateScreeningSummary = async (
+    patientData: PatientData,
+    riskLevel: string,
+    onStreamUpdate: (chunk: string) => void,
+    onStreamEnd: () => void,
+    onStreamError: (error: Error) => void,
+    signal?: AbortSignal
+): Promise<void> => {
+    const connectiviteLabel = connectiviteTypes.find(c => c.value === patientData.connectiviteType)?.label || 'Unspecified';
+    const riskFactorsList = patientData.riskFactors.length > 0 ?
+        patientData.riskFactors.map(rf => riskFactors.find(r => r.value === rf)?.label).filter(Boolean).join(', ') :
+        'none';
+    const symptomsList = patientData.currentSymptoms.length > 0 ?
+        patientData.currentSymptoms.map(s => symptoms.find(sym => sym.value === s)?.label).filter(Boolean).join(', ') :
+        'none';
+
+    const systemInstruction = "You are an expert assistant in pulmonology and rheumatology, specializing in the interpretation of clinical guidelines. You write clear and structured summaries for physicians.";
+
+    const prompt = `Generate a concise clinical summary and recommendations based on the ACR 2023 guidelines for a patient with the following characteristics. Use markdown format with bold titles (**Title**). The response must be exclusively in English.
+
+**Patient Profile:**
+- **Connective Tissue Disease:** ${connectiviteLabel}
+- **ILD Already Diagnosed:** ${patientData.hasPID ? 'Yes' : 'No'}
+- **Identified ILD Risk Factors:** ${riskFactorsList}
+- **Presenting ILD Symptoms:** ${symptomsList}
+- **Estimated ILD Risk Level (for screening):** ${riskLevel}
+
+**Task:**
+1.  Write a **Clinical Summary** of the patient's profile.
+2.  Based on whether ILD is already diagnosed or not, provide **Priority Recommendations** for either monitoring or screening.
+3.  Add a section for **Monitoring and Follow-up**.
+4.  If applicable, add a **Special Attention** section for high-risk connective tissue diseases like SSc or IIM.`;
+
+    await generateAITextStream(prompt, systemInstruction, onStreamUpdate, onStreamEnd, onStreamError, signal);
+};
+
+
+// --- API for Treatment Tool ---
+export const generateTreatmentSummary = async (
+    sard: string,
+    context: string,
+    onStreamUpdate: (chunk: string) => void,
+    onStreamEnd: () => void,
+    onStreamError: (error: Error) => void,
+    signal?: AbortSignal
+): Promise<void> => {
+    const contextLabels: Record<string, string> = {
+        firstLine: "First-line treatment",
+        progression: "ILD progression on treatment",
+        'rp-ild': "Rapidly Progressive ILD (RP-ILD)"
+    };
+
+    const systemInstruction = "You are an expert assistant in pulmonology and rheumatology, specializing in the interpretation of clinical guidelines. You write clear and structured therapeutic summaries for physicians based on the ACR 2023 guidelines.";
+
+    const prompt = `Generate a concise therapeutic summary based on the ACR 2023 guidelines for a patient with the following profile. Use markdown format with bold titles (**Title**). The response must be exclusively in English.
+
+**Patient Profile:**
+- **Connective Tissue Disease:** ${SARD_LABELS[sard as keyof typeof SARD_LABELS] || sard}
+- **Clinical Context:** ${contextLabels[context] || context}
+
+**Task:**
+1.  Summarize the recommended therapeutic approach for this specific context.
+2.  Clearly list the **Recommended**, **Conditional Options**, **Conditionally Not Recommended**, and **Strongly Not Recommended** treatments.
+3.  Include any important notes or precautions mentioned in the guidelines for this specific scenario.`;
+
+    await generateAITextStream(prompt, systemInstruction, onStreamUpdate, onStreamEnd, onStreamError, signal);
+};
+
+// --- API for ILA Tool ---
+export const generateILAmanagementSummary = async (
+    answers: ILAAlgorithmAnswers,
+    finalRecommendation: string,
+    onStreamUpdate: (chunk: string) => void,
+    onStreamEnd: () => void,
+    onStreamError: (error: Error) => void,
+    signal?: AbortSignal
+): Promise<void> => {
+    const contextLabels: Record<string, string> = {
+        symptoms: 'Evaluation for respiratory symptoms',
+        lcs: 'Lung Cancer Screening program',
+        incidental: 'Incidental finding on non-dedicated CT',
+    };
+
+    const patientInfoLabels: Record<string, string> = {
+        history: 'Significant medical history',
+        symptoms: 'Presence of respiratory symptoms',
+        sard: 'Features of Systemic Autoimmune Rheumatic Disease (SARD)',
+        family: 'Family history of pulmonary fibrosis',
+    };
+
+    const answerContext = contextLabels[answers.context] || 'Not specified';
+    const patientContext = answers.patientInfo.length > 0
+        ? answers.patientInfo.map(pi => patientInfoLabels[pi] || pi).join(', ')
+        : 'None specified';
+
+    const systemInstruction = "You are an expert assistant in pulmonology, specializing in Interstitial Lung Diseases. You provide clear, evidence-based summaries and management plans for physicians based on the Fleischner Society and other relevant guidelines for ILA.";
+
+    const prompt = `Generate a concise clinical summary and management plan for a patient with Interstitial Lung Abnormalities (ILA) based on the following algorithm results. Use markdown format with bold titles (**Title**). The response must be exclusively in English.
+
+**Patient Profile from ILA Algorithm:**
+- **Context of Discovery:** ${answerContext}
+- **Additional Clinical Context:** ${patientContext}
+- **Final Recommendation from Algorithm:** ${finalRecommendation}
+
+**Task:**
+1.  Write a **Clinical Summary** of the patient's ILA profile and risk stratification based on the provided context and final recommendation.
+2.  Provide a detailed **Management Plan** based on the final recommendation. Elaborate on what the recommendation entails (e.g., what "individualised surveillance" involves in terms of specific tests and frequencies; what "discharge to GP" means in terms of instructions for the GP and patient).
+3.  Include a section on **Key Discussion Points** for the multidisciplinary team (MDD) or the pulmonologist, highlighting the most critical aspects to consider for this patient.`;
+
+    await generateAITextStream(prompt, systemInstruction, onStreamUpdate, onStreamEnd, onStreamError, signal);
 };

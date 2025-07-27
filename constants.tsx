@@ -1,65 +1,66 @@
 
+
 import React from 'react';
 import { Home, Lungs, Search, Stethoscope, ListChecks, Pill, TrendingUp, Image, Activity, FlaskConical, Microscope, ClipboardCheck, AlertTriangle, FileMedical, ClipboardList, BrainCircuit, Wind, ClipboardPlus } from './components/icons';
 import { MenuItem } from './types';
 
 export const MENU_ITEMS: MenuItem[] = [
-  { id: 'welcome', title: 'Accueil', icon: Home },
-  { id: 'definition', title: 'Définitions, pathogénie et Classification', icon: Lungs },
+  { id: 'welcome', title: 'Home', icon: Home },
+  { id: 'definition', title: 'Definitions, Pathogenesis, and Classification', icon: Lungs },
   { 
     id: 'diagnostic-clinique', 
-    title: 'Algorithmes Diagnostiques Interactifs', 
+    title: 'Interactive Diagnostic Algorithms', 
     icon: Search
   },
   { 
     id: 'fpi', 
-    title: 'Fibrose Pulmonaire Idiopathique (FPI)', 
+    title: 'Idiopathic Pulmonary Fibrosis (IPF)', 
     icon: Stethoscope,
     subItems: [
-      { id: 'fpi-pathogenie-clinique', title: 'Pathogénie et manifestations cliniques', icon: Lungs },
-      { id: 'diagnostic-fonctionnel', title: 'Evaluation initiale', icon: Activity },
-      { id: 'diagnostic-tdm-algorithme', title: 'Algorithme TDM & Biopsie', icon: ClipboardCheck },
-      { id: 'diagnostic-biopsie', title: 'Biopsie Pulmonaire', icon: Microscope },
-      { id: 'fpi-traitement', title: 'Traitement', icon: Pill },
-      { id: 'fpi-exacerbation-aigue', title: 'Exacerbation aiguë de la FPI', icon: AlertTriangle },
-      { id: 'fpi-suivi-pronostic', title: 'Pronostic et suivi', icon: TrendingUp },
+      { id: 'fpi-pathogenie-clinique', title: 'Pathogenesis and Clinical Manifestations', icon: Lungs },
+      { id: 'diagnostic-fonctionnel', title: 'Initial Evaluation', icon: Activity },
+      { id: 'diagnostic-tdm-algorithme', title: 'HRCT & Biopsy Algorithm', icon: ClipboardCheck },
+      { id: 'diagnostic-biopsie', title: 'Lung Biopsy', icon: Microscope },
+      { id: 'fpi-traitement', title: 'Treatment', icon: Pill },
+      { id: 'fpi-exacerbation-aigue', title: 'Acute Exacerbation of IPF', icon: AlertTriangle },
+      { id: 'fpi-suivi-pronostic', title: 'Prognosis and Follow-up', icon: TrendingUp },
     ]
   },
   { 
     id: 'pid-connectivites', 
-    title: 'PID associées aux connectivites', 
+    title: 'Connective Tissue Disease-Associated ILD', 
     icon: FileMedical 
   },
   {
     id: 'fpp',
-    title: 'Fibroses pulmonaires progressives (FPP)',
+    title: 'Progressive Pulmonary Fibrosis (PPF)',
     icon: TrendingUp
   },
     {
     id: 'ipaf',
-    title: 'PID avec manifestations auto-immunes (IPAF)',
+    title: 'Interstitial Pneumonia with Autoimmune Features (IPAF)',
     icon: BrainCircuit
   },
   {
     id: 'pins-fibrosantes',
-    title: 'Pneumopathies interstitielles non spécifiques (PINS)',
+    title: 'Nonspecific Interstitial Pneumonia (NSIP)',
     icon: ClipboardList
   },
   {
     id: 'phs',
-    title: "Pneumopathies d'hypersensibilité (PHS)",
+    title: "Hypersensitivity Pneumonitis (HP)",
     icon: Wind
   },
-  {
-    id: 'ila',
-    title: 'Anomalies Pulmonaires Interstitielles (ILA)',
-    icon: ClipboardPlus
+  { 
+    id: 'ila', 
+    title: 'Interstitial Lung Abnormalities (ILA)', 
+    icon: ClipboardPlus 
   },
   { 
     id: 'autres-pid', 
-    title: 'Autres PID Fibrosantes', 
+    title: 'Other Fibrosing ILDs', 
     icon: ListChecks
   },
-  { id: 'therapeutique', title: 'Prise en Charge Thérapeutique', icon: Pill },
-  { id: 'suivi-pronostic', title: 'Suivi, Pronostic et Complications', icon: TrendingUp },
+  { id: 'therapeutique', title: 'Therapeutic Management', icon: Pill },
+  { id: 'suivi-pronostic', title: 'Follow-up, Prognosis, and Complications', icon: TrendingUp },
 ];

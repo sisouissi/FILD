@@ -33,16 +33,16 @@ export const PatientInfoForm: React.FC<PatientInfoFormProps> = ({ patientData, s
     return (
         <form onSubmit={(e) => { e.preventDefault(); if (isFormComplete) onSubmit(); }} className="space-y-8 animate-fade-in-fast">
             
-            <Card title="Patient Status">
+            <Card title="Statut du Patient">
                 <Switch
                     id="hasPID"
-                    label="Does the patient already have a diagnosis of ILD?"
+                    label="Le patient a-t-il déjà un diagnostic de PID ?"
                     checked={patientData.hasPID}
                     onChange={handleHasPIDChange}
                 />
             </Card>
 
-            <Card title="1. Type of Connective Tissue Disease" variant="highlight">
+            <Card title="1. Type de connectivite" variant="highlight">
                  <select
                     id="connectiviteType"
                     value={patientData.connectiviteType}
@@ -50,12 +50,12 @@ export const PatientInfoForm: React.FC<PatientInfoFormProps> = ({ patientData, s
                     required
                     className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm"
                 >
-                    <option value="" disabled>Select a type...</option>
+                    <option value="" disabled>Sélectionner un type...</option>
                     {connectiviteTypes.map(ct => <option key={ct.value} value={ct.value}>{ct.label}</option>)}
                 </select>
             </Card>
 
-            <Card title="2. ILD Risk Factors">
+            <Card title="2. Facteurs de risque de PID">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {riskFactors.map(factor => (
                         <CheckboxCard
@@ -69,7 +69,7 @@ export const PatientInfoForm: React.FC<PatientInfoFormProps> = ({ patientData, s
                 </div>
             </Card>
 
-            <Card title="3. ILD Symptoms/Signs">
+            <Card title="3. Symptômes/Signes de PID">
                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {symptoms.map(symptom => (
                         <CheckboxCard
@@ -89,7 +89,7 @@ export const PatientInfoForm: React.FC<PatientInfoFormProps> = ({ patientData, s
                     disabled={!isFormComplete}
                     className="inline-flex justify-center py-3 px-8 border border-transparent shadow-md text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
                 >
-                    Generate Recommendations
+                    Générer les Recommandations
                 </button>
             </div>
         </form>

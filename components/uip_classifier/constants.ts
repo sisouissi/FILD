@@ -3,69 +3,69 @@ import { UIPClassifierSection } from '../../types';
 export const SECTIONS: UIPClassifierSection[] = [
   {
     id: 1,
-    title: "Presence of Honeycombing",
+    title: "Présence de Rayons de Miel (Honeycombing)",
     questions: [
       {
         id: 1,
         name: 'honeycombing',
-        text: 'Is honeycombing present?',
+        text: 'Y a-t-il des rayons de miel (honeycombing) ?',
         options: [
-          { label: 'Yes', value: 'yes', helper: 'Presence of clustered, subpleural cystic airspaces, typically of similar size (3-10mm).' },
-          { label: 'No', value: 'no' },
+          { label: 'Oui', value: 'yes', helper: 'Présence de kystes aériques sous-pleuraux, en couches, de taille similaire (3-10mm).' },
+          { label: 'Non', value: 'no' },
         ],
       },
     ],
   },
   {
     id: 2,
-    title: "Characteristics of Reticulation and Bronchiectasis",
+    title: "Caractéristiques des Réticulations et Bronchectasies",
     questions: [
         {
             id: 2,
             name: 'reticulation',
-            text: 'What is the predominant sign in the absence of honeycombing?',
+            text: 'Quel est le signe prédominant en l\'absence de rayons de miel ?',
             options: [
-              { label: 'Reticulation', value: 'reticulation', helper: 'Fine interlacing linear opacities.' },
-              { label: 'Other signs', value: 'other', helper: 'Ground-glass opacity, consolidation, nodules...' },
+              { label: 'Réticulations', value: 'reticulation', helper: 'Fines opacités linéaires entrecroisées.' },
+              { label: 'Autres signes', value: 'other', helper: 'Verre dépoli, consolidation, nodules...' },
             ],
         },
         {
             id: 3,
             name: 'traction_bronchiectasis',
-            text: 'Is traction bronchiectasis or bronchiolectasis present?',
+            text: 'Y a-t-il des bronchectasies ou bronchiolectasies de traction ?',
             options: [
-              { label: 'Yes', value: 'yes', helper: 'Irregular bronchial or bronchiolar dilation due to retractile fibrosis.' },
-              { label: 'No', value: 'no' },
+              { label: 'Oui', value: 'yes', helper: 'Dilatation bronchique ou bronchiolaire irrégulière due à la fibrose rétractile.' },
+              { label: 'Non', value: 'no' },
             ],
         },
     ]
   },
   {
     id: 3,
-    title: "Distribution of Lesions",
+    title: "Distribution des Lésions",
     questions: [
       {
         id: 4,
         name: 'distribution',
-        text: 'What is the distribution of the fibrotic abnormalities?',
+        text: 'Quelle est la distribution des anomalies fibrosantes ?',
         options: [
-          { label: 'Typical (subpleural and basal predominant)', value: 'typical' },
-          { label: 'Atypical (peribronchovascular, upper lobe, diffuse)', value: 'atypical' },
+          { label: 'Typique (sous-pleurale et basale)', value: 'typical' },
+          { label: 'Atypique (péri-bronchovasculaire, supérieure, diffuse)', value: 'atypical' },
         ],
       },
     ],
   },
     {
     id: 4,
-    title: "Signs Suggesting an Alternative Diagnosis",
+    title: "Signes en Faveur d'un Diagnostic Alternatif",
     questions: [
       {
         id: 5,
         name: 'alternative_signs',
-        text: 'Are there signs strongly suggesting an alternative diagnosis?',
+        text: 'Existe-t-il des signes fortement en faveur d\'un autre diagnostic ?',
         options: [
-          { label: 'Yes', value: 'yes', helper: 'Predominant ground-glass opacity, multiple cysts, nodules, multi-lobar air trapping...' },
-          { label: 'No', value: 'no' },
+          { label: 'Oui', value: 'yes', helper: 'Verre dépoli prédominant, kystes multiples, nodules, piégeage aérique multi-lobaire...' },
+          { label: 'Non', value: 'no' },
         ],
       },
     ],

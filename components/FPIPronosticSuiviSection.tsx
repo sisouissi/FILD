@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { TrendingUp, Stethoscope, Activity, Image, Heart, Info, AlertTriangle, CheckCircle, Clock } from './icons';
 import { Accordion } from './Accordion';
@@ -22,16 +21,16 @@ export const FPIPronosticSuiviSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <TrendingUp className="w-7 h-7 mr-3 text-blue-500" />
-        IPF Prognosis and Follow-up
+        Pronostic et Suivi de la FPI
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        Understanding the disease trajectory to optimize management and anticipate complications.
+        Comprendre la trajectoire de la maladie pour optimiser la prise en charge et anticiper les complications.
       </p>
     </div>
 
      <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
         <p className="text-slate-700 mb-4 text-base">
-            The course of IPF is heterogeneous and often unpredictable. While median survival is an important indicator, the individual trajectory varies considerably. Regular and structured follow-up is therefore fundamental to assess disease progression, adapt the therapeutic strategy, and discuss future options with the patient.
+            L'évolution de la FPI est hétérogène et souvent imprévisible. Si la médiane de survie est un indicateur important, la trajectoire individuelle varie considérablement. Un suivi régulier et structuré est donc fondamental pour évaluer la progression de la maladie, adapter la stratégie thérapeutique et discuter des options futures avec le patient.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-r-sm">
             <div className="flex">
@@ -39,12 +38,12 @@ export const FPIPronosticSuiviSection: React.FC = () => (
                 <Info className="h-5 w-5 text-blue-400" aria-hidden="true" />
               </div>
               <div className="ml-3">
-                <h3 className="text-base font-medium text-blue-800">Key Principles</h3>
+                <h3 className="text-base font-medium text-blue-800">Principes Clés</h3>
                 <div className="mt-2 text-base text-blue-700">
                   <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Heterogeneity:</strong> Progression can be slow, rapid, or punctuated by exacerbations.</li>
-                    <li><strong>Dynamic prognosis:</strong> Prognosis should be regularly reassessed based on clinical and functional evolution.</li>
-                    <li><strong>Anticipation:</strong> Follow-up helps anticipate the need for oxygen, discussions about transplantation, and palliative care.</li>
+                    <li><strong>Hétérogénéité :</strong> La progression peut être lente, rapide ou ponctuée d'exacerbations.</li>
+                    <li><strong>Pronostic dynamique :</strong> Le pronostic doit être réévalué régulièrement en fonction de l'évolution clinique et fonctionnelle.</li>
+                    <li><strong>Anticipation :</strong> Le suivi permet d'anticiper les besoins en oxygène, la discussion sur la transplantation et les soins palliatifs.</li>
                   </ul>
                 </div>
               </div>
@@ -53,85 +52,85 @@ export const FPIPronosticSuiviSection: React.FC = () => (
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Prognosis and Predictive Factors" icon={<Clock className="w-5 h-5 text-white" />}>
+        <Accordion title="Pronostic et Facteurs Prédictifs" icon={<Clock className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <h4 className="font-semibold text-blue-800 mb-2">Survival and Trajectory Heterogeneity</h4>
-                    <p className="text-base text-slate-700">The median survival after diagnosis is historically <strong>3 to 5 years</strong>. However, this statistic masks great variability: up to <strong>20-25% of patients</strong> may survive beyond 10 years. The clinical course is unpredictable.</p>
+                    <h4 className="font-semibold text-blue-800 mb-2">Survie et Hétérogénéité du Parcours</h4>
+                    <p className="text-base text-slate-700">La survie médiane après le diagnostic est historiquement de <strong>3 à 5 ans</strong>. Cependant, cette statistique masque une grande variabilité : jusqu'à <strong>20-25% des patients</strong> peuvent survivre au-delà de 10 ans. Le parcours clinique est imprévisible.</p>
                 </div>
                 <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
-                    <h4 className="font-semibold text-indigo-800 mb-2">The GAP Score: An Essential Prognostic Tool</h4>
-                    <p className="text-base text-slate-700 mb-2">The GAP model (<strong>G</strong>ender, <strong>A</strong>ge, <strong>P</strong>hysiology) is a simple and validated index to predict mortality at 1, 2, and 3 years. It combines:</p>
+                    <h4 className="font-semibold text-indigo-800 mb-2">Le Score GAP : Un Outil Pronostique Essentiel</h4>
+                    <p className="text-base text-slate-700 mb-2">Le modèle GAP (<strong>G</strong>ender, <strong>A</strong>ge, <strong>P</strong>hysiology) est un index simple et validé pour prédire la mortalité à 1, 2 et 3 ans. Il combine :</p>
                     <ul className="list-disc list-inside space-y-1 text-base text-slate-700 pl-4">
-                        <li><strong>Gender</strong></li>
-                        <li><strong>Age</strong></li>
-                        <li><strong>Physiology:</strong> FVC (% predicted) and DLCO (% predicted)</li>
+                        <li><strong>Sexe (Gender)</strong></li>
+                        <li><strong>Âge (Age)</strong></li>
+                        <li><strong>Physiologie :</strong> CVF (% prédite) et DLCO (% prédite)</li>
                     </ul>
-                     <p className="text-base text-slate-700 mt-2">The total score classifies patients into three severity stages (I, II, III) with increasing mortality risks. It is a key tool for initial prognostic discussion and referral for transplantation.</p>
+                     <p className="text-base text-slate-700 mt-2">Le score total classe les patients en trois stades de sévérité (I, II, III) avec des risques de mortalité croissants. C'est un outil clé pour la discussion pronostique initiale et l'orientation vers la transplantation.</p>
                 </div>
                 <div className="p-4 bg-teal-50 border border-teal-200 rounded-lg">
-                    <h4 className="font-semibold text-teal-800 mb-2">Dynamic Markers: Functional Decline is Key</h4>
-                    <p className="text-base text-slate-700">The <strong>evolutionary trajectory</strong> is a more powerful predictor of survival than baseline values. Signs of rapid progression include:</p>
+                    <h4 className="font-semibold text-teal-800 mb-2">Marqueurs Dynamiques : Le Déclin Fonctionnel est Clé</h4>
+                    <p className="text-base text-slate-700">La <strong>trajectoire évolutive</strong> est un prédicteur de survie plus puissant que les valeurs de base. Les signes de progression rapide incluent :</p>
                      <ul className="list-disc list-inside space-y-1 text-base text-slate-700 pl-4">
-                        <li>Decline in <strong>absolute FVC of 5-10% or more</strong> over 6 to 12 months.</li>
-                        <li>Decline in <strong>absolute DLCO of 15% or more</strong> over 6 to 12 months.</li>
-                        <li>Decrease in <strong>6MWT distance of more than 30 meters</strong> in 6 months.</li>
-                        <li>Worsening hypoxemia or increased oxygen requirements.</li>
-                        <li>Hospitalization for a respiratory cause.</li>
+                        <li>Baisse de la <strong>CVF absolue de ≥ 5-10%</strong> sur 6 à 12 mois.</li>
+                        <li>Baisse de la <strong>DLCO absolue de ≥ 15%</strong> sur 6 à 12 mois.</li>
+                        <li>Diminution de la distance au <strong>TM6 de plus de 30 mètres</strong> en 6 mois.</li>
+                        <li>Aggravation de l'hypoxémie ou augmentation des besoins en oxygène.</li>
+                        <li>Hospitalisation pour cause respiratoire.</li>
                     </ul>
                 </div>
             </div>
         </Accordion>
         
-        <Accordion title="Acute Exacerbations: A Critical Turning Point" icon={<AlertTriangle className="w-5 h-5 text-white" />}>
+        <Accordion title="Exacerbations Aiguës : Un Tournant Critique" icon={<AlertTriangle className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">An acute exacerbation of IPF is an acute and clinically significant respiratory deterioration, not explained by another cause (heart failure, pulmonary embolism...).</p>
+                <p className="text-base">Une exacerbation aiguë de FPI est une détérioration respiratoire aiguë et cliniquement significative, non expliquée par une autre cause (insuffisance cardiaque, embolie pulmonaire...).</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Incidence:</strong> Affects <strong>5 to 10%</strong> of patients per year.</li>
-                    <li><strong>Diagnosis:</strong> Based on a rapid worsening of dyspnea and the appearance of new ground-glass opacities/consolidations on HRCT.</li>
-                    <li><strong>Prognosis:</strong> Extremely severe, with an <strong>in-hospital mortality of over 50%</strong> and a median survival of only <strong>3 to 4 months</strong> after the event.</li>
-                    <li><strong>Impact:</strong> Such an event should trigger an immediate reassessment of the goals of care.</li>
+                    <li><strong>Incidence :</strong> Concerne <strong>5 à 10%</strong> des patients par an.</li>
+                    <li><strong>Diagnostic :</strong> Basé sur une aggravation rapide de la dyspnée et l'apparition de nouvelles opacités en verre dépoli/consolidations au scanner.</li>
+                    <li><strong>Pronostic :</strong> Extrêmement sévère, avec une <strong>mortalité hospitalière de plus de 50%</strong> et une survie médiane de seulement <strong>3 à 4 mois</strong> après l'événement.</li>
+                    <li><strong>Impact :</strong> Un tel événement doit déclencher une réévaluation immédiate des objectifs de soins.</li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Regular Follow-up Strategy" icon={<CheckCircle className="w-5 h-5 text-white" />}>
+        <Accordion title="Stratégie de Suivi Régulier" icon={<CheckCircle className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">Proactive and regular follow-up, <strong>every 3 to 6 months</strong>, is essential for optimal management.</p>
+                <p className="text-slate-700 text-base">Un suivi proactif et régulier, <strong>tous les 3 à 6 mois</strong>, est indispensable pour une prise en charge optimale.</p>
                 <div className="grid md:grid-cols-2 gap-4">
                      <InfoCard 
-                        title="Clinical Evaluation" 
+                        title="Évaluation Clinique" 
                         icon={<Stethoscope className="w-5 h-5 text-blue-500"/>}
                         content={[
-                            "Evolution of <strong>dyspnea</strong> (mMRC scale).",
-                            "Exercise tolerance, daily activities.",
-                            "Frequency and severity of <strong>cough</strong>.",
-                            "Search for signs of comorbidities (edema, etc.)."
+                            "Évolution de la <strong>dyspnée</strong> (échelle mMRC).",
+                            "Tolérance à l'effort, activités quotidiennes.",
+                            "Fréquence et sévérité de la <strong>toux</strong>.",
+                            "Recherche de signes de comorbidités (œdèmes, etc.)."
                         ]}
                      />
                      <InfoCard 
-                        title="Functional Explorations" 
+                        title="Explorations Fonctionnelles" 
                         icon={<Activity className="w-5 h-5 text-green-500"/>}
                         content={[
-                            "<strong>FVC and DLCO</strong>: check for a significant decline.",
-                            "<strong>6-Minute Walk Test (6MWT)</strong>: measure distance and exertional desaturation.",
-                            "<strong>Pulse oximetry</strong>: at rest and during exercise to guide oxygen therapy."
+                            "<strong>CVF et DLCO</strong> : recherche d'un déclin significatif.",
+                            "<strong>Test de Marche de 6 Minutes (TM6)</strong> : mesure de la distance et de la désaturation à l'effort.",
+                            "<strong>Oxymétrie de pouls</strong> : au repos et à l'effort pour guider l'oxygénothérapie."
                         ]}
                      />
                       <InfoCard 
-                        title="Imaging (HRCT)" 
+                        title="Imagerie (TDM-HR)" 
                         icon={<Image className="w-5 h-5 text-purple-500"/>}
                         content={[
-                            "Not routinely, but <strong>every 1 to 2 years</strong> or in case of unexplained worsening.",
-                            "Objectives: assess progression of fibrosis, screen for <strong>lung cancer</strong> (increased risk)."
+                            "Pas en routine, mais <strong>tous les 1 à 2 ans</strong> ou en cas d'aggravation inexpliquée.",
+                            "Objectifs : évaluer la progression de la fibrose, dépister un <strong>cancer du poumon</strong> (risque accru)."
                         ]}
                      />
                       <InfoCard 
-                        title="Comorbidity Management" 
+                        title="Gestion des Comorbidités" 
                         icon={<Heart className="w-5 h-5 text-red-500"/>}
                         content={[
-                           "<strong>Active screening</strong>: GERD, OSA, PAH, cardiovascular diseases.",
-                           "<strong>Echocardiography</strong> is indicated if DLCO is very low or in case of disproportionate dyspnea."
+                           "<strong>Dépistage actif</strong> : RGO, SAOS, HTP, maladies cardiovasculaires.",
+                           "L'<strong>échocardiographie</strong> est indiquée si la DLCO est très basse ou en cas de dyspnée disproportionnée."
                         ]}
                      />
                 </div>

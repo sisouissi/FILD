@@ -3,17 +3,17 @@ import { connectiviteTypes, riskFactors, symptoms } from '../constants';
 
 export const generateClinicalSummary = async (patientData: PatientData, riskLevel: string): Promise<string> => {
     const connectiviteLabel = connectiviteTypes.find(c => c.value === patientData.connectiviteType)?.label || patientData.connectiviteType;
-    const riskFactorsList = patientData.riskFactors.length > 0 ? patientData.riskFactors.map(rf => riskFactors.find(r => r.value === rf)?.label).join(', ') : 'none';
-    const symptomsList = patientData.currentSymptoms.length > 0 ? patientData.currentSymptoms.map(s => symptoms.find(sym => sym.value === s)?.label).join(', ') : 'none';
+    const riskFactorsList = patientData.riskFactors.length > 0 ? patientData.riskFactors.map(rf => riskFactors.find(r => r.value === rf)?.label).join(', ') : 'aucun';
+    const symptomsList = patientData.currentSymptoms.length > 0 ? patientData.currentSymptoms.map(s => symptoms.find(sym => sym.value === s)?.label).join(', ') : 'aucun';
 
-    const prompt = `Generate a concise clinical summary for a patient with the following characteristics:
-- **Connective Tissue Disease:** ${connectiviteLabel}
-- **ILD Risk Factors:** ${riskFactorsList}
-- **Presenting ILD Symptoms:** ${symptomsList}
-- **ILD Already Diagnosed:** ${patientData.hasPID ? 'Yes' : 'No'}
-- **Estimated ILD Risk Level:** ${riskLevel}
+    const prompt = `Génère une synthèse clinique concise pour un patient avec les caractéristiques suivantes :
+- **Connectivite :** ${connectiviteLabel}
+- **Facteurs de risque de PID :** ${riskFactorsList}
+- **Symptômes de PID présents :** ${symptomsList}
+- **PID déjà diagnostiquée :** ${patientData.hasPID ? 'Oui' : 'Non'}
+- **Niveau de risque de PID estimé :** ${riskLevel}
 
-The summary should start with a sentence summarizing the patient's profile. Then, it should provide clear, prioritized recommendations for screening or monitoring, consistent with ACR 2023 guidelines. Use markdown format with bold titles (**Title**). The response must be exclusively in English.`;
+La synthèse doit commencer par une phrase résumant le profil du patient. Ensuite, elle doit émettre des recommandations claires et priorisées pour le dépistage ou le suivi, conformément aux directives ACR 2023. Utilise le format markdown avec des titres en gras (**Titre**). La réponse doit être exclusivement en français.`;
 
     try {
         const response = await fetch('/api/generate', {
@@ -23,13 +23,13 @@ The summary should start with a sentence summarizing the patient's profile. Then
             },
             body: JSON.stringify({
                 prompt: prompt,
-                systemInstruction: "You are an expert assistant in pulmonology and rheumatology, specializing in the interpretation of clinical guidelines. You write clear and structured summaries for physicians.",
+                systemInstruction: "Tu es un assistant expert en pneumologie et rhumatologie, spécialisé dans l'interprétation des directives cliniques. Tu rédiges des synthèses claires et structurées pour les médecins.",
             }),
         });
 
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.error || `HTTP error: ${response.status}`);
+            throw new Error(errorData.error || `Erreur HTTP: ${response.status}`);
         }
 
         const data = await response.json();
@@ -37,6 +37,6 @@ The summary should start with a sentence summarizing the patient's profile. Then
         
     } catch (error) {
         console.error("Error generating summary:", error);
-        throw new Error("Summary generation failed. The API may have encountered a problem.");
+        throw new Error("La génération de la synthèse a échoué. L'API a peut-être rencontré un problème.");
     }
 };

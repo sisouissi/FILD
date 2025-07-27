@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import {
   Activity,
@@ -15,23 +13,23 @@ export const DiagnosticSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <Search className="w-7 h-7 mr-3 text-blue-500" />
-        Diagnosis of Fibrosing ILDs
+        Diagnostic des PID fibrosantes
       </h2>
       <p className="text-slate-600 mt-2">
-        This section provides interactive tools to guide the diagnostic process, from initial evaluation to the integration of complex results.
+        Cette section fournit des outils interactifs pour guider la démarche diagnostique, de l'évaluation initiale à l'intégration des résultats complexes.
       </p>
     </div>
 
     <div className="space-y-4">
        <Accordion 
-          title="Launch the diagnostic orientation algorithm"
+          title="Lancer l'algorithme d'orientation diagnostique"
           icon={<Activity className="w-6 h-6 text-white" />}
         >
           <DiagnosticAlgorithm />
         </Accordion>
 
         <Accordion 
-          title="Launch the algorithm: Detailed diagnostic process"
+          title="Lancer l'algorithme : Démarche diagnostique détaillée"
           icon={<Image className="w-6 h-6 text-white" />}
         >
           <DiagnosticProcessAlgorithm />

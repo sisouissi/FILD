@@ -33,31 +33,31 @@ export const DiagnosticAlgorithm: React.FC = () => {
 
   const steps: Record<string, Step> = {
     initial: {
-      title: "Initial patient assessment",
+      title: "Évaluation initiale du patient",
       icon: <Stethoscope className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-6">
           <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-blue-800 mb-4">Clinical examination and history</h3>
+            <h3 className="text-lg font-semibold text-blue-800 mb-4">Examen clinique et anamnèse</h3>
             <div className="space-y-4 text-slate-700">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-white p-4 rounded-lg border">
-                  <h4 className="font-medium text-slate-800 mb-2">History</h4>
+                  <h4 className="font-medium text-slate-800 mb-2">Anamnèse</h4>
                   <ul className="text-sm space-y-1">
-                    <li>• Symptom onset (acute/subacute/chronic)</li>
-                    <li>• Occupational/environmental exposure</li>
-                    <li>• Smoking history</li>
-                    <li>• History of connective tissue disease</li>
-                    <li>• Family history of IPF</li>
-                    <li>• Prior medications</li>
-                    <li>• Radiation or malignancy</li>
+                    <li>• Début des symptômes (aigu/subaigu/chronique)</li>
+                    <li>• Exposition professionnelle/environnementale</li>
+                    <li>• Tabagisme</li>
+                    <li>• Antécédents de maladie du tissu conjonctif</li>
+                    <li>• Antécédents familiaux de FPI</li>
+                    <li>• Médications antérieures</li>
+                    <li>• Radiations ou malignité</li>
                   </ul>
                 </div>
                 <div className="bg-white p-4 rounded-lg border">
-                  <h4 className="font-medium text-slate-800 mb-2">Clinical signs</h4>
+                  <h4 className="font-medium text-slate-800 mb-2">Signes cliniques</h4>
                   <ul className="text-sm space-y-1">
-                    <li>• Signs of systemic inflammation</li>
-                    <li>• Other extra-pulmonary manifestations</li>
+                    <li>• Signes d'inflammation systémique</li>
+                    <li>• Autres manifestations extrapulmonaires</li>
                   </ul>
                 </div>
               </div>
@@ -65,31 +65,31 @@ export const DiagnosticAlgorithm: React.FC = () => {
           </div>
 
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-green-800 mb-4">Additional tests</h3>
+            <h3 className="text-lg font-semibold text-green-800 mb-4">Examens complémentaires</h3>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Imaging</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Imagerie</h4>
                 <ul className="text-sm space-y-1">
-                  <li>• Chest HRCT (IPF protocol)</li>
-                  <li>• Comparison with previous imaging</li>
+                  <li>• TDM HR thoracique (protocole FPI)</li>
+                  <li>• Comparaison avec imageries antérieures</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">PFTs</h4>
+                <h4 className="font-medium text-slate-800 mb-2">EFR</h4>
                 <ul className="text-sm space-y-1">
-                  <li>• Spirometry, volumes, DLCO</li>
-                  <li>• Exercise test with oximetry</li>
-                  <li>• Comparison with previous PFTs</li>
+                  <li>• Spirométrie, volumes, DLCO</li>
+                  <li>• Test d'effort avec oxymétrie</li>
+                  <li>• Comparaison avec EFR antérieures</li>
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg border">
-                <h4 className="font-medium text-slate-800 mb-2">Labs</h4>
+                <h4 className="font-medium text-slate-800 mb-2">Biologie</h4>
                 <ul className="text-sm space-y-1">
-                  <li>• CBC, metabolic panel</li>
-                  <li>• Liver tests, urea, creatinine</li>
-                  <li>• ANA, rheumatoid factor</li>
-                  <li>• Anti-cyclic citrullinated peptides</li>
-                  <li>• Other appropriate serologies</li>
+                  <li>• CBC, panel métabolique</li>
+                  <li>• Tests hépatiques, urée, créatinine</li>
+                  <li>• ANA, facteur rhumatoïde</li>
+                  <li>• Peptides citrullinés anticycliques</li>
+                  <li>• Autres sérologies appropriées</li>
                 </ul>
               </div>
             </div>
@@ -99,199 +99,199 @@ export const DiagnosticAlgorithm: React.FC = () => {
       next: 'environmental'
     },
     environmental: {
-      title: "Environmental or iatrogenic etiologies",
+      title: "Étiologies environnementales ou iatrogènes",
       icon: <Search className="w-6 h-6 text-blue-600" />,
-      question: "Are there probable environmental or iatrogenic etiologies?",
+      question: "Y a-t-il des étiologies environnementales ou iatrogènes probables ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'remove_cause' },
-        { value: 'no', label: 'No', next: 'extrapulmonary' }
+        { value: 'yes', label: 'Oui', next: 'remove_cause' },
+        { value: 'no', label: 'Non', next: 'extrapulmonary' }
       ]
     },
     remove_cause: {
-      title: "Etiologic management",
+      title: "Prise en charge étiologique",
       icon: <AlertTriangle className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-4">
           <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-orange-800 mb-4">Recommended actions</h3>
+            <h3 className="text-lg font-semibold text-orange-800 mb-4">Actions recommandées</h3>
             <ul className="space-y-2 text-slate-700">
               <li className="flex items-start">
                 <CheckCircle className="w-5 h-5 mr-2 text-orange-600 mt-0.5 flex-shrink-0" />
-                Remove the identified cause
+                Éliminer la cause identifiée
               </li>
               <li className="flex items-start">
                 <CheckCircle className="w-5 h-5 mr-2 text-orange-600 mt-0.5 flex-shrink-0" />
-                Systemic glucocorticoid treatment if appropriate based on severity and etiology
+                Traitement systémique par glucocorticoïdes si approprié selon la sévérité et l'étiologie
               </li>
             </ul>
           </div>
         </div>
       ),
-      question: "Is there clinical recovery?",
+      question: "Y a-t-il une récupération clinique ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'no_further_steps' },
-        { value: 'no', label: 'No', next: 'extrapulmonary' }
+        { value: 'yes', label: 'Oui', next: 'no_further_steps' },
+        { value: 'no', label: 'Non', next: 'extrapulmonary' }
       ]
     },
     no_further_steps: {
-      title: "Diagnosis established",
+      title: "Diagnostic établi",
       icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
           <h3 className="text-lg font-semibold text-green-800 mb-4">Conclusion</h3>
           <p className="text-slate-700">
-            No further diagnostic steps are necessary. 
-            Continue with appropriate follow-up and treatment.
+            Aucune étape diagnostique supplémentaire n'est nécessaire. 
+            Poursuivre le suivi et le traitement approprié.
           </p>
         </div>
       ),
       isEnd: true
     },
     extrapulmonary: {
-      title: "Suspected extra-pulmonary disease",
+      title: "Maladie extrapulmonaire suspectée",
       icon: <Activity className="w-6 h-6 text-blue-600" />,
-      question: "Does the patient show signs of suspected extra-pulmonary disease (e.g., connective tissue disease, vasculitis, extra-pulmonary sarcoidosis)?",
+      question: "Le patient présente-t-il des signes de maladie extrapulmonaire suspectée (ex: maladie du tissu conjonctif, vascularite, sarcoïdose extrapulmonaire) ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'serology_biopsy' },
-        { value: 'no', label: 'No', next: 'multidisciplinary' }
+        { value: 'yes', label: 'Oui', next: 'serology_biopsy' },
+        { value: 'no', label: 'Non', next: 'multidisciplinary' }
       ]
     },
     serology_biopsy: {
-      title: "Further investigations",
+      title: "Investigations complémentaires",
       icon: <FileText className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-4">
           <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-purple-800 mb-4">Recommended tests</h3>
+            <h3 className="text-lg font-semibold text-purple-800 mb-4">Examens recommandés</h3>
             <ul className="space-y-2 text-slate-700">
               <li className="flex items-start">
                 <CheckCircle className="w-5 h-5 mr-2 text-purple-600 mt-0.5 flex-shrink-0" />
-                Serologies for connective tissue disease and myositis (if not already done)
+                Sérologies pour maladies du tissu conjonctif et myosite (si pas déjà effectuées)
               </li>
               <li className="flex items-start">
                 <CheckCircle className="w-5 h-5 mr-2 text-purple-600 mt-0.5 flex-shrink-0" />
-                Diagnostic biopsy of the affected extra-pulmonary site (skin, muscle, sinus, kidney, lymph node)
+                Biopsie diagnostique du site extrapulmonaire affecté (peau, muscle, sinus, rein, ganglion lymphatique)
               </li>
             </ul>
           </div>
         </div>
       ),
-      question: "Is the diagnosis of a specific systemic disease confirmed?",
+      question: "Le diagnostic d'une maladie systémique spécifique est-il confirmé ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'systemic_disease' },
-        { value: 'no', label: 'No', next: 'multidisciplinary' }
+        { value: 'yes', label: 'Oui', next: 'systemic_disease' },
+        { value: 'no', label: 'Non', next: 'multidisciplinary' }
       ]
     },
     systemic_disease: {
-      title: "Systemic disease confirmed",
+      title: "Maladie systémique confirmée",
       icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-          <h3 className="text-lg font-semibold text-green-800 mb-4">Management</h3>
+          <h3 className="text-lg font-semibold text-green-800 mb-4">Prise en charge</h3>
           <p className="text-slate-700">
-            Appropriate further evaluation and management for the underlying disease.
+            Évaluation et prise en charge supplémentaires appropriées pour la maladie sous-jacente.
           </p>
         </div>
       ),
       isEnd: true
     },
     multidisciplinary: {
-      title: "Multidisciplinary discussion",
+      title: "Discussion multidisciplinaire",
       icon: <FileText className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-4">
           <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-blue-800 mb-4">Multidisciplinary approach</h3>
+            <h3 className="text-lg font-semibold text-blue-800 mb-4">Approche multidisciplinaire</h3>
             <p className="text-slate-700 mb-4">
-              Multidisciplinary discussion with radiology to assess the radiological pattern and consider further diagnostic steps.
+              Discussion multidisciplinaire avec radiologie pour évaluer le pattern radiologique et considérer des étapes diagnostiques supplémentaires.
             </p>
           </div>
         </div>
       ),
-      question: "Is there a relatively confident clinical-radiological diagnosis?",
+      question: "Y a-t-il un diagnostic clinico-radiologique relativement confiant ?",
       subQuestion: (
         <div className="mt-4 p-4 bg-slate-50 rounded-lg">
-          <h4 className="font-medium text-slate-800 mb-2">Patterns considered:</h4>
+          <h4 className="font-medium text-slate-800 mb-2">Patterns considérés :</h4>
           <ul className="text-sm text-slate-600 space-y-1">
-            <li>• IPF (including definite or probable UIP on imaging)</li>
-            <li>• Chronic HP</li>
-            <li>• Other IPF (e.g., NSIP, DIP, COP)</li>
+            <li>• FPI (incluant définitive ou probable UIP à l'imagerie)</li>
+            <li>• PH chronique</li>
+            <li>• Autres FPI (ex: NSIP, DIP, COP)</li>
           </ul>
         </div>
       ),
       options: [
-        { value: 'yes', label: 'Yes', next: 'empiric_therapy' },
-        { value: 'no', label: 'No', next: 'clinical_radiologic' }
+        { value: 'yes', label: 'Oui', next: 'empiric_therapy' },
+        { value: 'no', label: 'Non', next: 'clinical_radiologic' }
       ]
     },
     empiric_therapy: {
-      title: "Empiric therapy",
+      title: "Traitement empirique",
       icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
-          <h3 className="text-lg font-semibold text-green-800 mb-4">Recommendation</h3>
+          <h3 className="text-lg font-semibold text-green-800 mb-4">Recommandation</h3>
           <p className="text-slate-700">
-            Proceed with treatment based on the empiric diagnosis established during the multidisciplinary discussion.
+            Procéder avec un traitement basé sur le diagnostic empirique établi lors de la discussion multidisciplinaire.
           </p>
         </div>
       ),
       isEnd: true
     },
     clinical_radiologic: {
-      title: "Evaluation of clinical-radiological signs",
+      title: "Évaluation des signes clinico-radiologiques",
       icon: <Search className="w-6 h-6 text-blue-600" />,
-      question: "Do the clinical and radiological signs suggest pulmonary sarcoidosis, berylliosis, acute hypersensitivity pneumonitis, lymphangitic carcinomatosis, PLCH, or eosinophilic pneumonia?",
+      question: "Les signes cliniques et radiologiques suggèrent-ils une sarcoïdose pulmonaire, bérylliose, pneumonie d'hypersensibilité aiguë, carcinomatose lymphangitique, PLCH ou pneumonie éosinophilique ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'bronchoscopy' },
-        { value: 'no', label: 'No', next: 'surgical_biopsy', note: 'Differential typically includes chronic HP and IPF' }
+        { value: 'yes', label: 'Oui', next: 'bronchoscopy' },
+        { value: 'no', label: 'Non', next: 'surgical_biopsy', note: 'Le différentiel inclut typiquement PH chronique et FPI' }
       ]
     },
     bronchoscopy: {
-      title: "Bronchoscopy with BAL",
+      title: "Bronchoscopie avec BAL",
       icon: <Activity className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-4">
           <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-indigo-800 mb-4">Recommended procedure</h3>
+            <h3 className="text-lg font-semibold text-indigo-800 mb-4">Procédure recommandée</h3>
             <p className="text-slate-700">
-              Bronchoscopy with BAL and TBB +/- EBUS
+              Bronchoscopie avec BAL et TBB +/- EBUS
             </p>
           </div>
         </div>
       ),
-      question: "Is a diagnosis established based on the results?",
+      question: "Un diagnostic est-il établi basé sur les résultats ?",
       options: [
-        { value: 'yes', label: 'Yes', next: 'appropriate_management' },
-        { value: 'no', label: 'No', next: 'surgical_biopsy' }
+        { value: 'yes', label: 'Oui', next: 'appropriate_management' },
+        { value: 'no', label: 'Non', next: 'surgical_biopsy' }
       ]
     },
     appropriate_management: {
-      title: "Appropriate management",
+      title: "Prise en charge appropriée",
       icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
           <h3 className="text-lg font-semibold text-green-800 mb-4">Conclusion</h3>
           <p className="text-slate-700">
-            Appropriate further evaluation and management for the identified underlying disease.
+            Évaluation et prise en charge supplémentaires appropriées pour la maladie sous-jacente identifiée.
           </p>
         </div>
       ),
       isEnd: true
     },
     surgical_biopsy: {
-      title: "Surgical biopsy",
+      title: "Biopsie chirurgicale",
       icon: <FileText className="w-6 h-6 text-blue-600" />,
       content: (
         <div className="space-y-4">
           <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-            <h3 className="text-lg font-semibold text-red-800 mb-4">Surgical indication</h3>
+            <h3 className="text-lg font-semibold text-red-800 mb-4">Indication chirurgicale</h3>
             <p className="text-slate-700">
-              Surgical lung biopsy or cryo-TBB if the patient is a candidate based on disease severity and other comorbidities.
+              Biopsie pulmonaire chirurgicale ou cryo-TBB si le patient est candidat basé sur la sévérité de la maladie et autres comorbidités.
             </p>
           </div>
           <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
             <p className="text-yellow-800 text-sm">
-              <strong>Note:</strong> Consensus diagnosis based on multidisciplinary discussion including chest radiology and lung pathology.
+              <strong>Note :</strong> Diagnostic consensuel basé sur une discussion multidisciplinaire incluant radiologie thoracique et pathologie pulmonaire.
             </p>
           </div>
         </div>
@@ -342,14 +342,14 @@ export const DiagnosticAlgorithm: React.FC = () => {
             onClick={resetApp}
             className="mb-4 flex-shrink-0 px-4 py-2 text-sm font-medium bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-100 transition-colors shadow-sm hover:shadow-md"
             >
-            Restart algorithm
+            Recommencer l'algorithme
             </button>
         </div>
 
       <div className="bg-blue-50 border-y border-blue-200">
         <div className="px-6 py-3">
           <div className="flex items-center space-x-2 text-sm text-blue-700">
-            <span>Current step:</span>
+            <span>Étape actuelle :</span>
             <div className="flex items-center space-x-2">
               <span className="p-1 bg-blue-100 rounded-md">{currentStepData.icon}</span>
               <span className="font-medium">{currentStepData.title}</span>
@@ -414,13 +414,13 @@ export const DiagnosticAlgorithm: React.FC = () => {
                 }`}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
+                Précédent
               </button>
 
               {currentStepData.isEnd && (
                 <div className="flex items-center text-green-600">
                   <CheckCircle className="w-5 h-5 mr-2" />
-                  <span className="font-medium">Diagnostic pathway complete</span>
+                  <span className="font-medium">Parcours diagnostique terminé</span>
                 </div>
               )}
 
@@ -429,7 +429,7 @@ export const DiagnosticAlgorithm: React.FC = () => {
                   onClick={() => handleResponse('continue', currentStepData.next!)}
                   className="flex items-center px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                 >
-                  Continue
+                  Continuer
                   <ChevronRight className="w-4 h-4 ml-2" />
                 </button>
               )}

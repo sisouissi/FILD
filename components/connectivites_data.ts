@@ -1,59 +1,59 @@
 export const connectivitesData = {
     immunologyWorkup: {
-        title: "Which immunological workup should be ordered?",
+        title: "Quel bilan immunologique demander ?",
         steps: [
             {
                 id: 1,
-                title: "STEP 1: First-line workup (systematic)",
+                title: "ÉTAPE 1 : Bilan de première intention (systématique)",
                 borderColor: "border-blue-500", bgColor: "bg-blue-50", textColor: "text-blue-800",
                 sections: [
-                    { title: "Screening Autoantibodies:", items: ["ANA (immunofluorescence on HEp-2): pattern and titer", "RF and ACPA (anti-CCP2): suspicion of rheumatoid arthritis", "Anti-Scl70 and anti-centromere: systemic sclerosis", "Anti-Ro52/Ro60, anti-La: Sjögren's syndrome, lupus"] },
-                    { title: "Inflammatory Markers:", items: ["ESR, CRP, fibrinogen", "Serum protein electrophoresis", "Complement C3, C4, CH50"] }
+                    { title: "Auto-anticorps de dépistage :", items: ["AAN (immunofluorescence sur HEp-2) : pattern et titre", "FR et ACPA (anti-CCP2) : suspicion polyarthrite rhumatoïde", "Anti-Scl70 et anti-centromère : sclérodermie systémique", "Anti-Ro52/Ro60, anti-La : syndrome de Sjögren, lupus"] },
+                    { title: "Marqueurs inflammatoires :", items: ["VS, CRP, fibrinogène", "Électrophorèse des protéines sériques", "Complément C3, C4, CH50"] }
                 ]
             },
             {
                 id: 2,
-                title: "STEP 2: Orientation based on radiological pattern",
+                title: "ÉTAPE 2 : Orientation selon le pattern radiologique",
                 borderColor: "border-teal-500", bgColor: "bg-teal-50", textColor: "text-teal-800",
                 sections: [
-                    { title: "If fibrotic NSIP pattern:", items: ["Extended myositis panel:\n- Anti-synthetases: Jo-1, PL-7, PL-12, OJ, EJ, KS\n- Anti-Mi-2α/β, anti-TIF1γ, anti-MDA5\n- Anti-SRP, anti-HMGCR\n- Anti-SAE1/2, anti-NXP2", "Scleroderma panel:\n- Anti-RNA polymerase III\n- Anti-PM/Scl75-100\n- Anti-Ku, anti-Th/To\n- Anti-U1RNP, anti-U3RNP"] },
-                    { title: "If UIP-like pattern:", items: ["Workup for RA-ILD:\n- High-affinity ACPA\n- IgA RF\n- Extended anti-citrullinated peptide antibodies", "Workup for limited scleroderma:\n- Anti-centromere B\n- Nailfold capillaroscopy"] }
+                    { title: "Si pattern NSIP fibrosante :", items: ["Panel myosite étendu :\n- Anti-synthétases : Jo-1, PL-7, PL-12, OJ, EJ, KS\n- Anti-Mi-2α/β, anti-TIF1γ, anti-MDA5\n- Anti-SRP, anti-HMGCR\n- Anti-SAE1/2, anti-NXP2", "Panel sclérodermie :\n- Anti-RNA polymérase III\n- Anti-PM/Scl75-100\n- Anti-Ku, anti-Th/To\n- Anti-U1RNP, anti-U3RNP"] },
+                    { title: "Si pattern UIP-like :", items: ["Recherche PR-PID :\n- ACPA haute affinité\n- FR IgA\n- Anti-peptides citrullinés étendus", "Recherche sclérodermie limitée :\n- Anti-centromère B\n- Capillaroscopie périunguéale"] }
                 ]
             },
             {
                 id: 3,
-                title: "STEP 3: Targeted complementary investigations",
+                title: "ÉTAPE 3 : Explorations complémentaires ciblées",
                 borderColor: "border-indigo-500", bgColor: "bg-indigo-50", textColor: "text-indigo-800",
                 sections: [
-                    { title: "If high suspicion of CTD with negative ANA:", items: ["Isolated anti-Ro52", "Repeat ANA in 6 months", "Lung biopsy if diagnosis is uncertain"] },
-                    { title: "Activity and prognostic markers:", items: ["Ferritin: suspicion of anti-MDA5 myositis", "Aldolase, CK, LDH: muscle involvement", "KL-6, SP-D: pulmonary fibrosis markers"] }
+                    { title: "Si forte suspicion de connectivite sans AAN positifs :", items: ["Anti-Ro52 isolé : risque de PID progressive", "Anti-MDA5 : pneumopathie rapidement progressive", "Recherche d'anticorps rares : anti-PmScl, anti-Ku"] },
+                    { title: "Marqueurs d'activité et pronostic :", items: ["Ferritine : suspicion de myosite à anti-MDA5", "Aldolase, CK, LDH : atteinte musculaire", "KL-6, SP-D : marqueurs de fibrose pulmonaire"] }
                 ]
             }
         ],
         interpretation: {
-            title: "Interpretation based on clinical presentations",
+            title: "Interprétation selon les présentations cliniques",
             borderColor: "border-purple-500", bgColor: "bg-purple-50", textColor: "text-purple-800",
             presentations: [
-                { title: `"Scleroderma-like"`, context: "Clinical signs: Raynaud's, sclerodactyly, telangiectasias", items: ["Priority workup:\n- Anti-Scl70 (high risk of severe ILD)\n- Anti-centromere (late ILD but PAH)\n- Anti-RNA pol III (scleroderma renal crisis)\n- Capillaroscopy (scleroderma pattern)"] },
-                { title: `"Antisynthetase syndrome"`, context: "Triad: myositis + arthritis + ILD", items: ["Specialized workup:\n- Complete anti-synthetase panel\n- Look for \"mechanic's hands\"\n- CK, aldolase, EMG if myalgia"] },
-                { title: `"RA-ILD"`, context: "Context: male, smoker, nodules", items: ["Specific workup:\n- ACPA + RF (double positivity = high risk)\n- Test for IgA rheumatoid factor\n- Clinical joint evaluation"] }
+                { title: `"Sclérodermie-like"`, context: "Signes cliniques : Raynaud, sclérodactylie, télangiectasies", items: ["Bilan prioritaire :\n- Anti-Scl70 (haut risque PID sévère)\n- Anti-centromère (PID tardive mais HTAP)\n- Anti-RNA pol III (crise rénale)\n- Capillaroscopie (pattern sclérodermique)"] },
+                { title: `"Syndrome anti-synthétase"`, context: "Triade : myosite + arthrite + PID", items: ["Bilan spécialisé :\n- Panel anti-synthétases complet\n- Recherche \"mains de mécanicien\"\n- CK, aldolase, EMG si myalgie"] },
+                { title: `"PR-PID"`, context: "Contexte : homme, tabagique, nodules", items: ["Bilan spécifique :\n- ACPA + FR (double positivité = haut risque)\n- Recherche facteur rhumatoïde IgA\n- Évaluation articulaire clinique"] }
             ]
         },
         specialCases: {
-            title: "Special cases, pitfalls, and emergencies",
+            title: "Cas particuliers, pièges et urgences",
             borderColor: "border-amber-500", bgColor: "bg-amber-50", textColor: "text-amber-800",
             cases: [
-                { title: "ILD with negative ANA (15-20% of cases)", items: ["Test for isolated anti-Ro52", "Repeat ANA in 6 months", "Lung biopsy if diagnosis is uncertain"] },
-                { title: "Overlap syndromes", items: ["Scleromyositis: Anti-PM/Scl + anti-Ku", "Lupus-scleroderma: Anti-U1RNP", "RA-scleroderma: ACPA + anti-Scl70"] },
-                { title: "Rapidly progressive forms", isUrgent: true, items: ["Urgent workup (below 48h):\n- Anti-MDA5 (dermatomyositis)\n- Anti-RNA pol III (scleroderma)\n- Consumed complement (lupus)\n- Ferritin above 1000 (macrophage activation syndrome)"] }
+                { title: "PID avec AAN négatifs (15-20% des cas)", items: ["Recherche anti-Ro52 isolé", "Répéter AAN à 6 mois", "Biopsie pulmonaire si diagnostic incertain"] },
+                { title: "Chevauchements syndromiques", items: ["Scléromyosite : Anti-PM/Scl + anti-Ku", "Lupus-sclérodermie : Anti-U1RNP", "PR-sclérodermie : ACPA + anti-Scl70"] },
+                { title: "Formes rapidement progressives", isUrgent: true, items: ["Bilan d'urgence (< 48h) :\n- Anti-MDA5 (myosite dermatomyosite)\n- Anti-RNA pol III (sclérodermie)\n- Complément consommé (lupus)\n- Ferritine > 1000 (syndrome d'activation macrophagique)"] }
             ]
         },
         followUp: {
-            title: "Evolving biological follow-up",
+            title: "Suivi biologique évolutif",
             borderColor: "border-green-500", bgColor: "bg-green-50", textColor: "text-green-800",
             sections: [
-                { title: "Activity monitoring (every 3 months):", items: ["Specific autoantibody titers", "CRP, ESR (inflammatory flares)", "KL-6 (fibrotic progression)", "CPK if associated myositis"] },
-                { title: "Therapeutic monitoring:", items: ["CD19+ lymphocytes if rituximab", "Liver function tests if methotrexate", "Creatinine if cyclophosphamide"] }
+                { title: "Monitoring de l'activité (tous les 3 mois) :", items: ["Titre des auto-anticorps spécifiques", "CRP, VS (poussées inflammatoires)", "KL-6 (progression fibrotique)", "CPK si myosite associée"] },
+                { title: "Surveillance thérapeutique :", items: ["Lymphocytes CD19+ si rituximab", "Bilan hépatique si méthotrexate", "Créatininémie si cyclophosphamide"] }
             ]
         }
     }

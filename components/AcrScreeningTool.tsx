@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { AlertTriangle, CheckCircle, Stethoscope, Activity, Heart, XCircle, Search } from './icons';
 import { generateScreeningSummary } from '../services/gemini';
-import { AISummary } from './AISummary';
+import { AISummary } from './AcrGuidelineTool/components/AISummary';
 import { StepIndicator } from './AcrGuidelineTool/components/StepIndicator';
 import { PatientInfoForm } from './AcrGuidelineTool/components/PatientInfoForm';
 import { RecommendationsDisplay } from './AcrGuidelineTool/components/RecommendationsDisplay';
@@ -12,15 +12,15 @@ const getRiskLevel = (data: PatientData): RiskLevelInfo => {
     let score = 0;
 
     if (data.hasPID) {
-        // If ILD is already diagnosed, we are in a monitoring context. Risk is inherently high for progression.
-        return { level: 'high', color: 'border-red-500', icon: AlertTriangle };
+        // If PID is already diagnosed, we are in a monitoring context. Risk is inherently high for progression.
+        return { level: 'élevé', color: 'border-red-500', icon: AlertTriangle };
     }
 
     // Screening context
     const connectivite = connectiviteTypes.find(c => c.value === data.connectiviteType);
     if (connectivite) {
-         if (connectivite.risk === 'high') score += 2;
-         if (connectivite.risk === 'moderate') score += 1;
+         if (connectivite.risk === 'élevé') score += 2;
+         if (connectivite.risk === 'modéré') score += 1;
     }
     
     // Assess risk based on selected factors
@@ -32,25 +32,25 @@ const getRiskLevel = (data: PatientData): RiskLevelInfo => {
     if (data.currentSymptoms.length > 2) score +=1;
 
     if (score >= 3) {
-        return { level: 'high', color: 'border-red-500', icon: AlertTriangle };
+        return { level: 'élevé', color: 'border-red-500', icon: AlertTriangle };
     }
     if (score >= 1) {
-        return { level: 'moderate', color: 'border-orange-500', icon: Stethoscope };
+        return { level: 'modéré', color: 'border-orange-500', icon: Stethoscope };
     }
-    return { level: 'low', color: 'border-green-500', icon: CheckCircle };
+    return { level: 'faible', color: 'border-green-500', icon: CheckCircle };
 };
 
 const SCREENING_RECOMMENDATIONS: Recommendation[] = [
-    { test: 'PFTs (Spirometry + DLCO)', recommendation: 'Recommended (conditional)', level: 'conditional-for', icon: Activity, description: "Initial evaluation of lung function. Essential for detecting restrictive impairment or diffusion alteration.", frequency: 'At CTD diagnosis' },
-    { test: 'High-Resolution Chest CT', recommendation: 'Recommended (conditional)', level: 'conditional-for', icon: Search, description: "Reference examination for morphological diagnosis. To be discussed based on risk level and symptoms.", frequency: 'If PFTs are abnormal or symptoms present' },
-    { test: '6-Minute Walk Test (6MWT)', recommendation: 'Recommended (conditional)', level: 'conditional-for', icon: Heart, description: "Assesses exercise tolerance and checks for desaturation, an important prognostic factor.", frequency: 'If symptoms or abnormal PFTs' },
-    { test: 'Echocardiogram', recommendation: 'Not Recommended (conditional)', level: 'conditional-against', icon: XCircle, description: "Not recommended routinely for ILD screening. Indicated if pulmonary hypertension is suspected.", frequency: 'Not applicable for systematic screening' },
+    { test: 'EFR (Spirométrie + DLCO)', recommendation: 'Recommandé (conditionnel)', level: 'conditional-for', icon: Activity, description: "Évaluation initiale de la fonction pulmonaire. Essentiel pour détecter une atteinte restrictive ou une altération de la diffusion.", frequency: 'Au diagnostic de la connectivite' },
+    { test: 'TDM Thoracique Haute Résolution', recommendation: 'Recommandé (conditionnel)', level: 'conditional-for', icon: Search, description: "Examen de référence pour le diagnostic morphologique. À discuter en fonction du niveau de risque et des symptômes.", frequency: 'Si EFR anormales ou symptômes' },
+    { test: 'Test de Marche de 6 Minutes (TM6)', recommendation: 'Recommandé (conditionnel)', level: 'conditional-for', icon: Heart, description: "Évalue la tolérance à l'effort et recherche une désaturation, un facteur pronostique important.", frequency: 'Si symptômes ou EFR anormales' },
+    { test: 'Échographie Cardiaque', recommendation: 'Déconseillé (conditionnel)', level: 'conditional-against', icon: XCircle, description: "Non recommandé en routine pour le dépistage de la PID. Indiqué si suspicion d'hypertension pulmonaire.", frequency: 'Non applicable en dépistage systématique' },
 ];
 
 const MONITORING_RECOMMENDATIONS: Recommendation[] = [
-    { test: 'PFTs (Spirometry + DLCO)', recommendation: 'Recommended (strong)', level: 'conditional-for', icon: Activity, description: "Monitoring of disease progression. Frequency depends on severity and stability.", frequency: 'Every 3-6 months if progressing, 6-12 months if stable' },
-    { test: '6-Minute Walk Test (6MWT)', recommendation: 'Recommended (strong)', level: 'conditional-for', icon: Heart, description: "Regular assessment of functional capacity and oxygenation on exertion.", frequency: 'Every 6-12 months' },
-    { test: 'High-Resolution Chest CT', recommendation: 'Recommended (conditional)', level: 'conditional-for', icon: Search, description: "To assess radiological progression or in case of unexplained worsening. Not for routine systematic monitoring.", frequency: 'Every 12-24 months, or if worsening' },
+    { test: 'EFR (Spirométrie + DLCO)', recommendation: 'Recommandé (fort)', level: 'conditional-for', icon: Activity, description: "Suivi de la progression de la maladie. La fréquence dépend de la sévérité et de la stabilité.", frequency: 'Tous les 3-6 mois si progression, 6-12 mois si stable' },
+    { test: 'Test de Marche de 6 Minutes (TM6)', recommendation: 'Recommandé (fort)', level: 'conditional-for', icon: Heart, description: "Évaluation régulière de la capacité fonctionnelle et de l'oxygénation à l'effort.", frequency: 'Tous les 6-12 mois' },
+    { test: 'TDM Thoracique Haute Résolution', recommendation: 'Recommandé (conditionnel)', level: 'conditional-for', icon: Search, description: "Pour évaluer la progression radiologique ou en cas d'aggravation inexpliquée. Pas en routine systématique.", frequency: 'Tous les 12-24 mois, ou si aggravation' },
 ];
 
 export const AcrScreeningTool: React.FC = () => {
@@ -64,16 +64,8 @@ export const AcrScreeningTool: React.FC = () => {
     const [aiSummary, setAiSummary] = useState('');
     const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
     const [summaryError, setSummaryError] = useState<string | null>(null);
-    const abortControllerRef = useRef<AbortController | null>(null);
 
-    useEffect(() => {
-        // Cleanup function to abort request on component unmount
-        return () => {
-            abortControllerRef.current?.abort();
-        };
-    }, []);
-
-    const riskLevelInfo = useMemo(() => getRiskLevel(patientData), [patientData]);
+    const riskLevel = useMemo(() => getRiskLevel(patientData), [patientData]);
 
     const handleSubmit = () => {
         setStep('recommendations');
@@ -93,50 +85,21 @@ export const AcrScreeningTool: React.FC = () => {
         setAiSummary('');
         setSummaryError(null);
         setStep('patient-info');
-        abortControllerRef.current?.abort();
     };
 
     const handleGenerateSummary = useCallback(async () => {
         setIsGeneratingSummary(true);
         setAiSummary('');
         setSummaryError(null);
-
-        const controller = new AbortController();
-        abortControllerRef.current = controller;
-        const timeoutId = setTimeout(() => {
-            controller.abort();
-            // Don't set error here, as the streamError handler will do it.
-        }, 30000); // 30s timeout
-
         try {
-            await generateScreeningSummary(
-                patientData,
-                riskLevelInfo.level,
-                (chunk) => setAiSummary(prev => prev + chunk),
-                () => { // onDone
-                    clearTimeout(timeoutId);
-                    setIsGeneratingSummary(false);
-                    abortControllerRef.current = null;
-                },
-                (error) => { // onError
-                    clearTimeout(timeoutId);
-                    if (error.name !== 'AbortError') {
-                        setSummaryError(error.message);
-                    }
-                    setIsGeneratingSummary(false);
-                    abortControllerRef.current = null;
-                },
-                controller.signal
-            );
-        } catch (err: any) {
-            clearTimeout(timeoutId);
-            if (err.name !== 'AbortError') {
-                setSummaryError(err.message);
-            }
+            const summary = await generateScreeningSummary(patientData, riskLevel.level);
+            setAiSummary(summary);
+        } catch (e) {
+            setSummaryError(e instanceof Error ? e.message : "Une erreur inconnue est survenue.");
+        } finally {
             setIsGeneratingSummary(false);
-            abortControllerRef.current = null;
         }
-    }, [patientData, riskLevelInfo]);
+    }, [patientData, riskLevel]);
 
     return (
         <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 space-y-8">
@@ -153,7 +116,7 @@ export const AcrScreeningTool: React.FC = () => {
             {step === 'recommendations' && (
                 <RecommendationsDisplay
                     patientData={patientData}
-                    riskLevel={riskLevelInfo}
+                    riskLevel={riskLevel}
                     screeningRecs={SCREENING_RECOMMENDATIONS}
                     monitoringRecs={MONITORING_RECOMMENDATIONS}
                     onBack={handleBack}

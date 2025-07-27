@@ -35,11 +35,11 @@ export const TherapeuticAlgorithmTool: React.FC = () => {
 
     return (
         <div className="bg-slate-50 p-4 sm:p-6 rounded-lg border border-slate-200 space-y-6">
-            <h3 className="text-xl font-bold text-slate-900 text-center">Therapeutic Management Algorithm</h3>
+            <h3 className="text-xl font-bold text-slate-900 text-center">Algorithme de Prise en Charge Thérapeutique</h3>
             
             <div>
                 <label htmlFor="disease-select" className="block text-sm font-medium text-slate-700 mb-2 text-center">
-                    **1. Select the condition to see the recommended care pathway**
+                    **1. Sélectionnez la pathologie pour voir le parcours de soin recommandé**
                 </label>
                 <select 
                     id="disease-select"
@@ -54,7 +54,7 @@ export const TherapeuticAlgorithmTool: React.FC = () => {
             </div>
 
             <div className="animate-fade-in-fast">
-                <h4 className="text-lg font-bold text-slate-800 mb-4 text-center">Therapeutic Pathway for: <span className="text-blue-600">{selectedDisease.label}</span></h4>
+                <h4 className="text-lg font-bold text-slate-800 mb-4 text-center">Parcours Thérapeutique pour : <span className="text-blue-600">{selectedDisease.label}</span></h4>
                 <div className="flex flex-col items-center space-y-4">
                     {selectedDisease.pathway.map((step, index) => (
                         <React.Fragment key={index}>

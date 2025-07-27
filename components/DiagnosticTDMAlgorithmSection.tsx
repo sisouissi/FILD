@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo, useCallback, createRef } from 'react';
 import { ClipboardCheck, Users, Microscope, CheckCircle, XCircle, ArrowLeft, RotateCcw, AlertTriangle, ChevronRight } from './icons';
 import { UIPClassifierAnswers, UIPClassifierDiagnosis, UIPClassifierSection, UIPClassifierQuestion } from '../types';
@@ -9,7 +10,7 @@ const ProgressBar: React.FC<{ completed: number, total: number }> = ({ completed
     return (
         <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
-                <span className="text-base font-semibold text-slate-600">Progress</span>
+                <span className="text-base font-semibold text-slate-600">Progression</span>
                 <span className="text-base font-bold text-blue-600">{completed} / {total}</span>
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2.5">
@@ -65,7 +66,7 @@ const Results: React.FC<{ result: UIPClassifierDiagnosis, onContinue: (title: st
         <h3 className="text-2xl font-bold text-center text-slate-800 mb-4">{result.title}</h3>
         <p className="text-slate-600 mb-4 text-center text-base">{result.description}</p>
         <div className="bg-white p-4 rounded-md border">
-            <h4 className="font-semibold text-slate-700 mb-2">Key Recommendations:</h4>
+            <h4 className="font-semibold text-slate-700 mb-2">Recommandations Clés :</h4>
             <ul className="list-disc list-inside space-y-2 text-base text-slate-700">
                 {result.recommendations.map((rec, index) => <li key={index}>{rec}</li>)}
             </ul>
@@ -75,7 +76,7 @@ const Results: React.FC<{ result: UIPClassifierDiagnosis, onContinue: (title: st
                 onClick={() => onContinue(result.title)}
                 className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:-translate-y-0.5"
             >
-                Continue with this Pattern
+                Continuer avec ce Pattern
             </button>
         </div>
     </div>
@@ -88,47 +89,47 @@ const generateTdmSummary = async (answers: UIPClassifierAnswers): Promise<UIPCla
 
     if (alternative_signs === 'yes') {
         return {
-            title: '⚠️ Pattern Suggestive of an Alternative Diagnosis',
-            description: 'The presence of specific signs (predominant ground-glass opacity, cysts, nodules...) strongly suggests a diagnosis other than IPF.',
+            title: '⚠️ Pattern en faveur d\'un Diagnostic Alternatif',
+            description: 'La présence de signes spécifiques (verre dépoli prédominant, kystes, nodules...) oriente fortement vers un diagnostic autre que la FPI.',
             recommendations: [
-                'Rule out hypersensitivity pneumonitis, NSIP, or organizing pneumonia.',
-                'Consider bronchoscopy with BAL to look for infection or signs of sarcoidosis.',
-                'A lung biopsy is often necessary to confirm the diagnosis if BAL is not contributory.'
+                'Éliminer une pneumopathie d\'hypersensibilité, une PINS, ou une pneumopathie organisée.',
+                'Discuter une bronchoscopie avec LBA pour rechercher une infection ou des signes de sarcoïdose.',
+                'Une biopsie pulmonaire est souvent nécessaire pour confirmer le diagnostic si le LBA n\'est pas contributif.'
             ]
         };
     }
 
     if (honeycombing === 'yes' && distribution === 'typical') {
         return {
-            title: '✅ Definite UIP Pattern',
-            description: 'The presence of honeycombing in a typical distribution (basal and subpleural) is highly specific for the UIP pattern.',
+            title: '✅ Pattern de PIC/UIP Certain',
+            description: 'La présence de rayons de miel dans une distribution typique (basale et sous-pleurale) est hautement spécifique du pattern UIP.',
             recommendations: [
-                'In the absence of an identified cause (connective tissue disease, HP...), this pattern is sufficient to establish the diagnosis of IPF.',
-                'A lung biopsy is not recommended.',
-                'Initiate a discussion about antifibrotic treatment and referral to a transplant center.'
+                'En l\'absence de cause identifiée (connectivite, PHS...), ce pattern est suffisant pour poser le diagnostic de FPI.',
+                'Une biopsie pulmonaire n\'est pas recommandée.',
+                'Initier une discussion sur le traitement antifibrosant et l\'orientation vers un centre de transplantation.'
             ]
         };
     }
     
     if (honeycombing === 'no' && reticulation === 'reticulation' && traction_bronchiectasis === 'yes' && distribution === 'typical') {
         return {
-            title: '🤔 Probable UIP Pattern',
-            description: 'Reticulation and traction bronchiectasis in a typical distribution, without honeycombing, make the UIP pattern very probable.',
+            title: '🤔 Pattern de PIC/UIP Probable',
+            description: 'Les réticulations et bronchectasies de traction dans une distribution typique, sans rayons de miel, rendent le pattern UIP très probable.',
             recommendations: [
-                'In a patient with a typical clinical profile (over 60, male, smoker), this pattern is highly suggestive of IPF.',
-                'A lung biopsy is generally not necessary.',
-                'Confirm the diagnosis in a multidisciplinary discussion (MDD).'
+                'Chez un patient avec un profil clinique typique (plus de 60 ans, homme, fumeur), ce pattern est très évocateur de FPI.',
+                'Une biopsie pulmonaire n\'est généralement pas nécessaire.',
+                'Confirmer le diagnostic en discussion multidisciplinaire (DMD).'
             ]
         };
     }
 
     return {
-        title: '❓ Indeterminate for UIP Pattern',
-        description: 'Signs of fibrosis are present but do not meet the criteria for a definite or probable UIP pattern. The distribution may be atypical or the signs of fibrosis subtle.',
+        title: '❓ Pattern Indéterminé pour la PIC/UIP',
+        description: 'Les signes de fibrose sont présents mais ne remplissent pas les critères pour un pattern UIP certain ou probable. La distribution peut être atypique ou les signes de fibrose discrets.',
         recommendations: [
-            'The diagnosis of IPF can neither be confirmed nor ruled out based on the scan alone.',
-            'A multidisciplinary discussion is essential to assess the benefit/risk balance of further investigations.',
-            'Consider a lung biopsy (surgical or cryobiopsy) to obtain a histological diagnosis.'
+            'Le diagnostic de FPI ne peut être ni confirmé ni infirmé sur le scanner seul.',
+            'Une discussion multidisciplinaire est indispensable pour évaluer la balance bénéfice/risque d\'investigations complémentaires.',
+            'Discuter une biopsie pulmonaire (chirurgicale ou cryobiopsie) pour obtenir un diagnostic histologique.'
         ]
     };
 };
@@ -149,7 +150,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
     const [step, setStep] = useState<StepId>('determine_pattern');
     const [history, setHistory] = useState<StepId[]>([]);
     
-    // State for the HRCT pattern helper
+    // State for the TDM pattern helper
     const [answers, setAnswers] = useState<UIPClassifierAnswers>({});
     const [activeSection, setActiveSection] = useState<number | null>(1);
     const [completedSections, setCompletedSections] = useState<Set<number>>(new Set());
@@ -220,9 +221,9 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
             const resultData = await generateTdmSummary(answers);
             
             const validatedResult: UIPClassifierDiagnosis = {
-                title: resultData.title || "Indeterminate Diagnosis",
-                description: resultData.description || "The description could not be generated. Please check the inputs or try again.",
-                recommendations: Array.isArray(resultData.recommendations) ? resultData.recommendations : ["No specific recommendations could be generated."],
+                title: resultData.title || "Diagnostic Indéterminé",
+                description: resultData.description || "La description n'a pas pu être générée. Veuillez vérifier les entrées ou réessayer.",
+                recommendations: Array.isArray(resultData.recommendations) ? resultData.recommendations : ["Aucune recommandation spécifique n'a pu être générée."],
             };
             setDiagnosisResult(validatedResult);
 
@@ -231,7 +232,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
             if (error instanceof Error) {
                 setApiError(error.message);
             } else {
-                setApiError("Analysis of the results failed. An internal error occurred.");
+                setApiError("L'analyse des résultats a échoué. Une erreur interne est survenue.");
             }
         } finally {
             setIsAnalyzing(false);
@@ -274,7 +275,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
     };
 
     const handlePatternDetermined = (resultTitle: string) => {
-        if (resultTitle.includes('Definite') || resultTitle.includes('Probable')) {
+        if (resultTitle.includes('Certain') || resultTitle.includes('Probable')) {
             goToStep('mdd_uip');
         } else {
             goToStep('mdd_other');
@@ -289,13 +290,13 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                         <ProgressBar completed={completedQuestions} total={TOTAL_QUESTIONS} />
                         {showGlobalError && (
                             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r-lg" role="alert">
-                                <p className="font-bold">⚠️ Incomplete Form</p>
-                                <p>Please complete all sections before running the analysis.</p>
+                                <p className="font-bold">⚠️ Formulaire Incomplet</p>
+                                <p>Veuillez compléter toutes les sections avant de lancer l'analyse.</p>
                             </div>
                         )}
                         {apiError && (
                             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-r-lg" role="alert">
-                                <p className="font-bold">🤖 AI Analysis Error</p><p>{apiError}</p>
+                                <p className="font-bold">🤖 Erreur d'Analyse IA</p><p>{apiError}</p>
                             </div>
                         )}
                         <div className="space-y-4">
@@ -310,7 +311,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                         <div className="text-center mt-8">
                             <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transform transition-all duration-300 ease-in-out mx-2 inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed" onClick={calculateDiagnosis} disabled={isAnalyzing}>
                                 {isAnalyzing && <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>}
-                                {isAnalyzing ? 'Analyzing...' : '🔍 Analyze HRCT Pattern'}
+                                {isAnalyzing ? 'Analyse en cours...' : '🔍 Analyser le Pattern TDM'}
                             </button>
                         </div>
                         {diagnosisResult && <Results result={diagnosisResult} onContinue={handlePatternDetermined} />}
@@ -320,10 +321,10 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                 return (
                      <div className="text-center animate-fade-in-fast">
                         <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold text-slate-800 mb-4">Next Step: Multidisciplinary Discussion (MDD)</h3>
-                        <p className="text-slate-600 mb-6 max-w-2xl mx-auto text-base">For a Definite or Probable UIP HRCT pattern, and in the absence of an obvious cause (connective tissue disease, exposure...), the MDD can confirm the diagnosis of IPF with high confidence, without requiring a biopsy.</p>
+                        <h3 className="text-xl font-semibold text-slate-800 mb-4">Étape Suivante : Discussion Multidisciplinaire (DMD)</h3>
+                        <p className="text-slate-600 mb-6 max-w-2xl mx-auto text-base">Pour un pattern TDM d'UIP Certain ou Probable, et en l'absence de cause évidente (connectivite, exposition...), la DMD permet de confirmer le diagnostic de FPI avec une haute confiance, sans nécessiter de biopsie.</p>
                         <div className="flex justify-center">
-                           <button onClick={() => goToStep('final_ipf_no_biopsy')} className="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Confirm IPF Diagnosis</button>
+                           <button onClick={() => goToStep('final_ipf_no_biopsy')} className="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Confirmer le diagnostic de FPI</button>
                         </div>
                     </div>
                 );
@@ -331,32 +332,32 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                  return (
                     <div className="text-center animate-fade-in-fast">
                         <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold text-slate-800 mb-4">Next Step: Multidisciplinary Discussion (MDD)</h3>
-                        <p className="text-slate-600 mb-6 max-w-2xl mx-auto text-base">When faced with a non-typical HRCT pattern, the MDD is crucial to assess the benefit-risk balance of a lung biopsy to clarify the diagnosis.</p>
+                        <h3 className="text-xl font-semibold text-slate-800 mb-4">Étape Suivante : Discussion Multidisciplinaire (DMD)</h3>
+                        <p className="text-slate-600 mb-6 max-w-2xl mx-auto text-base">Face à un pattern TDM non typique, la DMD est cruciale pour évaluer la balance bénéfice/risque d'une biopsie pulmonaire afin de préciser le diagnostic.</p>
                         <div className="flex justify-center">
-                            <button onClick={() => goToStep('biopsy_choice')} className="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Discuss Biopsy Option</button>
+                            <button onClick={() => goToStep('biopsy_choice')} className="p-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">Discuter l'option d'une biopsie</button>
                         </div>
                     </div>
                 );
             case 'biopsy_choice':
                  return (
                     <div className="text-center animate-fade-in-fast">
-                        <h3 className="text-xl font-semibold text-slate-800 mb-2">Decision Regarding Biopsy</h3>
-                        <p className="text-slate-600 mb-6 max-w-3xl mx-auto text-base">Is a biopsy feasible and relevant (after assessing operative risk and expected benefit)?</p>
+                        <h3 className="text-xl font-semibold text-slate-800 mb-2">Décision concernant la Biopsie</h3>
+                        <p className="text-slate-600 mb-6 max-w-3xl mx-auto text-base">Une biopsie est-elle réalisable et pertinente (après évaluation du risque opératoire et du bénéfice attendu) ?</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                            <button onClick={() => goToStep('biopsy_results')} className="p-4 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">Yes, a biopsy is performed</button>
-                            <button onClick={() => goToStep('final_indeterminate')} className="p-4 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">No (contraindication / refusal)</button>
+                            <button onClick={() => goToStep('biopsy_results')} className="p-4 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">Oui, une biopsie est réalisée</button>
+                            <button onClick={() => goToStep('final_indeterminate')} className="p-4 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">Non (contre-indication / refus)</button>
                         </div>
                     </div>
                 );
             case 'biopsy_results':
                  return (
                      <div className="text-center animate-fade-in-fast">
-                        <h3 className="text-xl font-semibold text-slate-800 mb-2">Integration of Histological Results</h3>
-                        <p className="text-slate-600 mb-6 max-w-3xl mx-auto text-base">What pattern was found on biopsy?</p>
+                        <h3 className="text-xl font-semibold text-slate-800 mb-2">Intégration des Résultats Histologiques</h3>
+                        <p className="text-slate-600 mb-6 max-w-3xl mx-auto text-base">Quel est le pattern retrouvé à la biopsie ?</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                            <button onClick={() => goToStep('final_ipf')} className="p-4 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">Definite or Probable UIP Pattern</button>
-                            <button onClick={() => goToStep('final_non_ipf')} className="p-4 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">Alternative Histological Diagnosis</button>
+                            <button onClick={() => goToStep('final_ipf')} className="p-4 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">Pattern de PIC/UIP Certain ou Probable</button>
+                            <button onClick={() => goToStep('final_non_ipf')} className="p-4 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">Diagnostic Histologique Alternatif</button>
                         </div>
                     </div>
                 );
@@ -364,32 +365,32 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                  return (
                     <div className="text-center bg-green-50 p-8 rounded-lg animate-fade-in">
                         <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4"/>
-                        <h3 className="text-2xl font-bold text-green-800 mb-2">Final Diagnosis: Idiopathic Pulmonary Fibrosis (IPF)</h3>
-                        <p className="text-slate-600 text-base">The diagnosis is established by the combination of a typical clinical-radiological picture (Definite or Probable UIP HRCT Pattern) after multidisciplinary discussion, without histological confirmation.</p>
+                        <h3 className="text-2xl font-bold text-green-800 mb-2">Diagnostic Final : Fibrose Pulmonaire Idiopathique (FPI)</h3>
+                        <p className="text-slate-600 text-base">Le diagnostic est établi par la combinaison d'un tableau clinico-radiologique typique (Pattern TDM UIP Certain ou Probable) après discussion multidisciplinaire, sans confirmation histologique.</p>
                     </div>
                 );
             case 'final_ipf':
                 return (
                     <div className="text-center bg-green-50 p-8 rounded-lg animate-fade-in">
                         <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4"/>
-                        <h3 className="text-2xl font-bold text-green-800 mb-2">Final Diagnosis: Idiopathic Pulmonary Fibrosis (IPF)</h3>
-                        <p className="text-slate-600 text-base">The diagnosis is confirmed by the concordance between clinical, radiological (indeterminate or alternative HRCT), and histological data (biopsy showing a UIP pattern).</p>
+                        <h3 className="text-2xl font-bold text-green-800 mb-2">Diagnostic Final : Fibrose Pulmonaire Idiopathique (FPI)</h3>
+                        <p className="text-slate-600 text-base">Le diagnostic est confirmé par la concordance entre les données cliniques, radiologiques (TDM indéterminée ou alternative) et histologiques (biopsie montrant un pattern UIP).</p>
                     </div>
                 );
             case 'final_non_ipf':
                 return (
                     <div className="text-center bg-red-50 p-8 rounded-lg animate-fade-in">
                         <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4"/>
-                        <h3 className="text-2xl font-bold text-red-800 mb-2">Final Diagnosis: Not IPF</h3>
-                        <p className="text-slate-600 text-base">The data converge towards another diagnosis of fibrosing ILD (e.g., HP, connective tissue disease...). Management must be adapted to this specific etiology.</p>
+                        <h3 className="text-2xl font-bold text-red-800 mb-2">Diagnostic Final : Pas une FPI</h3>
+                        <p className="text-slate-600 text-base">Les données convergent vers un autre diagnostic de PID fibrosante (ex: PHS, connectivite...). La prise en charge doit être adaptée à cette étiologie spécifique.</p>
                     </div>
                 );
              case 'final_indeterminate':
                 return (
                     <div className="text-center bg-amber-50 p-8 rounded-lg animate-fade-in">
                         <AlertTriangle className="w-16 h-16 text-amber-500 mx-auto mb-4"/>
-                        <h3 className="text-2xl font-bold text-amber-800 mb-2">Diagnosis: Unclassifiable Fibrosing ILD</h3>
-                        <p className="text-slate-600 text-base">Despite a complete evaluation (with or without biopsy), a certain diagnosis cannot be established. Follow-up will focus on detecting a progressive fibrosing phenotype to guide therapy.</p>
+                        <h3 className="text-2xl font-bold text-amber-800 mb-2">Diagnostic : PID Fibrosante Inclassable</h3>
+                        <p className="text-slate-600 text-base">Malgré une évaluation complète (avec ou sans biopsie), un diagnostic de certitude ne peut être établi. Le suivi se concentrera sur la détection d'un phénotype progressif fibrosant pour guider la thérapie.</p>
                     </div>
                 );
         }
@@ -400,10 +401,10 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
              <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
                 <h2 className="text-2xl font-bold text-slate-900 flex items-center">
                     <ClipboardCheck className="w-7 h-7 mr-3 text-blue-500" />
-                    HRCT & Biopsy Algorithm
+                    Algorithme TDM & Biopsie
                 </h2>
                 <p className="text-slate-600 mt-2 text-base">
-                    This interactive tool guides you through the IPF diagnostic algorithm, integrating HRCT findings and, if necessary, lung biopsy results.
+                    Cet outil interactif vous guide à travers l'algorithme diagnostique de la FPI en intégrant les données de la TDM-HR et, si nécessaire, de la biopsie pulmonaire.
                 </p>
             </div>
 
@@ -423,7 +424,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                         }`}
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" />
-                        Back
+                        Précédent
                     </button>
 
                     
@@ -432,7 +433,7 @@ const DiagnosticTDMAlgorithmSection: React.FC = () => {
                         className="flex items-center px-4 py-2 text-base font-medium rounded-lg transition-colors shadow-sm bg-blue-600 text-white hover:bg-blue-700"
                     >
                         <RotateCcw className="w-4 h-4 mr-2" />
-                        Restart Full Algorithm
+                        Recommencer l'algorithme complet
                     </button>
                     
                 </div>

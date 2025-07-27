@@ -4,8 +4,8 @@ import { FileText, ListChecks } from '../../icons';
 
 export const StepIndicator: React.FC<{ currentStep: Step }> = ({ currentStep }) => {
   const steps = [
-    { id: 'patient-info', title: 'Patient Information', icon: FileText },
-    { id: 'recommendations', title: 'Recommendations', icon: ListChecks },
+    { id: 'patient-info', title: 'Informations Patient', icon: FileText },
+    { id: 'recommendations', title: 'Recommandations', icon: ListChecks },
   ];
 
   const currentStepIndex = steps.findIndex(step => step.id === currentStep);

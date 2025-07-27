@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { Pill, Lungs, Heart, Activity, HandHeart, Info, AlertTriangle, Shield, CheckCircle } from './icons';
 import { Accordion } from './Accordion';
@@ -16,16 +15,16 @@ export const FPITraitementSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <Pill className="w-7 h-7 mr-3 text-blue-500" />
-        Treatment of Idiopathic Pulmonary Fibrosis
+        Traitement de la Fibrose Pulmonaire Idiopathique
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        A comprehensive and multimodal therapeutic approach aimed at slowing disease progression and improving quality of life.
+        Approche thérapeutique globale et multimodale visant à ralentir la progression de la maladie et à améliorer la qualité de vie.
       </p>
     </div>
     
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
         <p className="text-slate-700 mb-4 text-base">
-            The treatment of IPF has been transformed by the advent of antifibrotic therapies. The goal is not to cure the disease, but to slow its inexorable progression, manage symptoms, treat comorbidities, and improve patients' quality of life. Management is a complex journey that requires a holistic approach and shared decision-making with the patient.
+            Le traitement de la FPI a été transformé par l'avènement des thérapies antifibrosantes. L'objectif n'est pas de guérir la maladie, mais de ralentir sa progression inexorable, de gérer les symptômes, de traiter les comorbidités et d'améliorer la qualité de vie des patients. La prise en charge est un parcours complexe qui nécessite une approche holistique et une prise de décision partagée avec le patient.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4 rounded-r-sm">
             <div className="flex">
@@ -33,14 +32,14 @@ export const FPITraitementSection: React.FC = () => (
                 <Info className="h-5 w-5 text-blue-400" aria-hidden="true" />
               </div>
               <div className="ml-3">
-                <h3 className="text-base font-medium text-blue-800">The 5 Pillars of IPF Treatment</h3>
+                <h3 className="text-base font-medium text-blue-800">Les 5 Piliers du Traitement de la FPI</h3>
                 <div className="mt-2 text-base text-blue-700">
                   <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Antifibrotic treatment:</strong> Slow the decline of respiratory function.</li>
-                    <li><strong>Non-pharmacological management:</strong> Manage hypoxemia and improve exercise tolerance.</li>
-                    <li><strong>Comorbidity management:</strong> Actively treat associated diseases to improve overall prognosis.</li>
-                    <li><strong>Lung transplantation:</strong> Consider early as the only curative option.</li>
-                    <li><strong>Supportive and palliative care:</strong> Control symptoms for a better quality of life.</li>
+                    <li><strong>Traitement antifibrosant :</strong> Ralentir le déclin de la fonction respiratoire.</li>
+                    <li><strong>Prise en charge non-pharmacologique :</strong> Gérer l'hypoxémie et améliorer la tolérance à l'effort.</li>
+                    <li><strong>Gestion des comorbidités :</strong> Traiter activement les maladies associées pour améliorer le pronostic global.</li>
+                    <li><strong>Transplantation pulmonaire :</strong> L'envisager précocement comme seule option curative.</li>
+                    <li><strong>Soins de support et palliatifs :</strong> Maîtriser les symptômes pour une meilleure qualité de vie.</li>
                   </ul>
                 </div>
               </div>
@@ -49,35 +48,35 @@ export const FPITraitementSection: React.FC = () => (
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Pharmacological Treatment: Antifibrotics" icon={<Pill className="w-5 h-5 text-white" />}>
+        <Accordion title="Traitement Pharmacologique : les Antifibrosants" icon={<Pill className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">Two drugs, nintedanib and pirfenidone, have demonstrated efficacy in slowing the decline of Forced Vital Capacity (FVC) by about 50% over one year. The choice between the two depends on the patient's tolerance profile and comorbidities.</p>
+                <p className="text-slate-700 text-base">Deux médicaments, le nintedanib et la pirfénidone, ont démontré leur efficacité pour ralentir le déclin de la Capacité Vitale Forcée (CVF) d'environ 50% sur un an. Le choix entre les deux dépend du profil de tolérance et des comorbidités du patient.</p>
                 <div className="grid md:grid-cols-2 gap-4">
                     <TraitementCard 
                         title="Nintedanib (Ofev®)"
                         content={
                             <>
-                                <p><strong>Mechanism:</strong> Tyrosine kinase inhibitor (VEGFR, FGFR, PDGFR).</p>
-                                <p><strong>Efficacy:</strong> Slows the annual decline in FVC.</p>
-                                <p className="font-semibold mt-2">Managing side effects:</p>
+                                <p><strong>Mécanisme :</strong> Inhibiteur de tyrosine kinases (VEGFR, FGFR, PDGFR).</p>
+                                <p><strong>Efficacité :</strong> Ralentit le déclin annuel de la CVF.</p>
+                                <p className="font-semibold mt-2">Gestion des effets secondaires :</p>
                                 <ul className="list-disc list-inside pl-2 text-base">
-                                    <li><strong>Diarrhea (very common):</strong> Symptomatic treatment (loperamide), hydration, dose adjustment.</li>
-                                    <li><strong>Nausea, vomiting.</strong></li>
-                                    <li><strong>Elevated transaminases:</strong> Regular liver function monitoring (monthly for the first 3 months, then quarterly).</li>
+                                    <li><strong>Diarrhée (très fréquent) :</strong> Traitement symptomatique (lopéramide), hydratation, adaptation posologique.</li>
+                                    <li><strong>Nausées, vomissements.</strong></li>
+                                    <li><strong>Élévation des transaminases :</strong> Surveillance biologique hépatique régulière (mensuelle les 3 premiers mois, puis trimestrielle).</li>
                                 </ul>
                             </>
                         }
                     />
                     <TraitementCard 
-                        title="Pirfenidone (Esbriet®)"
+                        title="Pirfénidone (Esbriet®)"
                         content={
                             <>
-                                <p><strong>Mechanism:</strong> Antifibrotic, anti-inflammatory, and antioxidant effects.</p>
-                                <p><strong>Efficacy:</strong> Slows the annual decline in FVC.</p>
-                                <p className="font-semibold mt-2">Managing side effects:</p>
+                                <p><strong>Mécanisme :</strong> Effets antifibrotiques, anti-inflammatoires et antioxydants.</p>
+                                <p><strong>Efficacité :</strong> Ralentit le déclin annuel de la CVF.</p>
+                                <p className="font-semibold mt-2">Gestion des effets secondaires :</p>
                                 <ul className="list-disc list-inside pl-2 text-base">
-                                    <li><strong>Digestive issues (nausea, anorexia):</strong> Take the medication during or after meals.</li>
-                                    <li><strong>Photosensitivity and skin rash:</strong> Strict sun avoidance, use of total sunblock, protective clothing.</li>
+                                    <li><strong>Troubles digestifs (nausées, anorexie) :</strong> Prise du médicament au milieu ou à la fin des repas.</li>
+                                    <li><strong>Photosensibilité et rash cutané :</strong> Éviction solaire stricte, utilisation d'écran total, vêtements couvrants.</li>
                                     <li><strong>Fatigue.</strong></li>
                                 </ul>
                             </>
@@ -85,39 +84,39 @@ export const FPITraitementSection: React.FC = () => (
                     />
                 </div>
                 <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-md">
-                    <h4 className="text-lg font-bold text-amber-900 mb-3">Focus on Nintedanib (Ofev®)</h4>
+                    <h4 className="text-lg font-bold text-amber-900 mb-3">Focus sur le Nintedanib (Ofev®)</h4>
                     <div className="space-y-3 text-base text-amber-800">
                         <div>
-                            <h5 className="font-semibold">Mechanism of Action</h5>
-                            <p className="text-base">Inhibitor of multiple tyrosine kinases (VEGFR, FGFR, PDGFR) that block signaling pathways involved in fibroblast proliferation and migration.</p>
+                            <h5 className="font-semibold">Mécanisme d'Action</h5>
+                            <p className="text-base">Inhibiteur de multiples tyrosines kinases (VEGFR, FGFR, PDGFR) qui bloquent les voies de signalisation impliquées dans la prolifération et la migration des fibroblastes.</p>
                         </div>
                         <div>
-                            <h5 className="font-semibold">Demonstrated Efficacy</h5>
+                            <h5 className="font-semibold">Efficacité Démontrée</h5>
                             <ul className="list-disc list-inside pl-4 text-base">
-                                <li>Slows FVC decline by about 50% compared to placebo (INPULSIS trials).</li>
-                                <li>Reduces the risk of acute exacerbations.</li>
-                                <li>Effective even in patients with more severe disease (FVC less than 50%) or associated emphysema (CPFE).</li>
+                                <li>Ralentit le déclin de la CVF d'environ 50% par rapport au placebo (essais INPULSIS).</li>
+                                <li>Réduit le risque d'exacerbations aiguës.</li>
+                                <li>Efficace même chez les patients avec une maladie plus sévère (CVF inférieure à 50%) ou un emphysème associé (CPFE).</li>
                             </ul>
                         </div>
                         <div>
-                            <h5 className="font-semibold">Dosage and Administration</h5>
+                            <h5 className="font-semibold">Posologie et Administration</h5>
                             <ul className="list-disc list-inside pl-4 text-base">
-                                <li>150 mg, twice daily, approximately 12 hours apart.</li>
-                                <li>To be taken with food to improve digestive tolerance.</li>
+                                <li>150 mg, deux fois par jour, à environ 12 heures d'intervalle.</li>
+                                <li>À prendre avec de la nourriture pour améliorer la tolérance digestive.</li>
                             </ul>
                         </div>
                         <div>
-                            <h5 className="font-semibold">Practical Management of Side Effects</h5>
+                            <h5 className="font-semibold">Gestion Pratique des Effets Indésirables</h5>
                             <ul className="list-disc list-inside pl-4 text-base">
-                                <li><strong>Diarrhea:</strong> The most common side effect (over 60%). Managed by hydration, loperamide, and if necessary, dose reduction to 100 mg twice daily.</li>
-                                <li><strong>Hepatotoxicity:</strong> Possible elevation of transaminases. Monthly lab monitoring for the first 3 months, then quarterly.</li>
+                                <li><strong>Diarrhée :</strong> L'effet secondaire le plus fréquent (plus de 60%). Gestion par hydratation, lopéramide, et si besoin, réduction de la dose à 100 mg x2/jour.</li>
+                                <li><strong>Hépatotoxicité :</strong> Élévation des transaminases possible. Surveillance biologique mensuelle les 3 premiers mois, puis trimestrielle.</li>
                             </ul>
                         </div>
                          <div>
-                            <h5 className="font-semibold">Precautions for Use</h5>
+                            <h5 className="font-semibold">Précautions d'Emploi</h5>
                              <ul className="list-disc list-inside pl-4 text-base">
-                                <li>Contraindicated in moderate to severe hepatic impairment (Child-Pugh B or C).</li>
-                                <li>Caution with anticoagulant therapy due to a potentially increased risk of bleeding.</li>
+                                <li>Contre-indiqué en cas d'insuffisance hépatique modérée à sévère (Child-Pugh B ou C).</li>
+                                <li>Prudence en cas de traitement anticoagulant en raison d'un risque hémorragique potentiellement accru.</li>
                             </ul>
                         </div>
                     </div>
@@ -125,46 +124,46 @@ export const FPITraitementSection: React.FC = () => (
             </div>
         </Accordion>
 
-        <Accordion title="Non-Pharmacological Management" icon={<Activity className="w-5 h-5 text-white" />}>
+        <Accordion title="Prise en Charge Non-Pharmacologique" icon={<Activity className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Oxygen Therapy:</strong> Essential to correct resting or exertional hypoxemia. It aims to maintain SpO2 ≥ 90%. Ambulatory oxygen therapy improves exercise capacity and quality of life.</li>
-                    <li><strong>Pulmonary Rehabilitation:</strong> A supervised program of exercise training, therapeutic education, and psychosocial support. Proven to improve dyspnea, walking distance, and quality of life.</li>
-                    <li><strong>Vaccinations:</strong> Updated vaccinations for influenza (annual), pneumococcus, and COVID-19 are recommended to reduce the risk of infectious acute exacerbations.</li>
+                    <li><strong>Oxygénothérapie :</strong> Essentielle pour corriger l'hypoxémie de repos ou d'effort. Elle vise à maintenir une SpO2 ≥ 90%. L'oxygénothérapie de déambulation améliore la capacité d'exercice et la qualité de vie.</li>
+                    <li><strong>Réhabilitation respiratoire :</strong> Un programme d'entraînement à l'effort supervisé, d'éducation thérapeutique et de soutien psychosocial. Démontré pour améliorer la dyspnée, la distance de marche et la qualité de vie.</li>
+                    <li><strong>Vaccinations :</strong> Mises à jour recommandées pour la grippe (annuelle), le pneumocoque et le COVID-19 afin de réduire le risque d'exacerbations aiguës infectieuses.</li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Comorbidity Management" icon={<Shield className="w-5 h-5 text-white" />}>
+        <Accordion title="Gestion des Comorbidités" icon={<Shield className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
                  <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Gastroesophageal Reflux Disease (GERD):</strong> Highly prevalent. Treatment with proton pump inhibitors (PPIs) is recommended for symptomatic patients, although its impact on IPF progression remains debated.</li>
-                    <li><strong>Pulmonary Hypertension (PAH):</strong> A frequent and poor prognostic complication. Screening with echocardiography is recommended, especially in cases of very low DLCO or a mismatch between dyspnea and FVC decline.</li>
-                    <li><strong>Obstructive Sleep Apnea (OSA):</strong> Should be investigated if suggestive symptoms are present. Its management can improve quality of life.</li>
-                    <li><strong>Combined Pulmonary Fibrosis and Emphysema (CPFE):</strong> Modifies the functional presentation (sub-normal lung volumes) but worsens the prognosis.</li>
+                    <li><strong>Reflux Gastro-Œsophagien (RGO) :</strong> Très prévalent. Le traitement par inhibiteurs de la pompe à protons (IPP) est recommandé pour les patients symptomatiques, bien que son impact sur la progression de la FPI reste débattu.</li>
+                    <li><strong>Hypertension Pulmonaire (HTP) :</strong> Complication fréquente et de mauvais pronostic. Son dépistage par échocardiographie est recommandé, surtout en cas de DLCO très basse ou de discordance entre la dyspnée et le déclin de la CVF.</li>
+                    <li><strong>Syndrome d'Apnées du Sommeil (SAOS) :</strong> À rechercher en cas de symptômes évocateurs. Sa prise en charge peut améliorer la qualité de vie.</li>
+                    <li><strong>Emphysème associé (CPFE) :</strong> Modifie la présentation fonctionnelle (volumes pulmonaires sub-normaux) mais aggrave le pronostic.</li>
                  </ul>
             </div>
         </Accordion>
         
-        <Accordion title="Lung Transplantation" icon={<Heart className="w-5 h-5 text-white" />}>
+        <Accordion title="Transplantation Pulmonaire" icon={<Heart className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">Lung transplantation is the only curative therapeutic option for IPF.</p>
+                <p className="text-base">La transplantation pulmonaire est la seule option thérapeutique curative pour la FPI.</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Early referral:</strong> It is crucial to refer the patient to a transplantation center for an initial evaluation at the time of diagnosis.</li>
-                    <li><strong>Transplantation window:</strong> The goal is to list the patient neither too early (risks related to immunosuppression) nor too late (death on the waiting list).</li>
-                    <li><strong>Criteria for listing:</strong> Generally discussed in cases of proven functional decline (10% drop in FVC or 15% drop in DLCO in 6 months) or immediately if DLCO is less than 40%.</li>
+                    <li><strong>Orientation précoce :</strong> Il est crucial d'adresser le patient à un centre de transplantation dès le diagnostic pour une évaluation initiale.</li>
+                    <li><strong>Fenêtre de transplantation :</strong> Le but est d'inscrire le patient sur liste d'attente ni trop tôt (risques liés à l'immunosuppression) ni trop tard (décès en liste).</li>
+                    <li><strong>Critères d'inscription sur liste :</strong> Généralement discutée en cas de déclin fonctionnel avéré (baisse de la CVF de 10% ou de la DLCO de 15% en 6 mois) ou d'emblée si DLCO est inférieure à 40%.</li>
                 </ul>
             </div>
         </Accordion>
 
-        <Accordion title="Palliative Care and Symptom Management" icon={<HandHeart className="w-5 h-5 text-white" />}>
+        <Accordion title="Soins Palliatifs et Gestion des Symptômes" icon={<HandHeart className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-3 text-slate-700">
-                <p className="text-base">The early introduction of supportive care is fundamental to improving quality of life.</p>
+                <p className="text-base">L'introduction précoce des soins de support est fondamentale pour améliorer la qualité de vie.</p>
                 <ul className="list-disc list-inside space-y-2 text-base">
-                    <li><strong>Dyspnea:</strong> Management relies on oxygen therapy and rehabilitation. For refractory dyspnea, low-dose opioids (oral morphine) are the most effective and recommended treatment.</li>
-                    <li><strong>Chronic cough:</strong> Often refractory. Non-specific treatments like opioids (codeine) or gabapentin can be tried. Treating associated GERD is essential.</li>
-                    <li><strong>Psychological support:</strong> Anxiety and depression are common and must be managed.</li>
-                    <li><strong>Advance directives:</strong> Discussing the patient's wishes regarding end-of-life care is an integral part of management.</li>
+                    <li><strong>Dyspnée :</strong> La prise en charge repose sur l'oxygénothérapie et la réhabilitation. Pour la dyspnée réfractaire, les opiacés à faible dose (morphine orale) sont le traitement le plus efficace et recommandé.</li>
+                    <li><strong>Toux chronique :</strong> Souvent réfractaire. Des traitements non spécifiques comme les opiacés (codéine) ou la gabapentine peuvent être essayés. Le traitement du RGO associé est indispensable.</li>
+                    <li><strong>Soutien psychologique :</strong> L'anxiété et la dépression sont fréquentes et doivent être prises en charge.</li>
+                    <li><strong>Directives anticipées :</strong> Discuter des souhaits du patient concernant la fin de vie est une partie intégrante de la prise en charge.</li>
                 </ul>
             </div>
         </Accordion>

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { XCircle } from './icons';
@@ -39,7 +40,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
           <button
             onClick={onClose}
             className="text-slate-400 hover:text-slate-600 transition-colors"
-            aria-label="Close"
+            aria-label="Fermer"
           >
             <XCircle className="w-7 h-7" />
           </button>

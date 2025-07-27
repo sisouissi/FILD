@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TrendingUp, Info, CheckCircle, AlertTriangle, Stethoscope, Pill, Search, HandHeart, Activity, ChevronRight } from './icons';
 import { Accordion } from './Accordion';
@@ -64,104 +63,104 @@ export const FPPSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <TrendingUp className="w-7 h-7 mr-3 text-blue-500" />
-        Fibroses Pulmonaires Progressives (FPP)
+        Progressive Pulmonary Fibrosis (PPF)
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        Comprendre le phénotype évolutif commun à de nombreuses pneumopathies interstitielles diffuses (PID).
+        Understanding the common progressive phenotype across various interstitial lung diseases (ILDs).
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-        <h3 className="text-xl font-semibold text-slate-800 mb-3">Introduction au Concept de FPP</h3>
+        <h3 className="text-xl font-semibold text-slate-800 mb-3">Introduction to the Concept of PPF</h3>
         <p className="text-slate-700 mb-4 text-base">
-            Le concept de Fibrose Pulmonaire Progressive (FPP) ne désigne pas une maladie unique, mais un **phénotype clinique**, c'est-à-dire un comportement évolutif observé dans diverses PID. Indépendamment de leur diagnostic initial, certains patients développent une aggravation auto-entretenue de la fibrose, menant à un déclin fonctionnel, une dégradation de la qualité de vie et une mortalité accrue, de manière similaire à la Fibrose Pulmonaire Idiopathique (FPI).
+            The concept of Progressive Pulmonary Fibrosis (PPF) does not refer to a single disease, but rather a **clinical phenotype**, i.e., a behavioral pattern observed in various ILDs. Regardless of their initial diagnosis, some patients develop a self-sustaining worsening of fibrosis, leading to functional decline, a decline in quality of life, and increased mortality, similar to Idiopathic Pulmonary Fibrosis (IPF).
         </p>
         <p className="text-slate-700 text-base">
-            La reconnaissance de ce phénotype est cruciale car elle a ouvert la voie à l'utilisation de traitements antifibrosants pour des patients atteints de PID autres que la FPI.
+            Recognizing this phenotype is crucial as it has paved the way for the use of antifibrotic treatments for patients with ILDs other than IPF.
         </p>
     </div>
 
     <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
         <h3 className="text-xl font-semibold text-blue-800 mb-3 flex items-center">
             <Info className="w-6 h-6 mr-3" />
-            Principes Clés
+            Key Principles
         </h3>
         <ul className="list-disc list-inside space-y-2 text-slate-700 text-base">
-            <li>La FPP est un <strong>phénotype clinique évolutif</strong>, pas une maladie distincte, qui peut survenir dans diverses PID fibrosantes.</li>
-            <li>Elle se caractérise par une <strong>aggravation auto-entretenue de la fibrose</strong>, similaire à la FPI.</li>
-            <li>Le principal marqueur est le <strong>déclin de la fonction respiratoire</strong> (en particulier la CVF) malgré un traitement standard de la maladie sous-jacente.</li>
-            <li>L'identification de ce phénotype est <strong>cruciale</strong> car elle justifie l'introduction d'un <strong>traitement antifibrosant</strong> pour ralentir la progression.</li>
+            <li>PPF is a <strong>progressive clinical phenotype</strong>, not a distinct disease, which can occur in various fibrosing ILDs.</li>
+            <li>It is characterized by a <strong>self-sustaining worsening of fibrosis</strong>, similar to IPF.</li>
+            <li>The main marker is the <strong>decline in respiratory function</strong> (especially FVC) despite standard treatment of the underlying disease.</li>
+            <li>Identifying this phenotype is <strong>crucial</strong> as it justifies the introduction of an <strong>antifibrotic treatment</strong> to slow progression.</li>
         </ul>
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Définition et Critères de Progression" icon={<CheckCircle className="w-5 h-5 text-white" />}>
+        <Accordion title="Definition and Progression Criteria" icon={<CheckCircle className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
                  <div className="grid md:grid-cols-2 gap-4">
-                    <InfoCard title="Qu'est-ce que le phénotype FPP ?" icon={<Info className="w-5 h-5"/>} color="blue">
-                        <p>La FPP décrit une évolution progressive, où la fibrose s'aggrave avec le temps. Elle peut être constatée dès la présentation initiale du patient (symptômes et imagerie qui s'aggravent).</p>
-                        <p className="text-base italic mt-2">Environ 18 à 32% des patients atteints de PID non-FPI développent ce phénotype.</p>
+                    <InfoCard title="What is the PPF phenotype?" icon={<Info className="w-5 h-5"/>} color="blue">
+                        <p>PPF describes a progressive course where fibrosis worsens over time. It can be observed at the initial presentation of the patient (worsening symptoms and imaging).</p>
+                        <p className="text-base italic mt-2">Approximately 18% to 32% of patients with non-IPF ILD develop this phenotype.</p>
                     </InfoCard>
-                    <InfoCard title="FPP 'Malgré Traitement' : La Cible Thérapeutique" icon={<Pill className="w-5 h-5"/>} color="teal">
-                        <p>Le terme **FPP (malgré traitement)** est utilisé pour désigner la progression qui survient **malgré un traitement initial jugé approprié** (ex: immunosuppresseurs pour une connectivite).</p>
-                        <p className="text-base font-semibold mt-2">Cette distinction est cruciale car c'est cette entité qui est la cible des traitements antifibrosants.</p>
+                    <InfoCard title="PPF 'Despite Treatment': The Therapeutic Target" icon={<Pill className="w-5 h-5"/>} color="teal">
+                        <p>The term **PPF (despite treatment)** is used to describe progression that occurs **despite an initial treatment deemed appropriate** (e.g., immunosuppressants for a connective tissue disease).</p>
+                        <p className="text-base font-semibold mt-2">This distinction is crucial because this entity is the target of antifibrotic therapies.</p>
                     </InfoCard>
                 </div>
 
                 <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
                     <h4 className="font-semibold text-red-800 text-lg mb-2 flex items-center">
                         <AlertTriangle className="w-5 h-5 mr-2" />
-                        Critères de Progression (définis sur 24 mois)
+                        Progression Criteria (defined over 24 months)
                     </h4>
-                    <p className="text-slate-700 mb-2 text-base">Le patient doit présenter au moins un des critères suivants, en l'absence d'autre explication :</p>
+                    <p className="text-slate-700 mb-2 text-base">The patient must meet at least one of the following criteria, in the absence of another explanation:</p>
                     <ul className="space-y-2 text-base text-slate-700">
                         <li className="p-2 bg-white border border-red-200 rounded-md">
-                            <strong className="block text-red-700">1. Déclin fonctionnel significatif :</strong><br/>
-                            Baisse relative de la Capacité Vitale Forcée (CVF) ≥ 10% de la valeur prédite.
+                            <strong className="block text-red-700">1. Significant functional decline:</strong><br/>
+                            Relative decline in Forced Vital Capacity (FVC) of 10% or more of the predicted value.
                         </li>
                          <li className="p-2 bg-white border border-red-200 rounded-md">
-                            <strong className="block text-red-700">2. Déclin fonctionnel modéré + Aggravation :</strong><br/>
-                            Baisse relative de la CVF de 5 à 10% <strong>ET</strong> aggravation des symptômes respiratoires <strong>OU</strong> aggravation des signes de fibrose au scanner.
+                            <strong className="block text-red-700">2. Moderate functional decline + Worsening:</strong><br/>
+                            Relative decline in FVC of 5% to 10% <strong>AND</strong> worsening of respiratory symptoms <strong>OR</strong> worsening of fibrotic signs on HRCT.
                         </li>
                          <li className="p-2 bg-white border border-red-200 rounded-md">
-                            <strong className="block text-red-700">3. Aggravation symptomatique et radiologique :</strong><br/>
-                            Aggravation des symptômes respiratoires <strong>ET</strong> aggravation significative des signes de fibrose au scanner.
+                            <strong className="block text-red-700">3. Symptomatic and radiological worsening:</strong><br/>
+                            Worsening of respiratory symptoms <strong>AND</strong> significant worsening of fibrotic signs on HRCT.
                         </li>
                     </ul>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Pathologies sous-jacentes et Facteurs de Risque" icon={<Stethoscope className="w-5 h-5 text-white" />}>
+        <Accordion title="Underlying Diseases and Risk Factors" icon={<Stethoscope className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-4">
-                 <p className="text-slate-700 text-base">De nombreuses PID peuvent évoluer vers un phénotype FPP. Certains facteurs de risque augmentent cette probabilité.</p>
+                 <p className="text-slate-700 text-base">Many ILDs can progress to a PPF phenotype. Certain risk factors increase this likelihood.</p>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                     <InfoCard title="Principales PID Concernées" icon={<CheckCircle className="w-5 h-5"/>} color="green">
+                     <InfoCard title="Main ILDs Involved" icon={<CheckCircle className="w-5 h-5"/>} color="green">
                          <ul className="list-disc list-inside">
-                             <li>Pneumopathie d'Hypersensibilité (PHS) chronique</li>
-                             <li>PID associées aux connectivites (PR, SSc, etc.)</li>
-                             <li>PID inclassables</li>
-                             <li>Sarcoïdose fibrosante</li>
+                             <li>Chronic Hypersensitivity Pneumonitis (HP)</li>
+                             <li>Connective Tissue Disease-Associated ILD (CTD-ILD) (e.g., RA, SSc)</li>
+                             <li>Unclassifiable ILD</li>
+                             <li>Fibrotic Sarcoidosis</li>
                              <li>Pneumoconioses</li>
                          </ul>
                      </InfoCard>
-                     <InfoCard title="Facteurs de Risque de Progression" icon={<AlertTriangle className="w-5 h-5"/>} color="orange">
+                     <InfoCard title="Risk Factors for Progression" icon={<AlertTriangle className="w-5 h-5"/>} color="orange">
                         <ul className="list-disc list-inside space-y-2">
                             <li>
-                                <strong>Facteurs Généraux :</strong>
+                                <strong>General Factors:</strong>
                                 <ul className="list-['-_'] list-inside pl-4 mt-1 text-sm">
-                                    <li>Pattern de <strong>Pneumopathie Interstitielle Commune (PIC/UIP)</strong> à la TDM ou à la biopsie.</li>
-                                    <li>Étendue de la fibrose sur la TDM-HR initiale.</li>
-                                    <li>Fonction respiratoire de base altérée (CVF et/ou DLCO basses).</li>
-                                    <li>Désaturation en oxygène durant le test de marche de 6 minutes.</li>
+                                    <li><strong>Usual Interstitial Pneumonia (UIP)</strong> pattern on HRCT or biopsy.</li>
+                                    <li>Extent of fibrosis on initial HRCT.</li>
+                                    <li>Impaired baseline pulmonary function (low FVC and/or DLCO).</li>
+                                    <li>Oxygen desaturation during the 6-minute walk test.</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Facteurs Spécifiques à la Maladie :</strong>
+                                <strong>Disease-Specific Factors:</strong>
                                 <ul className="list-['-_'] list-inside pl-4 mt-1 text-sm">
-                                    <li><strong>Polyarthrite Rhumatoïde (PR) :</strong> Pattern TDM de PIC/UIP, sexe masculin, âge avancé, taux élevés d'anticorps anti-CCP.</li>
-                                    <li><strong>Sclérodermie Systémique (SSc) :</strong> Atteinte cutanée diffuse, présence d'anticorps anti-Scl70, étendue importante de la fibrose sur la TDM-HR.</li>
-                                    <li><strong>Pneumopathie d'Hypersensibilité (PHS) :</strong> Non-identification de l'antigène causal, présence de fibrose extensive.</li>
+                                    <li><strong>Rheumatoid Arthritis (RA):</strong> UIP pattern on HRCT, male sex, advanced age, high levels of anti-CCP antibodies.</li>
+                                    <li><strong>Systemic Sclerosis (SSc):</strong> Diffuse cutaneous involvement, presence of anti-Scl70 antibodies, significant extent of fibrosis on HRCT.</li>
+                                    <li><strong>Hypersensitivity Pneumonitis (HP):</strong> Non-identification of the causative antigen, presence of extensive fibrosis.</li>
                                 </ul>
                             </li>
                         </ul>
@@ -170,14 +169,14 @@ export const FPPSection: React.FC = () => (
             </div>
         </Accordion>
 
-        <Accordion title="Approche Thérapeutique de la FPP" icon={<Pill className="w-5 h-5 text-white" />}>
+        <Accordion title="Therapeutic Approach to PPF" icon={<Pill className="w-5 h-5 text-white" />}>
             <div className="p-4 flex flex-col items-center space-y-4">
-                <StepCard stepNumber="1" title="Traitement Initial Individualisé" icon={<Search className="w-6 h-6"/>} color="blue">
-                    <p>La prise en charge initiale n'est pas standardisée et doit être adaptée à la maladie sous-jacente. L'objectif est de contrôler l'inflammation et/ou d'éliminer le facteur déclenchant.</p>
+                <StepCard stepNumber="1" title="Individualized Initial Treatment" icon={<Search className="w-6 h-6"/>} color="blue">
+                    <p>The initial management is not standardized and should be tailored to the underlying disease. The goal is to control inflammation and/or eliminate the trigger.</p>
                     <ul className="list-disc list-inside text-base mt-2">
-                        <li><strong>PID-Connectivites :</strong> Immunosuppresseurs (ex: mycophénolate, rituximab).</li>
-                        <li><strong>PHS Chronique :</strong> Éviction de l'antigène et/ou corticoïdes/immunosuppresseurs.</li>
-                        <li><strong>Sarcoïdose :</strong> Corticoïdes ou autres immunosuppresseurs.</li>
+                        <li><strong>CTD-ILD:</strong> Immunosuppressants (e.g., mycophenolate, rituximab).</li>
+                        <li><strong>Chronic HP:</strong> Antigen avoidance and/or corticosteroids/immunosuppressants.</li>
+                        <li><strong>Sarcoidosis:</strong> Corticosteroids or other immunosuppressants.</li>
                     </ul>
                 </StepCard>
 
@@ -185,80 +184,80 @@ export const FPPSection: React.FC = () => (
                     <ChevronRight className="w-8 h-8" />
                 </div>
 
-                <StepCard stepNumber="2" title="Surveillance et Détection de la Progression" icon={<Activity className="w-6 h-6"/>} color="orange">
-                    <p>Après l'initiation du traitement de fond, une période d'observation et de surveillance rapprochée est essentielle pour identifier les patients qui continuent de progresser.</p>
-                    <p className="font-semibold mt-2">Période d'observation : au moins 3 à 6 mois.</p>
-                    <p className="text-base">Surveiller l'évolution des symptômes, de la fonction respiratoire (EFR tous les 3-6 mois) et de l'imagerie (TDM-HR selon indication) pour appliquer les critères de FPP.</p>
+                <StepCard stepNumber="2" title="Monitoring and Detection of Progression" icon={<Activity className="w-6 h-6"/>} color="orange">
+                    <p>After initiating baseline treatment, a period of close observation and monitoring is essential to identify patients who continue to progress.</p>
+                    <p className="font-semibold mt-2">Observation period: at least 3 to 6 months.</p>
+                    <p className="text-base">Monitor the evolution of symptoms, respiratory function (PFTs every 3-6 months), and imaging (HRCT as indicated) to apply the PPF criteria.</p>
                 </StepCard>
                 
                 <div className="text-slate-400 transform rotate-90">
                     <ChevronRight className="w-8 h-8" />
                 </div>
 
-                <StepCard stepNumber="3" title="Traitement de la Progression (FPP avérée)" icon={<Pill className="w-6 h-6"/>} color="purple">
-                     <p>Si la fibrose progresse **malgré le traitement initial** (si les critères de FPP sont remplis), l'ajout séquentiel d'un **traitement antifibrosant** est indiqué.</p>
+                <StepCard stepNumber="3" title="Treatment of Progression (Confirmed PPF)" icon={<Pill className="w-6 h-6"/>} color="purple">
+                     <p>If fibrosis progresses **despite initial treatment** (if PPF criteria are met), the sequential addition of an **antifibrotic treatment** is indicated.</p>
                      <ul className="list-disc list-inside text-base mt-2">
-                         <li><strong>Nintedanib :</strong> A démontré son efficacité pour ralentir le déclin de la CVF chez les patients avec FPP (étude INBUILD). Il peut être utilisé en association avec les immunosuppresseurs.</li>
-                         <li><strong>Pirfénidone :</strong> Son efficacité est en cours d'évaluation dans cette indication.</li>
-                         <li>Dans certains cas, les immunosuppresseurs peuvent être diminués ou arrêtés lors de l'introduction de l'antifibrosant, si leur bénéfice n'est pas démontré.</li>
+                         <li><strong>Nintedanib:</strong> Has demonstrated efficacy in slowing the decline of FVC in patients with PPF (INBUILD trial). It can be used in combination with immunosuppressants.</li>
+                         <li><strong>Pirfenidone:</strong> Its efficacy is under evaluation in this indication.</li>
+                         <li>In some cases, immunosuppressants may be reduced or stopped when introducing the antifibrotic, if their benefit is not demonstrated.</li>
                      </ul>
                 </StepCard>
             </div>
         </Accordion>
 
-         <Accordion title="Fibroses Pulmonaires Progressives et Nintedanib" icon={<Pill className="w-5 h-5 text-white" />} variant="success">
+         <Accordion title="Progressive Pulmonary Fibrosis and Nintedanib" icon={<Pill className="w-5 h-5 text-white" />} variant="success">
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">L'étude INBUILD a été un essai pivot qui a validé le concept de FPP et a démontré l'efficacité du Nintedanib dans cette population hétérogène de patients.</p>
+                <p className="text-slate-700 text-base">The INBUILD trial was a pivotal study that validated the concept of PPF and demonstrated the efficacy of Nintedanib in this heterogeneous patient population.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <InfoCard title="L'Étude INBUILD" icon={<Info className="w-5 h-5"/>} color="blue">
+                    <InfoCard title="The INBUILD Trial" icon={<Info className="w-5 h-5"/>} color="blue">
                         <ul className="list-disc list-inside">
-                            <li><strong>Population :</strong> Patients avec diverses PID (hors FPI) présentant des critères de progression.</li>
-                            <li><strong>Résultat principal :</strong> Le Nintedanib a significativement réduit le taux annuel de déclin de la CVF par rapport au placebo, que le pattern TDM soit de type UIP ou non.</li>
+                            <li><strong>Population:</strong> Patients with various ILDs (excluding IPF) showing progression criteria.</li>
+                            <li><strong>Primary outcome:</strong> Nintedanib significantly reduced the annual rate of FVC decline compared to placebo, regardless of whether the HRCT pattern was UIP-like or not.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Efficacité du Nintedanib" icon={<CheckCircle className="w-5 h-5"/>} color="green">
+                    <InfoCard title="Efficacy of Nintedanib" icon={<CheckCircle className="w-5 h-5"/>} color="green">
                         <ul className="list-disc list-inside">
-                            <li>Ralentit la progression de la maladie.</li>
-                            <li>Bénéfice observé dans les principaux sous-groupes de PID (PHS, PID-connectivites, PID inclassables).</li>
+                            <li>Slows disease progression.</li>
+                            <li>Benefit observed in major ILD subgroups (HP, CTD-ILD, unclassifiable ILD).</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Profil de Tolérance" icon={<AlertTriangle className="w-5 h-5"/>} color="orange">
+                    <InfoCard title="Tolerability Profile" icon={<AlertTriangle className="w-5 h-5"/>} color="orange">
                         <ul className="list-disc list-inside">
-                            <li>Similaire à celui observé dans la FPI.</li>
-                            <li><strong>Diarrhée :</strong> Effet secondaire le plus fréquent, généralement gérable par des traitements symptomatiques et des adaptations de dose.</li>
-                            <li><strong>Élévation des enzymes hépatiques :</strong> Nécessite une surveillance biologique régulière.</li>
+                            <li>Similar to that observed in IPF.</li>
+                            <li><strong>Diarrhea:</strong> Most common side effect, generally manageable with symptomatic treatments and dose adjustments.</li>
+                            <li><strong>Elevated liver enzymes:</strong> Requires regular lab monitoring.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Questions et Perspectives" icon={<Search className="w-5 h-5"/>} color="purple">
+                    <InfoCard title="Questions and Future Directions" icon={<Search className="w-5 h-5"/>} color="purple">
                         <ul className="list-disc list-inside">
-                            <li>Quel est le meilleur moment pour initier le Nintedanib ?</li>
-                            <li>Faut-il privilégier les antifibrosants ou les immunosuppresseurs dans les maladies inflammatoires ?</li>
-                            <li>Quelle est la place des antifibrosants dans les phases aiguës/subaiguës de certaines PID ?</li>
+                            <li>What is the best time to initiate Nintedanib?</li>
+                            <li>Should antifibrotics or immunosuppressants be prioritized in inflammatory diseases?</li>
+                            <li>What is the role of antifibrotics in the acute/subacute phases of certain ILDs?</li>
                         </ul>
                     </InfoCard>
                 </div>
             </div>
         </Accordion>
         
-        <Accordion title="Suivi et Prise en Charge de Support" icon={<HandHeart className="w-5 h-5 text-white" />}>
+        <Accordion title="Follow-up and Supportive Care" icon={<HandHeart className="w-5 h-5 text-white" />}>
              <div className="p-4 space-y-4">
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                     <InfoCard title="Suivi Régulier" icon={<Activity className="w-5 h-5"/>} color="green">
-                        <p>Un suivi rapproché est essentiel pour détecter la progression précocement.</p>
+                     <InfoCard title="Regular Follow-up" icon={<Activity className="w-5 h-5"/>} color="green">
+                        <p>Close follow-up is essential for early detection of progression.</p>
                         <ul className="list-disc list-inside text-base mt-2">
-                            <li><strong>EFR (CVF, DLCO) :</strong> Tous les 3 à 6 mois.</li>
-                            <li><strong>Évaluation clinique :</strong> Dyspnée, toux, tolérance à l'effort.</li>
-                            <li><strong>TDM-HR :</strong> Pas en routine, mais si une aggravation est suspectée ou pour le suivi à long terme.</li>
+                            <li><strong>PFTs (FVC, DLCO):</strong> Every 3 to 6 months.</li>
+                            <li><strong>Clinical evaluation:</strong> Dyspnea, cough, exercise tolerance.</li>
+                            <li><strong>HRCT:</strong> Not routinely, but if worsening is suspected or for long-term follow-up.</li>
                         </ul>
                     </InfoCard>
-                     <InfoCard title="Prise en Charge de Support" icon={<HandHeart className="w-5 h-5"/>} color="teal">
-                         <p>Elle est identique à celle de la FPI et vise à améliorer la qualité de vie :</p>
+                     <InfoCard title="Supportive Care" icon={<HandHeart className="w-5 h-5"/>} color="teal">
+                         <p>It is identical to that for IPF and aims to improve quality of life:</p>
                          <ul className="list-disc list-inside text-base mt-2">
-                            <li>Oxygénothérapie pour corriger l'hypoxémie.</li>
-                            <li>Réhabilitation respiratoire.</li>
-                            <li>Gestion des comorbidités.</li>
-                            <li>Orientation précoce pour la transplantation pulmonaire.</li>
-                            <li>Soins palliatifs et de support pour la gestion des symptômes.</li>
+                            <li>Oxygen therapy to correct hypoxemia.</li>
+                            <li>Pulmonary rehabilitation.</li>
+                            <li>Management of comorbidities.</li>
+                            <li>Early referral for lung transplantation.</li>
+                            <li>Palliative and supportive care for symptom management.</li>
                          </ul>
                     </InfoCard>
                 </div>

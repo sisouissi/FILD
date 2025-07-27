@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Accordion } from './Accordion';
 import { FlaskConical } from './icons';
 import { connectivitesData } from './connectivites_data';
 
 export const ImmunologyWorkupSection: React.FC = () => (
-    <Accordion title={connectivitesData.immunologyWorkup.title} icon={<FlaskConical className="w-5 h-5 text-white" />}>
+    <Accordion title="Interactive Tool: Which Immunology Workup to Order?" icon={<FlaskConical className="w-5 h-5 text-white" />}>
         <div className="p-4">
             <div className="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                 <div className="space-y-8">

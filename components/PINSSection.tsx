@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ClipboardList, AlertTriangle, Activity, Stethoscope, Search, Pill, CheckCircle, Image, Users, HandHeart, History, FlaskConical, Lungs, Microscope, FileText } from './icons';
 import { Accordion } from './Accordion';
@@ -56,95 +55,95 @@ export const PINSSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <ClipboardList className="w-7 h-7 mr-3 text-blue-500" />
-        Pneumopathies interstitielles non spécifiques (PINS)
+        Nonspecific Interstitial Pneumonia (NSIP)
       </h2>
       <p className="text-slate-600 mt-2 text-base">
-        La PINS est une pneumopathie interstitielle chronique d'aspect homogène, combinant inflammation et fibrose. Elle est dite "non spécifique" car elle ne présente pas les caractéristiques distinctives d'autres PII.
+        NSIP is a chronic interstitial pneumonia with a homogeneous appearance, combining inflammation and fibrosis. It is called "nonspecific" because it lacks the distinctive features of other IIPs.
       </p>
     </div>
 
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-        <h3 className="text-xl font-semibold text-slate-800 mb-3">Introduction et Définition</h3>
+        <h3 className="text-xl font-semibold text-slate-800 mb-3">Introduction and Definition</h3>
         <p className="text-slate-700 mb-4 text-base">
-            La Pneumopathie Interstitielle Non Spécifique (PINS), ou <i>Nonspecific Interstitial Pneumonia (NSIP)</i>, est une des principales formes de pneumopathies interstitielles idiopathiques (PII), au même titre que la pneumopathie interstitielle commune (PIC/FPI), la pneumopathie interstitielle desquamative (PID), et d'autres entités plus rares.
+            Nonspecific Interstitial Pneumonia (NSIP) is one of the main forms of idiopathic interstitial pneumonias (IIPs), along with usual interstitial pneumonia (UIP/IPF), desquamative interstitial pneumonia (DIP), and other rarer entities.
         </p>
         <p className="text-slate-700 text-base">
-            Elle est qualifiée de « non spécifique » car son aspect histologique, bien que distinct, ne présente pas les caractéristiques spécifiques des autres PII (par ex: hétérogénéité de la FPI, accumulation de macrophages dans la PID, etc.). Le diagnostic de PINS repose sur une image histologique <strong>homogène</strong>, montrant une inflammation chronique et/ou une fibrose de l'interstitium pulmonaire qui semble avoir le même 'âge' partout.
+            It is called "nonspecific" because its histological appearance, although distinct, does not have the specific features of other IIPs (e.g., heterogeneity of IPF, macrophage accumulation in DIP, etc.). The diagnosis of NSIP is based on a <strong>homogeneous</strong> histological picture, showing chronic inflammation and/or fibrosis of the pulmonary interstitium that appears to be of the same 'age' everywhere.
         </p>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6 rounded-r-lg">
-            <h4 className="text-base font-semibold text-blue-800 mb-2">Points Clés sur la Définition</h4>
+            <h4 className="text-base font-semibold text-blue-800 mb-2">Key Points on the Definition</h4>
             <ul className="list-disc list-inside space-y-1 text-slate-700 text-base">
-                <li><strong>Un diagnostic d'exclusion histologique :</strong> La PINS est définie par l'absence des signes caractéristiques des autres PII.</li>
-                <li><strong>Homogénéité temporelle :</strong> Son trait histologique majeur est un aspect uniforme (homogène dans le temps) de l'inflammation et/ou de la fibrose.</li>
-                <li><strong>Dualité étiologique :</strong> Peut être idiopathique ou, plus fréquemment, secondaire à une maladie systémique (surtout les connectivites), une prise médicamenteuse ou une infection (VIH).</li>
+                <li><strong>A histological diagnosis of exclusion:</strong> NSIP is defined by the absence of characteristic signs of other IIPs.</li>
+                <li><strong>Temporal homogeneity:</strong> Its major histological feature is a uniform (temporally homogeneous) appearance of inflammation and/or fibrosis.</li>
+                <li><strong>Etiological duality:</strong> Can be idiopathic or, more frequently, secondary to a systemic disease (especially connective tissue diseases), drug use, or infection (HIV).</li>
             </ul>
         </div>
     </div>
 
     <div className="space-y-4">
-        <Accordion title="Étiologie" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Etiology" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-base text-slate-700">
-                <p>La PINS peut être idiopathique, mais elle est le plus souvent associée à diverses conditions, même si le lien de causalité n'est pas toujours formellement identifié.</p>
+                <p>NSIP can be idiopathic, but it is most often associated with various conditions, even if a causal link is not always formally identified.</p>
                 
                 <div className="pt-4">
-                    <h4 className="font-semibold text-lg text-slate-800 mb-3">1. Connectivites</h4>
-                    <p className="mb-4">La PINS est le pattern histologique le plus fréquemment retrouvé dans le cadre des pneumopathies interstitielles associées aux connectivites.</p>
+                    <h4 className="font-semibold text-lg text-slate-800 mb-3">1. Connective Tissue Diseases</h4>
+                    <p className="mb-4">NSIP is the most frequently found histological pattern in the context of connective tissue disease-associated interstitial lung disease.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="bg-blue-50 p-3 rounded-md border border-blue-200">
-                            <h5 className="font-bold text-blue-800">Sclérodermie Systémique (SSc)</h5>
-                            <p className="mt-1">Pattern le plus fréquent de PID dans la SSc (jusqu'à 78% des cas biopsiés).</p>
+                            <h5 className="font-bold text-blue-800">Systemic Sclerosis (SSc)</h5>
+                            <p className="mt-1">Most common pattern of ILD in SSc (up to 78% of biopsied cases).</p>
                         </div>
                         <div className="bg-purple-50 p-3 rounded-md border border-purple-200">
-                            <h5 className="font-bold text-purple-800">Polymyosite-Dermatomyosite (MII)</h5>
-                            <p className="mt-1">Très fréquent (81% des cas biopsiés dans une étude). La PID peut se manifester comme une pneumonie résistante aux antibiotiques.</p>
+                            <h5 className="font-bold text-purple-800">Polymyositis-Dermatomyositis (IIM)</h5>
+                            <p className="mt-1">Very common (81% of biopsied cases in one study). ILD can manifest as antibiotic-resistant pneumonia.</p>
                         </div>
                         <div className="bg-teal-50 p-3 rounded-md border border-teal-200">
-                            <h5 className="font-bold text-teal-800">Syndrome de Sjögren</h5>
-                            <p className="mt-1">Le pattern le plus fréquent de PID dans le Sjögren (près de 50% des cas).</p>
+                            <h5 className="font-bold text-teal-800">Sjögren's Syndrome</h5>
+                            <p className="mt-1">Most common pattern of ILD in Sjögren's (nearly 50% of cases).</p>
                         </div>
                         <div className="bg-red-50 p-3 rounded-md border border-red-200">
-                            <h5 className="font-bold text-red-800">Polyarthrite Rhumatoïde (PR)</h5>
-                            <p className="mt-1">Moins fréquent que le pattern de PIC/UIP, mais représente environ 14% des PID associées à la PR.</p>
+                            <h5 className="font-bold text-red-800">Rheumatoid Arthritis (RA)</h5>
+                            <p className="mt-1">Less frequent than the UIP pattern, but represents about 14% of ILD associated with RA.</p>
                         </div>
                         <div className="bg-slate-100 p-3 rounded-md border border-slate-300 col-span-1 md:col-span-2">
-                            <h5 className="font-bold text-slate-800">Vascularites associées aux ANCA</h5>
-                            <p className="mt-1">Un pattern de PINS est décrit, notamment dans la polyangéite microscopique, bien que le pattern de PIC/UIP soit plus courant.</p>
+                            <h5 className="font-bold text-slate-800">ANCA-Associated Vasculitides</h5>
+                            <p className="mt-1">An NSIP pattern is described, particularly in microscopic polyangiitis, although the UIP pattern is more common.</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="pt-4 border-t mt-4">
-                    <h4 className="font-semibold text-lg text-slate-800 mb-3">2. Pneumopathie Interstitielle avec Caractéristiques Auto-immunes (IPAF)</h4>
+                    <h4 className="font-semibold text-lg text-slate-800 mb-3">2. Interstitial Pneumonia with Autoimmune Features (IPAF)</h4>
                     <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
-                        <p className="mb-3">Certains patients présentent une PINS (ou une autre PID) avec des signes d'auto-immunité, mais sans remplir les critères d'une connectivite définie. Ces patients sont classés comme IPAF.</p>
-                        <p className="font-bold text-amber-800 mb-2">Critères pour l'IPAF (au moins 1 critère dans au moins 2 des 3 domaines) :</p>
+                        <p className="mb-3">Some patients have NSIP (or another ILD) with signs of autoimmunity, but do not meet the criteria for a defined connective tissue disease. These patients are classified as having IPAF.</p>
+                        <p className="font-bold text-amber-800 mb-2">Criteria for IPAF (at least 1 criterion in at least 2 of the 3 domains):</p>
                         <div className="grid md:grid-cols-3 gap-3 text-sm">
                             <div className="bg-white p-2 rounded border">
-                                <h6 className="font-semibold">Domaine Clinique</h6>
+                                <h6 className="font-semibold">Clinical Domain</h6>
                                 <ul className="list-disc list-inside pl-2">
-                                    <li>Fissurations digitales</li>
-                                    <li>Œdème digital inexpliqué</li>
-                                    <li>Arthrite inflammatoire</li>
-                                    <li>Télangiectasies palmaires</li>
-                                    <li>Phénomène de Raynaud</li>
-                                    <li>Signe de Gottron</li>
+                                    <li>Mechanic's hands</li>
+                                    <li>Unexplained digital edema</li>
+                                    <li>Inflammatory arthritis</li>
+                                    <li>Palmar telangiectasias</li>
+                                    <li>Raynaud's phenomenon</li>
+                                    <li>Gottron sign</li>
                                 </ul>
                             </div>
                             <div className="bg-white p-2 rounded border">
-                                <h6 className="font-semibold">Domaine Sérologique</h6>
+                                <h6 className="font-semibold">Serological Domain</h6>
                                 <ul className="list-disc list-inside pl-2">
-                                    <li>AAN ≥1:320 (ou nucléolaire/centromère)</li>
-                                    <li>FR {'>'} 2x LSN</li>
-                                    <li>Anti-CCP, anti-ADNdb, anti-Ro, anti-La</li>
+                                    <li>ANA of 1:320 or higher (or nucleolar/centromere)</li>
+                                    <li>RF above 2x ULN</li>
+                                    <li>Anti-CCP, anti-dsDNA, anti-Ro, anti-La</li>
                                     <li>Anti-RNP, anti-Smith, anti-Scl-70</li>
-                                    <li>Anti-synthétase (Jo-1...), anti-MDA5</li>
+                                    <li>Antisynthetase (Jo-1...), anti-MDA5</li>
                                 </ul>
                             </div>
                             <div className="bg-white p-2 rounded border">
-                                <h6 className="font-semibold">Domaine Morphologique</h6>
+                                <h6 className="font-semibold">Morphological Domain</h6>
                                 <ul className="list-disc list-inside pl-2">
-                                    <li>Pattern PINS (ou autre PII) à la TDM ou biopsie</li>
-                                    <li>Atteinte multi-compartiments (plèvre, péricarde, voies aériennes, vasculaire)</li>
+                                    <li>NSIP pattern (or other IIP) on HRCT or biopsy</li>
+                                    <li>Multi-compartment involvement (pleura, pericardium, airways, vascular)</li>
                                 </ul>
                             </div>
                         </div>
@@ -152,145 +151,145 @@ export const PINSSection: React.FC = () => (
                 </div>
 
                 <div className="pt-4 border-t mt-4">
-                    <h4 className="font-semibold text-lg text-slate-800 mb-3">3. Autres Étiologies</h4>
+                    <h4 className="font-semibold text-lg text-slate-800 mb-3">3. Other Etiologies</h4>
                     <ul className="list-disc list-inside space-y-2 text-base">
                         <li>
-                            <strong>Pneumopathie d'hypersensibilité (PHS) :</strong> Certaines formes chroniques sans granulomes bien formés peuvent mimer une PINS à la biopsie.
+                            <strong>Hypersensitivity Pneumonitis (HP):</strong> Some chronic forms without well-formed granulomas can mimic NSIP on biopsy.
                         </li>
                         <li>
-                            <strong>PINS d'origine médicamenteuse :</strong> De nombreux médicaments peuvent être en cause (Amiodarone, Méthotrexate, Statines, Nitrofurantoïne, etc.).
+                            <strong>Drug-induced NSIP:</strong> Many drugs can be implicated (Amiodarone, Methotrexate, Statins, Nitrofurantoin, etc.).
                         </li>
                         <li>
-                            <strong>Infection par le VIH :</strong> Devenue rare depuis les thérapies antirétrovirales, mais reste une cause possible.
+                            <strong>HIV infection:</strong> Has become rare since antiretroviral therapies, but remains a possible cause.
                         </li>
                         <li>
-                            <strong>Causes diverses :</strong> Maladie systémique liée aux IgG4, pneumopathies interstitielles familiales, réaction du greffon contre l'hôte (GVH), et possiblement le tabagisme.
+                            <strong>Miscellaneous causes:</strong> IgG4-related disease, familial interstitial pneumonias, graft-versus-host disease (GVHD), and possibly smoking.
                         </li>
                     </ul>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Épidémiologie" icon={<Activity className="w-5 h-5 text-white" />}>
+        <Accordion title="Epidemiology" icon={<Activity className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-slate-700 text-base">
                 <p>
-                    La pneumopathie interstitielle non spécifique (PINS) est une maladie pulmonaire relativement rare, et sa prévalence n'est pas clairement établie. On estime qu'elle représente 14% à 36% des cas de pneumopathies interstitielles idiopathiques. La PINS est la deuxième pneumopathie interstitielle idiopathique la plus fréquente, après la pneumopathie interstitielle commune (PIC/FPI). Elle a tendance à toucher des patients plus jeunes (par exemple, &lt;50 ans) par rapport à la FPI. La plupart des patients atteints de PINS sont des femmes, et la majorité n'a pas d'antécédents de tabagisme.
+                    Nonspecific interstitial pneumonia (NSIP) is a relatively rare lung disease, and its prevalence is not clearly established. It is estimated to account for 14% to 36% of cases of idiopathic interstitial pneumonias. NSIP is the second most common idiopathic interstitial pneumonia, after usual interstitial pneumonia (UIP/IPF). It tends to affect younger patients (e.g., below 50 years) compared to IPF. Most patients with NSIP are women, and the majority have no history of smoking.
                 </p>
 
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                    <h4 className="font-semibold text-blue-800 mb-2">Caractéristiques Épidémiologiques Clés</h4>
+                    <h4 className="font-semibold text-blue-800 mb-2">Key Epidemiological Features</h4>
                     <ul className="list-disc list-inside space-y-1 text-slate-700">
-                        <li><strong>Rareté :</strong> La PINS est une pathologie relativement rare.</li>
-                        <li><strong>Deuxième PII la plus fréquente :</strong> C'est la deuxième PII la plus courante après la FPI.</li>
-                        <li><strong>Âge d'apparition :</strong> Se manifeste généralement chez les adultes d'âge moyen (40-50 ans).</li>
-                        <li><strong>Sexe :</strong> Plus fréquente chez les femmes, surtout en cas de connectivite associée.</li>
-                        <li><strong>Tabagisme :</strong> La plupart des patients sont non-fumeurs.</li>
-                        <li><strong>Association forte :</strong> Très souvent liée à une maladie du tissu conjonctif.</li>
-                        <li><strong>Pronostic :</strong> Généralement meilleur que celui de la FPI.</li>
+                        <li><strong>Rarity:</strong> NSIP is a relatively rare condition.</li>
+                        <li><strong>Second most common IIP:</strong> It is the second most common IIP after IPF.</li>
+                        <li><strong>Age of onset:</strong> Typically occurs in middle-aged adults (40-50 years).</li>
+                        <li><strong>Sex:</strong> More common in women, especially in cases of associated connective tissue disease.</li>
+                        <li><strong>Smoking:</strong> Most patients are non-smokers.</li>
+                        <li><strong>Strong association:</strong> Very often linked to a connective tissue disease.</li>
+                        <li><strong>Prognosis:</strong> Generally better than that of IPF.</li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 className="font-semibold text-slate-800 mt-4 mb-2">Autres Considérations Épidémiologiques</h4>
+                    <h4 className="font-semibold text-slate-800 mt-4 mb-2">Other Epidemiological Considerations</h4>
                     <div className="space-y-2 text-sm">
                         <div className="p-3 bg-slate-100 rounded-md border">
-                            <strong>Variation Géographique :</strong> Il pourrait exister une prévalence plus élevée dans la population blanche européenne.
+                            <strong>Geographic Variation:</strong> There may be a higher prevalence in the white European population.
                         </div>
                         <div className="p-3 bg-slate-100 rounded-md border">
-                            <strong>Conditions sous-jacentes :</strong> Peut être associée aux connectivites, PHS, ou à des toxicités médicamenteuses.
+                            <strong>Underlying Conditions:</strong> Can be associated with connective tissue diseases, HP, or drug toxicities.
                         </div>
                         <div className="p-3 bg-slate-100 rounded-md border">
-                            <strong>Idiopathique vs. Secondaire :</strong> La PINS peut être idiopathique (sans cause retrouvée) ou secondaire à une autre pathologie.
+                            <strong>Idiopathic vs. Secondary:</strong> NSIP can be idiopathic (no cause found) or secondary to another condition.
                         </div>
                     </div>
                 </div>
                 
                 <p className="pt-4 border-t border-slate-200 italic text-slate-600">
-                    En résumé, bien que la PINS ne soit pas une pathologie courante, elle constitue un sous-type important de pneumopathie interstitielle, notamment en raison de son association avec les maladies du tissu conjonctif et de son pronostic généralement meilleur par rapport à la FPI.
+                    In summary, although NSIP is not a common condition, it is an important subtype of interstitial pneumonia, particularly because of its association with connective tissue diseases and its generally better prognosis compared to IPF.
                 </p>
             </div>
         </Accordion>
 
-        <Accordion title="Physiopathologie et Histopathologie" icon={<Stethoscope className="w-5 h-5 text-white" />}>
+        <Accordion title="Pathophysiology and Histopathology" icon={<Stethoscope className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-base">
-                 <InfoCard title="Physiopathologie" icon={<Activity className="w-4 h-4 mr-2" />}>
-                     <p>La physiopathologie implique des lésions épithéliales, une réparation dérégulée, une implication du système immunitaire (lymphocytes) et une fonction anormale des fibroblastes/myofibroblastes menant à un dépôt excessif de collagène.</p>
+                 <InfoCard title="Pathophysiology" icon={<Activity className="w-4 h-4 mr-2" />}>
+                     <p>The pathophysiology involves epithelial injury, deregulated repair, immune system involvement (lymphocytes), and abnormal fibroblast/myofibroblast function leading to excessive collagen deposition.</p>
                 </InfoCard>
-                 <InfoCard title="Histopathologie" icon={<Stethoscope className="w-4 h-4 mr-2" />}>
-                    <p>Le diagnostic histologique repose sur l'homogénéité temporelle du processus inflammatoire et fibrosant, contrairement à l'hétérogénéité de la FPI. On distingue trois sous-groupes :</p>
+                 <InfoCard title="Histopathology" icon={<Stethoscope className="w-4 h-4 mr-2" />}>
+                    <p>The histological diagnosis is based on the temporal homogeneity of the inflammatory and fibrotic process, unlike the heterogeneity of IPF. Three subgroups are distinguished:</p>
                     <ul className="list-decimal list-inside space-y-1 mt-2">
-                        <li><strong>Groupe 1 :</strong> Inflammation prédominante.</li>
-                        <li><strong>Groupe 2 :</strong> Inflammation et fibrose mixtes.</li>
-                        <li><strong>Groupe 3 :</strong> Fibrose prédominante.</li>
+                        <li><strong>Group 1:</strong> Predominantly inflammatory.</li>
+                        <li><strong>Group 2:</strong> Mixed inflammatory and fibrotic.</li>
+                        <li><strong>Group 3:</strong> Predominantly fibrotic.</li>
                     </ul>
                     <div className="mt-3 bg-blue-50 border-l-4 border-blue-500 p-2 text-sm">
-                        Le gold standard pour le diagnostic est la biopsie chirurgicale (VATS ou thoracotomie). La cryobiopsie est une alternative.
+                        The gold standard for diagnosis is surgical biopsy (VATS or thoracotomy). Cryobiopsy is an alternative.
                     </div>
                 </InfoCard>
             </div>
         </Accordion>
 
-        <Accordion title="Présentation Clinique et Évaluation" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Clinical Presentation and Evaluation" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-8">
                 <div>
-                    <h4 className="text-xl font-bold text-slate-800 mb-4 text-center">Caractéristiques Cliniques</h4>
+                    <h4 className="text-xl font-bold text-slate-800 mb-4 text-center">Clinical Features</h4>
                     <div className="grid md:grid-cols-3 gap-4">
-                        <ClinicalFeatureCard title="Profil Patient Typique" icon={<Users className="w-5 h-5"/>} color="blue">
+                        <ClinicalFeatureCard title="Typical Patient Profile" icon={<Users className="w-5 h-5"/>} color="blue">
                             <ul className="list-disc list-inside">
-                                <li>Femme d'âge moyen (40-50 ans)</li>
-                                <li>Non-fumeuse</li>
-                                <li>Souvent associée à une connectivite</li>
+                                <li>Middle-aged woman (40-50 years)</li>
+                                <li>Non-smoker</li>
+                                <li>Often associated with a connective tissue disease</li>
                             </ul>
                         </ClinicalFeatureCard>
-                        <ClinicalFeatureCard title="Symptômes" icon={<Stethoscope className="w-5 h-5"/>} color="purple">
+                        <ClinicalFeatureCard title="Symptoms" icon={<Stethoscope className="w-5 h-5"/>} color="purple">
                              <ul className="list-disc list-inside">
-                                <li>Dyspnée et toux d'apparition subaiguë</li>
-                                <li>Fièvre ou symptômes grippaux (1/3 des cas)</li>
-                                <li>Signes extra-pulmonaires si connectivite</li>
+                                <li>Subacute onset of dyspnea and cough</li>
+                                <li>Fever or flu-like symptoms (1/3 of cases)</li>
+                                <li>Extra-pulmonary signs if connective tissue disease</li>
                             </ul>
                         </ClinicalFeatureCard>
-                        <ClinicalFeatureCard title="Examen Physique" icon={<HandHeart className="w-5 h-5"/>} color="teal">
+                        <ClinicalFeatureCard title="Physical Examination" icon={<HandHeart className="w-5 h-5"/>} color="teal">
                              <ul className="list-disc list-inside">
-                                <li>Râles crépitants "velcro" aux bases</li>
-                                <li>Hippocratisme digital (10-35%)</li>
-                                <li>Rechercher stigmates de maladie rhumatismale</li>
+                                <li>Bibasilar "velcro" crackles</li>
+                                <li>Digital clubbing (10-35%)</li>
+                                <li>Look for stigmata of rheumatic disease</li>
                             </ul>
                         </ClinicalFeatureCard>
                     </div>
                 </div>
 
                 <div className="pt-8 border-t">
-                     <h4 className="text-xl font-bold text-slate-800 mb-4 text-center">Démarche d'Évaluation</h4>
+                     <h4 className="text-xl font-bold text-slate-800 mb-4 text-center">Evaluation Approach</h4>
                      <div className="space-y-4">
-                        <EvaluationStepCard number="1" title="Anamnèse Ciblée" icon={<History className="w-5 h-5"/>} color="blue">
-                            <p>Une anamnèse détaillée est cruciale pour explorer les diagnostics différentiels :</p>
+                        <EvaluationStepCard number="1" title="Targeted History" icon={<History className="w-5 h-5"/>} color="blue">
+                            <p>A detailed history is crucial to explore differential diagnoses:</p>
                             <ul className="list-disc list-inside text-sm">
-                                <li><strong>Expositions :</strong> Antigènes organiques (oiseaux, moisissures), poussières minérales.</li>
-                                <li><strong>Médicaments :</strong> Liste complète des traitements (actuels et passés).</li>
-                                <li><strong>Connectivite :</strong> Symptômes extra-pulmonaires.</li>
+                                <li><strong>Exposures:</strong> Organic antigens (birds, molds), mineral dusts.</li>
+                                <li><strong>Medications:</strong> Complete list of treatments (current and past).</li>
+                                <li><strong>Connective Tissue Disease:</strong> Extra-pulmonary symptoms.</li>
                             </ul>
                         </EvaluationStepCard>
-                        <EvaluationStepCard number="2" title="Bilan Biologique" icon={<FlaskConical className="w-5 h-5"/>} color="orange">
-                             <p>Vise à exclure d'autres causes et à rechercher une auto-immunité sous-jacente.</p>
+                        <EvaluationStepCard number="2" title="Laboratory Workup" icon={<FlaskConical className="w-5 h-5"/>} color="orange">
+                             <p>Aims to rule out other causes and to look for underlying autoimmunity.</p>
                              <ul className="list-disc list-inside text-sm">
-                                <li><strong>Bilan de base :</strong> NFS, bilan hépatique et rénal.</li>
-                                <li><strong>Bilan auto-immun :</strong> AAN, FR, anti-CCP systématiques. Panel étendu si suspicion.</li>
-                                <li><strong>Autres :</strong> Précipitines (si suspicion de PHS), sérologie VIH si facteurs de risque.</li>
+                                <li><strong>Basic panel:</strong> CBC, liver and kidney function tests.</li>
+                                <li><strong>Autoimmune panel:</strong> ANA, RF, anti-CCP are systematic. Extended panel if suspected.</li>
+                                <li><strong>Other:</strong> Precipitins (if HP is suspected), HIV serology if risk factors.</li>
                             </ul>
                         </EvaluationStepCard>
-                        <EvaluationStepCard number="3" title="Explorations Fonctionnelles (EFR)" icon={<Activity className="w-5 h-5"/>} color="green">
-                            <p>Confirme le trouble ventilatoire restrictif et quantifie la sévérité de l'atteinte.</p>
+                        <EvaluationStepCard number="3" title="Pulmonary Function Tests (PFTs)" icon={<Activity className="w-5 h-5"/>} color="green">
+                            <p>Confirms the restrictive ventilatory defect and quantifies the severity of impairment.</p>
                              <ul className="list-disc list-inside text-sm">
-                                <li><strong>Profil typique :</strong> Baisse de la CVF et CPT, rapport VEMS/CVF normal/augmenté.</li>
-                                <li><strong>DLCO :</strong> Baisse souvent précoce, marqueur de sévérité et de pronostic.</li>
-                                <li><strong>TM6 :</strong> Recherche d'une désaturation à l'effort.</li>
+                                <li><strong>Typical profile:</strong> Decrease in FVC and TLC, normal/increased FEV1/FVC ratio.</li>
+                                <li><strong>DLCO:</strong> Often early decrease, a marker of severity and prognosis.</li>
+                                <li><strong>6MWT:</strong> Looks for exertional desaturation.</li>
                             </ul>
                         </EvaluationStepCard>
-                         <EvaluationStepCard number="4" title="Lavage Broncho-Alvéolaire (LBA)" icon={<Lungs className="w-5 h-5"/>} color="indigo">
-                             <p>Non spécifique pour le diagnostic de PINS, mais son rôle principal est d'exclure d'autres diagnostics.</p>
+                         <EvaluationStepCard number="4" title="Bronchoalveolar Lavage (BAL)" icon={<Lungs className="w-5 h-5"/>} color="indigo">
+                             <p>Nonspecific for the diagnosis of NSIP, but its main role is to exclude other diagnoses.</p>
                              <ul className="list-disc list-inside text-sm">
-                                <li><strong>Exclure :</strong> Infection, hémorragie alvéolaire, malignité.</li>
-                                <li><strong>Orientation :</strong> Une lymphocytose élevée peut orienter vers une PHS ou une PINS, mais reste non spécifique.</li>
+                                <li><strong>Exclude:</strong> Infection, alveolar hemorrhage, malignancy.</li>
+                                <li><strong>Orientation:</strong> High lymphocytosis can suggest HP or NSIP, but remains nonspecific.</li>
                             </ul>
                         </EvaluationStepCard>
                      </div>
@@ -298,40 +297,40 @@ export const PINSSection: React.FC = () => (
             </div>
         </Accordion>
         
-        <Accordion title="Imagerie des PINS" icon={<Image className="w-5 h-5 text-white" />}>
+        <Accordion title="Imaging of NSIP" icon={<Image className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-base text-slate-700">
                 <div>
-                    <h4 className="font-semibold text-slate-800 mb-2">Radiographie Thoracique</h4>
+                    <h4 className="font-semibold text-slate-800 mb-2">Chest Radiograph</h4>
                     <ul className="list-disc list-inside space-y-1">
-                        <li>Peut être normale aux stades précoces.</li>
-                        <li>Opacités en verre dépoli ou mal définies, à prédominance basale.</li>
-                        <li>Peut présenter un pattern réticulo-nodulaire, en plage, ou mixte.</li>
-                        <li>Dans les formes avancées : infiltrats pulmonaires bilatéraux avec perte de volume des lobes inférieurs.</li>
+                        <li>May be normal in early stages.</li>
+                        <li>Ground-glass or poorly defined opacities, predominantly in the bases.</li>
+                        <li>May show a reticulo-nodular, patchy, or mixed pattern.</li>
+                        <li>In advanced forms: bilateral pulmonary infiltrates with volume loss in the lower lobes.</li>
                     </ul>
                 </div>
                 <div>
-                    <h4 className="font-semibold text-slate-800 mb-2">Tomodensitométrie (TDM-HR)</h4>
+                    <h4 className="font-semibold text-slate-800 mb-2">High-Resolution Computed Tomography (HRCT)</h4>
                     <p className="mb-3">
-                        L'atteinte est typiquement symétrique, affectant l'interstitium péribronchovasculaire des lobes inférieurs. L'<strong className="text-blue-600">épargne sous-pleurale</strong> relative est un signe distinctif très utile lorsqu'il est présent. Le verre dépoli peut indiquer une PINS cellulaire ou une fibrose fine non visible au scanner. Il est essentiel de comparer avec les scanners antérieurs car le pattern PINS peut évoluer vers un pattern de PIC/UIP.
+                        The involvement is typically symmetrical, affecting the peribronchovascular interstitium of the lower lobes. Relative <strong className="text-blue-600">subpleural sparing</strong> is a very useful distinctive sign when present. Ground-glass opacity may indicate cellular NSIP or fine fibrosis not visible on the scan. It is essential to compare with previous scans as the NSIP pattern can evolve into a UIP pattern.
                     </p>
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-blue-50 p-3 rounded-md border border-blue-200">
-                            <h5 className="font-bold text-blue-800">Signes Fréquents</h5>
+                            <h5 className="font-bold text-blue-800">Frequent Signs</h5>
                             <ul className="list-disc list-inside space-y-1 mt-2 text-sm">
-                                <li><strong>Opacités en verre dépoli :</strong> Souvent le signe dominant.</li>
-                                <li><strong>Réticulations.</strong></li>
-                                <li>Épaississement des axes bronchovasculaires.</li>
-                                <li><strong>Bronchectasies de traction.</strong></li>
-                                <li>Perte de volume pulmonaire (lobes inférieurs).</li>
-                                <li>Rayons de miel microkystiques (rares).</li>
+                                <li><strong>Ground-glass opacities:</strong> Often the dominant sign.</li>
+                                <li><strong>Reticulation.</strong></li>
+                                <li>Thickening of bronchovascular bundles.</li>
+                                <li><strong>Traction bronchiectasis.</strong></li>
+                                <li>Lung volume loss (lower lobes).</li>
+                                <li>Microcystic honeycombing (rare).</li>
                             </ul>
                         </div>
                         <div className="bg-amber-50 p-3 rounded-md border border-amber-200">
-                            <h5 className="font-bold text-amber-800">Signes Évoquant un Diagnostic Alternatif</h5>
+                            <h5 className="font-bold text-amber-800">Signs Suggesting an Alternative Diagnosis</h5>
                             <ul className="list-disc list-inside space-y-1 mt-2 text-sm">
-                                <li>Nodules centrolobulaires.</li>
-                                <li>Atténuation en mosaïque.</li>
-                                <li>Kystes à parois fines.</li>
+                                <li>Centrilobular nodules.</li>
+                                <li>Mosaic attenuation.</li>
+                                <li>Thin-walled cysts.</li>
                             </ul>
                         </div>
                     </div>
@@ -339,99 +338,99 @@ export const PINSSection: React.FC = () => (
             </div>
         </Accordion>
 
-        <Accordion title="Démarche Diagnostique" icon={<Search className="w-5 h-5 text-white" />}>
+        <Accordion title="Diagnostic Approach" icon={<Search className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-6 text-base text-slate-700">
-                <p>Le diagnostic de certitude de la PINS repose sur une analyse histopathologique, idéalement intégrée dans une discussion multidisciplinaire. Cependant, une biopsie n'est pas toujours nécessaire pour guider la prise en charge.</p>
+                <p>The definitive diagnosis of NSIP is based on histopathological analysis, ideally integrated into a multidisciplinary discussion. However, a biopsy is not always necessary to guide management.</p>
 
                 <div className="space-y-4">
                     <div className="p-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg">
                         <h4 className="font-semibold text-blue-800 flex items-center mb-2">
                             <Users className="w-5 h-5 mr-2"/>
-                            1. Discussion Multidisciplinaire (DMD) : L'Étape Clé
+                            1. Multidisciplinary Discussion (MDD): The Key Step
                         </h4>
-                        <p className="text-sm">Un diagnostic clinique confiant peut souvent être atteint grâce à la DMD, qui synthétise les données cliniques, sérologiques, radiologiques et d'exposition. C'est essentiel pour optimiser la précision diagnostique.</p>
+                        <p className="text-sm">A confident clinical diagnosis can often be reached through MDD, which synthesizes clinical, serological, radiological, and exposure data. This is essential to optimize diagnostic accuracy.</p>
                     </div>
 
                     <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
                         <h4 className="font-semibold text-green-800 flex items-center mb-2">
                             <CheckCircle className="w-5 h-5 mr-2"/>
-                            2. Scénarios où la biopsie peut être évitée
+                            2. Scenarios where biopsy can be avoided
                         </h4>
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>Connectivite connue :</strong> Un tableau clinique et TDM typique de PINS ne nécessite généralement pas de biopsie.</li>
-                            <li><strong>Suspicion de PINS médicamenteuse :</strong> Arrêt du médicament suspect et observation de la réponse.</li>
-                            <li><strong>Suspicion de PHS :</strong> Évaluation par sérologies, LBA et test d'éviction avant d'envisager une biopsie.</li>
+                            <li><strong>Known connective tissue disease:</strong> A typical clinical and HRCT picture of NSIP generally does not require a biopsy.</li>
+                            <li><strong>Suspected drug-induced NSIP:</strong> Discontinuation of the suspected drug and observation of the response.</li>
+                            <li><strong>Suspected HP:</strong> Evaluation with serologies, BAL, and an avoidance test before considering a biopsy.</li>
                         </ul>
                     </div>
 
                     <div className="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-lg">
                         <h4 className="font-semibold text-orange-800 flex items-center mb-2">
                             <Microscope className="w-5 h-5 mr-2"/>
-                            3. La Biopsie Pulmonaire : Quand et Comment ?
+                            3. Lung Biopsy: When and How?
                         </h4>
-                        <p className="text-sm mb-2">Elle est discutée lorsque le diagnostic reste incertain après la DMD, en pesant les risques et bénéfices.</p>
+                        <p className="text-sm mb-2">It is discussed when the diagnosis remains uncertain after MDD, weighing the risks and benefits.</p>
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>Gold standard :</strong> Biopsie chirurgicale (VATS).</li>
-                            <li><strong>Alternative :</strong> La cryobiopsie transbronchique est une option dans les centres experts.</li>
+                            <li><strong>Gold standard:</strong> Surgical biopsy (VATS).</li>
+                            <li><strong>Alternative:</strong> Transbronchial cryobiopsy is an option in expert centers.</li>
                         </ul>
                     </div>
                     
                     <div className="p-4 bg-purple-50 border-l-4 border-purple-500 rounded-lg">
                         <h4 className="font-semibold text-purple-800 flex items-center mb-2">
                             <FileText className="w-5 h-5 mr-2"/>
-                            4. L'Histopathologie : Ce qu'il faut chercher
+                            4. Histopathology: What to look for
                         </h4>
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>Homogénéité temporelle :</strong> Le critère majeur. L'atteinte inflammatoire et/ou fibrosante semble avoir le même "âge" partout.</li>
-                            <li><strong>Architecture préservée :</strong> Contrairement à la FPI.</li>
-                            <li><strong>Absence de signes d'autres PII :</strong> Pas de foyers fibroblastiques proéminents, pas de granulomes, etc.</li>
-                            <li><strong>Types :</strong> PINS cellulaire (meilleur pronostic) vs PINS fibrosante.</li>
+                            <li><strong>Temporal homogeneity:</strong> The major criterion. The inflammatory and/or fibrotic involvement appears to be of the same "age" everywhere.</li>
+                            <li><strong>Preserved architecture:</strong> Unlike in IPF.</li>
+                            <li><strong>Absence of signs of other IIPs:</strong> No prominent fibroblastic foci, no granulomas, etc.</li>
+                            <li><strong>Types:</strong> Cellular NSIP (better prognosis) vs. fibrotic NSIP.</li>
                         </ul>
                     </div>
                     
                     <div className="p-4 bg-slate-100 border-l-4 border-slate-500 rounded-lg">
                         <h4 className="font-semibold text-slate-800 flex items-center mb-2">
                             <ClipboardList className="w-5 h-5 mr-2"/>
-                            5. Diagnostic Différentiel
+                            5. Differential Diagnosis
                         </h4>
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                            <li><strong>PIC/FPI :</strong> La distinction est cruciale en raison des implications pronostiques et thérapeutiques.</li>
-                            <li><strong>PHS chronique :</strong> Peut être histologiquement très proche.</li>
-                            <li>Autres : Sarcoïdose, PID médicamenteuse, maladie liée aux IgG4.</li>
+                            <li><strong>UIP/IPF:</strong> The distinction is crucial due to prognostic and therapeutic implications.</li>
+                            <li><strong>Chronic HP:</strong> Can be histologically very similar.</li>
+                            <li>Others: Sarcoidosis, drug-induced ILD, IgG4-related disease.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="Traitement et Prise en Charge" icon={<Pill className="w-5 h-5 text-white" />}>
+        <Accordion title="Treatment and Management" icon={<Pill className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-base text-slate-700">
-                <p>Le traitement dépend de la cause et de la sévérité.</p>
+                <p>Treatment depends on the cause and severity.</p>
                 <div className="space-y-4">
                     <div className="p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
-                        <h4 className="font-semibold text-green-800">Maladie légère</h4>
-                        <p className="mt-1">Surveillance rapprochée et observation peuvent être suffisantes.</p>
+                        <h4 className="font-semibold text-green-800">Mild Disease</h4>
+                        <p className="mt-1">Close monitoring and observation may be sufficient.</p>
                     </div>
                      <div className="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-lg">
-                        <h4 className="font-semibold text-orange-800">Maladie modérée à sévère</h4>
+                        <h4 className="font-semibold text-orange-800">Moderate to Severe Disease</h4>
                         <ul className="list-disc list-inside space-y-2 mt-2">
-                           <li><strong>Corticoïdes systémiques (Prednisone) :</strong> 0.5 à 1 mg/kg/j (max 60mg/j) pour 1 mois, puis décroissance lente sur 6-12 mois.</li>
-                           <li><strong>Agents immunosuppresseurs :</strong> Azathioprine ou Mycophenolate peuvent être ajoutés d'emblée dans les formes sévères, ou après 3-6 mois d'évaluation sous corticoïdes.</li>
+                           <li><strong>Systemic corticosteroids (Prednisone):</strong> 0.5 to 1 mg/kg/day (max 60mg/day) for 1 month, then slow taper over 6-12 months.</li>
+                           <li><strong>Immunosuppressive agents:</strong> Azathioprine or Mycophenolate may be added upfront in severe forms, or after 3-6 months of evaluation on corticosteroids.</li>
                         </ul>
                     </div>
                      <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
-                        <h4 className="font-semibold text-red-800">Maladie sévère ou réfractaire</h4>
+                        <h4 className="font-semibold text-red-800">Severe or Refractory Disease</h4>
                          <ul className="list-disc list-inside space-y-2 mt-2">
-                            <li><strong>Hospitalisation :</strong> Peut nécessiter des bolus de méthylprednisolone (1g/j pendant 3 jours).</li>
-                            <li><strong>Maladie réfractaire :</strong> Cyclophosphamide, Rituximab ou inhibiteurs de la calcineurine peuvent être envisagés.</li>
-                            <li><strong>Transplantation pulmonaire :</strong> Option pour les patients non répondeurs.</li>
+                            <li><strong>Hospitalization:</strong> May require methylprednisolone pulses (1g/day for 3 days).</li>
+                            <li><strong>Refractory disease:</strong> Cyclophosphamide, Rituximab, or calcineurin inhibitors may be considered.</li>
+                            <li><strong>Lung transplantation:</strong> An option for non-responders.</li>
                         </ul>
                     </div>
                 </div>
                  <div className="flex items-start bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-sm mt-4">
                     <CheckCircle className="h-5 w-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
                     <p className="text-blue-800">
-                        Penser à une prophylaxie de la pneumocystose (PJP) pour les patients sous corticoïdes {'>'} 20mg/j pendant plus d'un mois, ou sous immunosuppresseurs multiples.
+                        Consider PJP prophylaxis for patients on corticosteroids above 20mg/day for more than one month, or on multiple immunosuppressants.
                     </p>
                 </div>
             </div>

@@ -36,7 +36,7 @@ const RecommendationCard: React.FC<{ rec: Recommendation }> = ({ rec }) => {
                     <h4 className="font-semibold text-slate-800">{rec.test}</h4>
                     <p className={`text-sm font-semibold ${levelColorClasses[rec.level]}`}>{rec.recommendation}</p>
                     <p className="text-xs text-slate-500 mt-1">{rec.description}</p>
-                    {rec.frequency && <p className="text-xs text-blue-700 font-bold mt-2 bg-blue-100 inline-block px-2 py-1 rounded">Fréquence : {rec.frequency}</p>}
+                    {rec.frequency && <p className="text-xs text-blue-700 font-bold mt-2 bg-blue-100 inline-block px-2 py-1 rounded">Frequency: {rec.frequency}</p>}
                 </div>
             </div>
         </div>
@@ -50,24 +50,24 @@ export const RecommendationsDisplay: React.FC<RecommendationsDisplayProps> = (pr
         aiSummary, isGeneratingSummary, summaryError
     } = props;
     
-    const title = patientData.hasPID ? "Recommandations de Suivi" : "Recommandations de Dépistage";
+    const title = patientData.hasPID ? "Monitoring Recommendations" : "Screening Recommendations";
     
     return (
         <div className="space-y-10 animate-fade-in-fast">
             <div className="flex justify-between items-center">
                 <button onClick={onBack} className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-md transition-colors">
-                    <ArrowLeft className="w-4 h-4 mr-2" /> Retour
+                    <ArrowLeft className="w-4 h-4 mr-2" /> Back
                 </button>
                 <button onClick={onReset} className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-md transition-colors">
-                    <RotateCcw className="w-4 h-4 mr-2" /> Recommencer
+                    <RotateCcw className="w-4 h-4 mr-2" /> Restart
                 </button>
             </div>
             
             {!patientData.hasPID && (
-              <Card title="Profil du Patient et Niveau de Risque">
+              <Card title="Patient Profile and Risk Level">
                   <div className={`flex items-center p-3 rounded-lg border-2 ${riskLevel.color}`}>
                       <riskLevel.icon className="w-6 h-6 mr-3"/>
-                      <span className="font-bold">Niveau de risque de développer une PID : {riskLevel.level.charAt(0).toUpperCase() + riskLevel.level.slice(1)}</span>
+                      <span className="font-bold">Risk level of developing ILD: {riskLevel.level.charAt(0).toUpperCase() + riskLevel.level.slice(1)}</span>
                   </div>
               </Card>
             )}
@@ -88,7 +88,7 @@ export const RecommendationsDisplay: React.FC<RecommendationsDisplayProps> = (pr
                         disabled={isGeneratingSummary}
                         className="inline-flex items-center justify-center py-3 px-6 border border-transparent shadow-md text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
                     >
-                       Générer une Synthèse Clinique par IA
+                       Generate AI Clinical Summary
                     </button>
                 </div>
                 <Card>

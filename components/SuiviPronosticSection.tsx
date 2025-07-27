@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { TrendingUp, Stethoscope, Activity, Image, Heart, Info, AlertTriangle, CheckCircle, Clock, FlaskConical, Lungs, Bug } from './icons';
 import { Accordion } from './Accordion';
@@ -29,84 +30,84 @@ export const SuiviPronosticSection: React.FC = () => (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
       <h2 className="text-2xl font-bold text-slate-900 flex items-center">
         <TrendingUp className="w-7 h-7 mr-3 text-blue-500" />
-        Suivi, Pronostic et Complications
+        Follow-up, Prognosis, and Complications
       </h2>
        <p className="text-slate-600 mt-2 text-base">
-        Anticiper l'évolution, dépister les complications et adapter la stratégie thérapeutique.
+        Anticipating the evolution, screening for complications, and adapting the therapeutic strategy.
       </p>
     </div>
 
     <div className="space-y-4">
-        <Accordion title="1. Suivi des Fibroses Pulmonaires" icon={<Stethoscope className="w-5 h-5 text-white" />}>
+        <Accordion title="1. Follow-up of Pulmonary Fibrosis" icon={<Stethoscope className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
-                <p className="text-slate-700 text-base">Le suivi régulier des patients est fondamental pour évaluer l’évolution, surveiller l’efficacité des traitements et dépister les complications.</p>
+                <p className="text-slate-700 text-base">Regular follow-up of patients is fundamental to assess progression, monitor treatment efficacy, and screen for complications.</p>
                 <div className="grid md:grid-cols-2 gap-4">
-                    <InfoCard title="Examen Clinique Régulier" icon={<Stethoscope className="w-5 h-5"/>} color="blue">
+                    <InfoCard title="Regular Clinical Examination" icon={<Stethoscope className="w-5 h-5"/>} color="blue">
                         <ul className="list-disc list-inside text-sm">
-                            <li>Suivi des symptômes (dyspnée, toux, asthénie).</li>
-                            <li>Recherche de signes d'insuffisance respiratoire ou d'aggravation.</li>
+                            <li>Monitoring of symptoms (dyspnea, cough, asthenia).</li>
+                            <li>Looking for signs of respiratory failure or worsening.</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Épreuves Fonctionnelles Respiratoires (EFR)" icon={<Activity className="w-5 h-5"/>} color="green">
+                    <InfoCard title="Pulmonary Function Tests (PFTs)" icon={<Activity className="w-5 h-5"/>} color="green">
                          <ul className="list-disc list-inside text-sm">
-                            <li><strong>CVF :</strong> marqueur clé de progression.</li>
-                            <li><strong>DLCO :</strong> diminue en cas d’aggravation.</li>
-                            <li>Gaz du sang ou oxymétrie au repos et à l'effort (TM6).</li>
+                            <li><strong>FVC:</strong> key marker of progression.</li>
+                            <li><strong>DLCO:</strong> decreases in case of worsening.</li>
+                            <li>Arterial blood gases or oximetry at rest and during exercise (6MWT).</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Scanner Thoracique (HRCT)" icon={<Image className="w-5 h-5"/>} color="purple">
+                    <InfoCard title="Chest HRCT Scan" icon={<Image className="w-5 h-5"/>} color="purple">
                         <ul className="list-disc list-inside text-sm">
-                           <li>Surveillance de l’extension et du pattern de la fibrose.</li>
-                           <li>Détection de complications (cancer, infection).</li>
+                           <li>Monitoring the extension and pattern of fibrosis.</li>
+                           <li>Detection of complications (cancer, infection).</li>
                         </ul>
                     </InfoCard>
-                    <InfoCard title="Biologie" icon={<FlaskConical className="w-5 h-5"/>} color="orange">
+                    <InfoCard title="Lab Tests" icon={<FlaskConical className="w-5 h-5"/>} color="orange">
                         <ul className="list-disc list-inside text-sm">
-                           <li>Dépistage de complications (infections).</li>
-                           <li>Surveillance de la tolérance des traitements (bilan hépatique).</li>
+                           <li>Screening for complications (infections).</li>
+                           <li>Monitoring treatment tolerance (liver function tests).</li>
                         </ul>
                     </InfoCard>
                 </div>
             </div>
         </Accordion>
 
-        <Accordion title="2. Pronostic" icon={<Clock className="w-5 h-5 text-white" />}>
+        <Accordion title="2. Prognosis" icon={<Clock className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4 text-slate-700 text-base">
-                 <p>Le pronostic est variable et dépend de l'étiologie, du pattern radiologique, de la rapidité d'évolution et de la réponse au traitement.</p>
+                 <p>The prognosis is variable and depends on the etiology, radiological pattern, speed of progression, and response to treatment.</p>
                  <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
-                    <h4 className="font-semibold text-red-800 mb-2 flex items-center"><AlertTriangle className="w-5 h-5 mr-2"/>Facteurs de Mauvais Pronostic</h4>
+                    <h4 className="font-semibold text-red-800 mb-2 flex items-center"><AlertTriangle className="w-5 h-5 mr-2"/>Factors of Poor Prognosis</h4>
                     <ul className="list-disc list-inside space-y-1 text-sm text-red-700">
-                        <li>Déclin rapide de la fonction respiratoire (baisse de la CVF supérieure à 10% sur 6-12 mois).</li>
-                        <li>Extension de la fibrose au scanner, notamment l'aspect en <strong>rayon de miel</strong>.</li>
-                        <li>Âge avancé (supérieur à 65 ans) et comorbidités (HTP, cancer, etc.).</li>
-                        <li>Hypoxémie sévère (désaturation inférieure à 88% à l'effort ou au repos).</li>
-                        <li>Non-réponse ou intolérance aux traitements.</li>
+                        <li>Rapid decline in respiratory function (FVC drop greater than 10% over 6-12 months).</li>
+                        <li>Extension of fibrosis on HRCT, especially the <strong>honeycombing</strong> pattern.</li>
+                        <li>Advanced age (over 65) and comorbidities (PAH, cancer, etc.).</li>
+                        <li>Severe hypoxemia (desaturation below 88% on exertion or at rest).</li>
+                        <li>Non-response or intolerance to treatments.</li>
                     </ul>
                  </div>
-                 <p className="italic text-sm">La survie à 5 ans est très variable : mauvaise dans la FPI (environ 20%), meilleure dans les DIP/BIP. Les autres formes dépendent de la cause et de l'accès à des traitements adaptés.</p>
+                 <p className="italic text-sm">The 5-year survival is highly variable: poor in IPF (around 20%), better in DIP/RB-ILD. Other forms depend on the cause and access to appropriate treatments.</p>
             </div>
         </Accordion>
 
         <Accordion title="3. Complications" icon={<AlertTriangle className="w-5 h-5 text-white" />}>
             <div className="p-4 space-y-4">
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <InfoCard title="Insuffisance Respiratoire Chronique" icon={<Lungs className="w-5 h-5"/>} color="blue">
-                        <p className="text-sm">La complication la plus fréquente, nécessitant oxygénothérapie ou ventilation non invasive.</p>
+                    <InfoCard title="Chronic Respiratory Failure" icon={<Lungs className="w-5 h-5"/>} color="blue">
+                        <p className="text-sm">The most frequent complication, requiring oxygen therapy or non-invasive ventilation.</p>
                     </InfoCard>
-                    <InfoCard title="Hypertension Pulmonaire (HTP)" icon={<Heart className="w-5 h-5"/>} color="red">
-                        <p className="text-sm">Fréquente dans l'évolution, aggrave la dyspnée et augmente la mortalité.</p>
+                    <InfoCard title="Pulmonary Hypertension (PAH)" icon={<Heart className="w-5 h-5"/>} color="red">
+                        <p className="text-sm">Frequent in the course of the disease, worsens dyspnea and increases mortality.</p>
                     </InfoCard>
                      <InfoCard title="Infections" icon={<Bug className="w-5 h-5"/>} color="orange">
-                        <p className="text-sm">Surinfection bactérienne ou virale, favorisée par l'altération du parenchyme et les immunosuppresseurs.</p>
+                        <p className="text-sm">Bacterial or viral superinfection, favored by parenchymal alteration and immunosuppressants.</p>
                     </InfoCard>
-                    <InfoCard title="Pneumothorax Spontané" icon={<Lungs className="w-5 h-5"/>} color="purple">
-                        <p className="text-sm">Dû à la rupture de kystes ou de zones en rayon de miel.</p>
+                    <InfoCard title="Spontaneous Pneumothorax" icon={<Lungs className="w-5 h-5"/>} color="purple">
+                        <p className="text-sm">Due to the rupture of cysts or honeycombing areas.</p>
                     </InfoCard>
-                    <InfoCard title="Cancer Bronchopulmonaire" icon={<AlertTriangle className="w-5 h-5"/>} color="red">
-                        <p className="text-sm">Sur-risque de cancer primitif du poumon, surtout sur poumon fibrosant.</p>
+                    <InfoCard title="Lung Cancer" icon={<AlertTriangle className="w-5 h-5"/>} color="red">
+                        <p className="text-sm">Increased risk of primary lung cancer, especially in a fibrotic lung.</p>
                     </InfoCard>
-                     <InfoCard title="Complications Cardiaques" icon={<Heart className="w-5 h-5"/>} color="red">
-                        <p className="text-sm">Insuffisance cardiaque droite (cœur pulmonaire chronique), troubles du rythme.</p>
+                     <InfoCard title="Cardiac Complications" icon={<Heart className="w-5 h-5"/>} color="red">
+                        <p className="text-sm">Right heart failure (cor pulmonale), arrhythmias.</p>
                     </InfoCard>
                 </div>
             </div>
@@ -116,13 +117,13 @@ export const SuiviPronosticSection: React.FC = () => (
      <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
       <h3 className="text-xl font-semibold text-slate-800 mb-2 flex items-center">
         <Info className="w-6 h-6 mr-3" />
-        Points Clés
+        Key Points
       </h3>
       <ul className="list-disc list-inside space-y-2 text-slate-700 text-base">
-        <li>Un <strong>suivi multidisciplinaire rapproché</strong> permet une adaptation du traitement et une détection précoce des complications.</li>
-        <li>Le pronostic dépend du type de fibrose, du <strong>rythme de progression</strong>, et des complications surajoutées.</li>
-        <li>Les complications sont fréquentes et justifient une <strong>anticipation</strong> et une prise en charge spécifique (insuffisance respiratoire, HTP, risque infectieux).</li>
-        <li>La prise en charge globale repose sur la surveillance, la prévention, la gestion des complications et un <strong>accompagnement pluridisciplinaire</strong>.</li>
+        <li>A <strong>close multidisciplinary follow-up</strong> allows for treatment adaptation and early detection of complications.</li>
+        <li>Prognosis depends on the type of fibrosis, the <strong>rate of progression</strong>, and added complications.</li>
+        <li>Complications are frequent and justify <strong>anticipation</strong> and specific management (respiratory failure, PAH, infectious risk).</li>
+        <li>Overall management is based on monitoring, prevention, complication management, and <strong>multidisciplinary support</strong>.</li>
       </ul>
     </div>
   </div>

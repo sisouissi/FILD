@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { SectionId, MenuItem } from '../types';
 import { MENU_ITEMS } from '../constants';
@@ -49,91 +50,94 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSectio
     >
       <div className="p-4 border-b border-white/20 flex justify-between items-start">
         <div>
-          <h1 className="text-3xl font-bold leading-tight">Les PID Fibrosantes</h1>
-          <p className="text-indigo-200 text-base mt-1">L'essentiel pour tout retenir !</p>
+          <h1 className="text-3xl font-bold leading-tight">Fibrosing ILDs</h1>
+          <p className="text-indigo-200 text-base mt-1">The essentials to remember!</p>
         </div>
       </div>
       
-      <nav className="flex-1 p-2 space-y-0.5 overflow-y-auto no-scrollbar">
-        {MENU_ITEMS.map((item) => {
-          const IconComponent = item.icon;
-          const isParentOfActive = item.subItems?.some(sub => sub.id === activeSection);
-          const isMenuOpen = openMenu === item.id;
-          const isActive = activeSection === item.id;
+      <nav className="flex-1 p-2 flex flex-col justify-between">
+        <div className="space-y-0.5 overflow-y-auto no-scrollbar">
+          {MENU_ITEMS.map((item) => {
+            const IconComponent = item.icon;
+            const isParentOfActive = item.subItems?.some(sub => sub.id === activeSection);
+            const isMenuOpen = openMenu === item.id;
+            const isActive = activeSection === item.id;
 
-          return (
-            <div key={item.id}>
-              <button
-                onClick={() => handleMenuClick(item)}
-                className={`w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center justify-between space-x-3 relative ${
-                  (isActive && !item.subItems) || isParentOfActive
-                    ? 'bg-white/20 font-semibold'
-                    : 'text-indigo-100 hover:bg-white/10 hover:text-white'
-                }`}
-                aria-expanded={isMenuOpen}
-              >
-                <div className="flex items-center space-x-3">
-                    {(isActive && !item.subItems) && <div className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"></div>}
-                    <span className={`${(isActive && !item.subItems) || isParentOfActive || isMenuOpen ? 'text-white' : 'text-indigo-200'}`}>
-                      <IconComponent className="w-6 h-6" />
-                    </span>
-                    <span className="text-base">{item.title}</span>
-                </div>
-                {item.subItems && (
-                  <ChevronRight className={`w-5 h-5 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`} />
+            return (
+              <div key={item.id}>
+                <button
+                  onClick={() => handleMenuClick(item)}
+                  className={`w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center justify-between space-x-3 relative ${
+                    (isActive && !item.subItems) || isParentOfActive
+                      ? 'bg-white/20 font-semibold'
+                      : 'text-indigo-100 hover:bg-white/10 hover:text-white'
+                  }`}
+                  aria-expanded={isMenuOpen}
+                >
+                  <div className="flex items-center space-x-3">
+                      {(isActive && !item.subItems) && <div className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"></div>}
+                      <span className={`${(isActive && !item.subItems) || isParentOfActive || isMenuOpen ? 'text-white' : 'text-indigo-200'}`}>
+                        <IconComponent className="w-6 h-6" />
+                      </span>
+                      <span className="text-base">{item.title}</span>
+                  </div>
+                  {item.subItems && (
+                    <ChevronRight className={`w-5 h-5 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`} />
+                  )}
+                </button>
+
+                {item.subItems && isMenuOpen && (
+                  <div className="pl-6 mt-0.5 space-y-0.5 animate-fade-in-fast">
+                    {item.subItems.map(subItem => {
+                      const SubIcon = subItem.icon;
+                      const isSubActive = activeSection === subItem.id;
+                      return (
+                        <button
+                          key={subItem.id}
+                          onClick={() => setActiveSection(subItem.id)}
+                          className={`w-full text-left p-2 pl-4 rounded-lg transition-all duration-200 flex items-center space-x-3 relative ${
+                            isSubActive
+                              ? 'bg-white/20 font-semibold'
+                              : 'text-indigo-100 hover:bg-white/10 hover:text-white'
+                          }`}
+                        >
+                          {isSubActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"></div>}
+                          <span className={`${isSubActive ? 'text-white' : 'text-indigo-200'}`}>
+                            <SubIcon className="w-5 h-5" />
+                          </span>
+                          <span className="text-sm">{subItem.title}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
-              </button>
+              </div>
+            );
+          })}
+        </div>
 
-              {item.subItems && isMenuOpen && (
-                <div className="pl-6 mt-0.5 space-y-0.5 animate-fade-in-fast">
-                  {item.subItems.map(subItem => {
-                    const SubIcon = subItem.icon;
-                    const isSubActive = activeSection === subItem.id;
-                    return (
-                      <button
-                        key={subItem.id}
-                        onClick={() => setActiveSection(subItem.id)}
-                        className={`w-full text-left p-2 pl-4 rounded-lg transition-all duration-200 flex items-center space-x-3 relative ${
-                          isSubActive
-                            ? 'bg-white/20 font-semibold'
-                            : 'text-indigo-100 hover:bg-white/10 hover:text-white'
-                        }`}
-                      >
-                        {isSubActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-white rounded-r-full"></div>}
-                        <span className={`${isSubActive ? 'text-white' : 'text-indigo-200'}`}>
-                          <SubIcon className="w-5 h-5" />
-                        </span>
-                        <span className="text-sm">{subItem.title}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
+        <div className="flex-shrink-0">
+          <hr className="my-2 border-white/20" />
+          <div>
+                <button
+                  onClick={onOpenReferences}
+                  className="w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center space-x-3 text-indigo-100 hover:bg-white/10 hover:text-white"
+                >
+                  <ExternalLink className="w-6 h-6 text-indigo-200" />
+                  <span className="text-base">References</span>
+                </button>
+          </div>
+          <div>
+                <button
+                  onClick={onOpenAbbreviations}
+                  className="w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center space-x-3 text-indigo-100 hover:bg-white/10 hover:text-white"
+                >
+                  <BookOpen className="w-6 h-6 text-indigo-200" />
+                  <span className="text-base">Abbreviations</span>
+                </button>
+          </div>
+        </div>
       </nav>
-      
-      <div className="p-2 border-t border-white/20">
-        <div>
-              <button
-                onClick={onOpenReferences}
-                className="w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center space-x-3 text-indigo-100 hover:bg-white/10 hover:text-white"
-              >
-                <ExternalLink className="w-6 h-6 text-indigo-200" />
-                <span className="text-base">Références</span>
-              </button>
-        </div>
-        <div>
-              <button
-                onClick={onOpenAbbreviations}
-                className="w-full text-left p-2.5 rounded-lg transition-all duration-200 flex items-center space-x-3 text-indigo-100 hover:bg-white/10 hover:text-white"
-              >
-                <BookOpen className="w-6 h-6 text-indigo-200" />
-                <span className="text-base">Abréviations</span>
-              </button>
-        </div>
-      </div>
     </div>
   );
 };

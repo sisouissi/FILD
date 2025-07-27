@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 
 export const Wind = ({ className }: { className?: string }) => (

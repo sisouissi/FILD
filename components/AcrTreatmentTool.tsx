@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { TREATMENT_DATA, SARD_LABELS } from '../data/acr_treatment_data';
 import { Pill, CheckCircle, XCircle, AlertTriangle } from './icons';
 import { generateTreatmentSummary } from '../services/gemini';
@@ -35,27 +35,62 @@ export const AcrTreatmentTool: React.FC = () => {
     const [aiSummary, setAiSummary] = useState('');
     const [isGenerating, setIsGenerating] = useState(false);
     const [summaryError, setSummaryError] = useState<string | null>(null);
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    useEffect(() => {
+        // Cleanup function to abort request on component unmount
+        return () => {
+            abortControllerRef.current?.abort();
+        };
+    }, []);
 
     const recommendations = TREATMENT_DATA[context][sard] || TREATMENT_DATA[context]['Autre'];
-    
+
     const handleGenerateSummary = useCallback(async () => {
         setIsGenerating(true);
         setAiSummary('');
         setSummaryError(null);
+
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
+        const timeoutId = setTimeout(() => {
+            controller.abort();
+        }, 30000); // 30s timeout
+
         try {
-            const summary = await generateTreatmentSummary(sard, context);
-            setAiSummary(summary);
-        } catch (e) {
-            setSummaryError(e instanceof Error ? e.message : "An unknown error occurred.");
-        } finally {
+            await generateTreatmentSummary(
+                sard,
+                context,
+                (chunk) => setAiSummary(prev => prev + chunk),
+                () => { // onDone
+                    clearTimeout(timeoutId);
+                    setIsGenerating(false);
+                    abortControllerRef.current = null;
+                },
+                (error) => { // onError
+                    clearTimeout(timeoutId);
+                    if (error.name !== 'AbortError') {
+                        setSummaryError(error.message);
+                    }
+                    setIsGenerating(false);
+                    abortControllerRef.current = null;
+                },
+                controller.signal
+            );
+        } catch (err: any) {
+            clearTimeout(timeoutId);
+            if (err.name !== 'AbortError') {
+                setSummaryError(err.message);
+            }
             setIsGenerating(false);
+            abortControllerRef.current = null;
         }
     }, [sard, context]);
 
     return (
         <div className="bg-slate-50 p-4 rounded-lg border text-slate-800">
             <h3 className="text-lg font-bold text-slate-900 mb-4">Treatment Decision Aid</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
                     <label htmlFor="sard-treatment-select" className="block text-sm font-medium text-slate-700 mb-1">1. Connective Tissue Disease:</label>

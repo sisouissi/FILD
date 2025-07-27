@@ -91,14 +91,17 @@ export const AcrScreeningTool: React.FC = () => {
         setIsGeneratingSummary(true);
         setAiSummary('');
         setSummaryError(null);
-        try {
-            const summary = await generateScreeningSummary(patientData, riskLevel.level);
-            setAiSummary(summary);
-        } catch (e) {
-            setSummaryError(e instanceof Error ? e.message : "An unknown error occurred.");
-        } finally {
-            setIsGeneratingSummary(false);
-        }
+        
+        await generateScreeningSummary(
+            patientData, 
+            riskLevel.level,
+            (chunk) => setAiSummary(prev => prev + chunk),
+            () => setIsGeneratingSummary(false),
+            (error) => {
+                setSummaryError(error.message);
+                setIsGeneratingSummary(false);
+            }
+        );
     }, [patientData, riskLevel]);
 
     return (

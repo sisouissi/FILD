@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { Activity, History, FlaskConical, Image, ClipboardList, AlertTriangle, Info } from './icons';
 import { Accordion } from './Accordion';

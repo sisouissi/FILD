@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { TrendingUp, Stethoscope, Activity, Image, Heart, Info, AlertTriangle, CheckCircle, Clock } from './icons';
 import { Accordion } from './Accordion';

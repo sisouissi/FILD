@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Pill, Lungs, Heart, Activity, HandHeart, Info, AlertTriangle, Shield, CheckCircle } from './icons';
 import { Accordion } from './Accordion';

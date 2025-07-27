@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Lungs, Microscope, ListChecks, TrendingUp, AlertTriangle, Activity, FlaskConical, RotateCcw } from './icons';
 import { Accordion } from './Accordion';

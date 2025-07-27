@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { generateILAmanagementSummary } from '../services/gemini';
 import { AISummary } from './AISummary';
 import { RotateCcw, ArrowLeft, ChevronRight, FileText, CheckCircle, AlertTriangle, Stethoscope, Image, Users, Wind, History } from './icons';
@@ -31,13 +31,13 @@ const CheckboxGroup: React.FC<{ options: { id: string, label: string }[], select
     </div>
 );
 
-const RadioGroup: React.FC<{ name: string, legend: string, options: { value: string, label: string }[], selected: string, onChange: (value: string) => void, useGt?: boolean }> = ({ name, legend, options, selected, onChange, useGt = false }) => (
+const RadioGroup: React.FC<{ name: string, legend: string, options: { value: string, label: string }[], selected: string, onChange: (value: string) => void }> = ({ name, legend, options, selected, onChange }) => (
     <fieldset className="space-y-3">
-        <legend className="text-base font-semibold text-slate-800">{legend.replace('>', useGt ? '>' : '&gt;')}</legend>
+        <legend className="text-base font-semibold text-slate-800">{legend}</legend>
         {options.map(opt => (
              <label key={opt.value} className={`flex items-center p-3 border-2 rounded-lg cursor-pointer transition-all ${selected === opt.value ? 'bg-blue-50 border-blue-500' : 'bg-white border-slate-300 hover:border-blue-400'}`}>
                 <input type="radio" name={name} value={opt.value} checked={selected === opt.value} onChange={e => onChange(e.target.value)} className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500"/>
-                <span className="ml-3 text-sm font-medium text-slate-700">{opt.label.replace('>', useGt ? '>' : '&gt;')}</span>
+                <span className="ml-3 text-sm font-medium text-slate-700">{opt.label}</span>
             </label>
         ))}
     </fieldset>
@@ -53,6 +53,14 @@ export const ILAAlgorithmTool: React.FC = () => {
     const [aiSummary, setAiSummary] = useState('');
     const [isGenerating, setIsGenerating] = useState(false);
     const [summaryError, setSummaryError] = useState<string | null>(null);
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    useEffect(() => {
+        // Cleanup function to abort request on component unmount
+        return () => {
+            abortControllerRef.current?.abort();
+        };
+    }, []);
 
     const navigateTo = (nextStep: StepId) => {
         setHistory(prev => [...prev, step]);
@@ -73,6 +81,7 @@ export const ILAAlgorithmTool: React.FC = () => {
         setAnswers(initialAnswers);
         setAiSummary('');
         setSummaryError(null);
+        abortControllerRef.current?.abort();
     };
     
     const recommendation = useMemo((): Recommendation | null => {
@@ -92,13 +101,40 @@ export const ILAAlgorithmTool: React.FC = () => {
         setIsGenerating(true);
         setAiSummary('');
         setSummaryError(null);
+
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
+        const timeoutId = setTimeout(() => {
+            controller.abort();
+        }, 30000); // 30s timeout
+
         try {
-            const summary = await generateILAmanagementSummary(answers, recommendation.title);
-            setAiSummary(summary);
-        } catch (e) {
-            setSummaryError(e instanceof Error ? e.message : "An unknown error occurred.");
-        } finally {
+            await generateILAmanagementSummary(
+                answers,
+                recommendation.title,
+                (chunk) => setAiSummary(prev => prev + chunk),
+                () => { // onDone
+                    clearTimeout(timeoutId);
+                    setIsGenerating(false);
+                    abortControllerRef.current = null;
+                },
+                (error) => { // onError
+                    clearTimeout(timeoutId);
+                    if (error.name !== 'AbortError') {
+                        setSummaryError(error.message);
+                    }
+                    setIsGenerating(false);
+                    abortControllerRef.current = null;
+                },
+                controller.signal
+            );
+        } catch (err: any) {
+            clearTimeout(timeoutId);
+            if (err.name !== 'AbortError') {
+                setSummaryError(err.message);
+            }
             setIsGenerating(false);
+            abortControllerRef.current = null;
         }
     }, [answers, recommendation]);
 
@@ -146,7 +182,7 @@ export const ILAAlgorithmTool: React.FC = () => {
             case 'evaluate':
                  return (
                     <div className="space-y-6">
-                        <RadioGroup name="extent" legend="1. Is the extent of abnormalities >10% of any lung zone?" useGt options={[
+                        <RadioGroup name="extent" legend="1. Is the extent of abnormalities >10% of any lung zone?" options={[
                             { value: '>10', label: 'Yes, >10%' },
                             { value: '<=10', label: 'No, <=10%' },
                         ]} selected={answers.extent} onChange={v => setAnswers(p => ({...p, extent: v as any}))} />

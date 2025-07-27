@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { AlertTriangle, CheckCircle, Stethoscope, Activity, Heart, XCircle, Search } from './icons';
 import { generateScreeningSummary } from '../services/gemini';
-import { AISummary } from './AcrGuidelineTool/components/AISummary';
+import { AISummary } from './AISummary';
 import { StepIndicator } from './AcrGuidelineTool/components/StepIndicator';
 import { PatientInfoForm } from './AcrGuidelineTool/components/PatientInfoForm';
 import { RecommendationsDisplay } from './AcrGuidelineTool/components/RecommendationsDisplay';
@@ -64,6 +64,14 @@ export const AcrScreeningTool: React.FC = () => {
     const [aiSummary, setAiSummary] = useState('');
     const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
     const [summaryError, setSummaryError] = useState<string | null>(null);
+    const abortControllerRef = useRef<AbortController | null>(null);
+
+    useEffect(() => {
+        // Cleanup function to abort request on component unmount
+        return () => {
+            abortControllerRef.current?.abort();
+        };
+    }, []);
 
     const riskLevelInfo = useMemo(() => getRiskLevel(patientData), [patientData]);
 
@@ -85,19 +93,48 @@ export const AcrScreeningTool: React.FC = () => {
         setAiSummary('');
         setSummaryError(null);
         setStep('patient-info');
+        abortControllerRef.current?.abort();
     };
 
     const handleGenerateSummary = useCallback(async () => {
         setIsGeneratingSummary(true);
         setAiSummary('');
         setSummaryError(null);
+
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
+        const timeoutId = setTimeout(() => {
+            controller.abort();
+            // Don't set error here, as the streamError handler will do it.
+        }, 30000); // 30s timeout
+
         try {
-            const summary = await generateScreeningSummary(patientData, riskLevelInfo.level);
-            setAiSummary(summary);
-        } catch (e) {
-            setSummaryError(e instanceof Error ? e.message : "An unknown error occurred.");
-        } finally {
+            await generateScreeningSummary(
+                patientData,
+                riskLevelInfo.level,
+                (chunk) => setAiSummary(prev => prev + chunk),
+                () => { // onDone
+                    clearTimeout(timeoutId);
+                    setIsGeneratingSummary(false);
+                    abortControllerRef.current = null;
+                },
+                (error) => { // onError
+                    clearTimeout(timeoutId);
+                    if (error.name !== 'AbortError') {
+                        setSummaryError(error.message);
+                    }
+                    setIsGeneratingSummary(false);
+                    abortControllerRef.current = null;
+                },
+                controller.signal
+            );
+        } catch (err: any) {
+            clearTimeout(timeoutId);
+            if (err.name !== 'AbortError') {
+                setSummaryError(err.message);
+            }
             setIsGeneratingSummary(false);
+            abortControllerRef.current = null;
         }
     }, [patientData, riskLevelInfo]);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type SectionId = 'welcome' | 'definition' | 'diagnostic-clinique' | 'diagnostic-fonctionnel' | 'fpi-pathogenie-clinique' | 'diagnostic-biopsie' | 'fpi' | 'autres-pid' | 'therapeutique' | 'suivi-pronostic' | 'diagnostic-tdm-algorithme' | 'fpi-traitement' | 'fpi-suivi-pronostic' | 'fpi-exacerbation-aigue' | 'pid-connectivites' | 'fpp' | 'pins-fibrosantes' | 'ipaf' | 'phs';
+export type SectionId = 'welcome' | 'definition' | 'diagnostic-clinique' | 'diagnostic-fonctionnel' | 'fpi-pathogenie-clinique' | 'diagnostic-biopsie' | 'fpi' | 'autres-pid' | 'therapeutique' | 'suivi-pronostic' | 'diagnostic-tdm-algorithme' | 'fpi-traitement' | 'fpi-suivi-pronostic' | 'fpi-exacerbation-aigue' | 'pid-connectivites' | 'fpp' | 'pins-fibrosantes' | 'ipaf' | 'phs' | 'ila';
 
 export interface MenuItem {
   id: SectionId;

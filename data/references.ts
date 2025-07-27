@@ -12,6 +12,14 @@ export interface Reference {
 export const references: Reference[] = [
   // 2025
   {
+    id: 'moodley2025',
+    title: 'A Comprehensive Review of Interstitial Lung Abnormalities',
+    authors: 'Moodley Y, Mackintosh JA.',
+    journal: 'Respirology',
+    year: 2025,
+    urls: ['https://onlinelibrary.wiley.com/doi/epdf/10.1111/resp.70026']
+  },
+  {
     id: 'larici2025',
     title: 'ESR Essentials: imaging in fibrotic lung diseases-practice recommendations by the European Society of Thoracic Imaging.',
     authors: 'Larici AR, Biederer J, Cicchetti G, et al.',
@@ -19,7 +27,7 @@ export const references: Reference[] = [
     year: 2025,
     volume: '35',
     pages: '2245',
-    urls: ['https://link.springer.com/article/10.1007/s00330-024-10245-5']
+    urls: ['https://link.springer.com/article/10.1007/s00330-024-11054-2']
   },
   {
     id: 'liu2025',
@@ -63,6 +71,15 @@ export const references: Reference[] = [
     urls: ['https://archivesofrheumatology.org/full-text/1555']
   },
   // 2023
+  {
+    id: 'patel2023',
+    title: 'Interstitial lung abnormalities: do symptoms matter?',
+    authors: 'Patel AS.',
+    journal: 'ERJ Open Res',
+    year: 2023,
+    volume: '9(5)',
+    urls: ['https://publications.ersnet.org/content/erjor/9/5/00502-2023']
+  },
   {
     id: 'shakeel2023',
     title: 'Idiopathic pulmonary fibrosis: Pathophysiology, cellular signaling, diagnostic and therapeutic approaches.',
@@ -160,6 +177,16 @@ export const references: Reference[] = [
     urls: ['https://publications.ersnet.org/content/erj/60/5/2200425']
   },
   // 2021
+  {
+    id: 'chae2021',
+    title: 'Interstitial Lung Abnormalities: What Radiologists Should Know',
+    authors: 'Chae KJ, Jin GY, Goo JM, et al.',
+    journal: 'Korean J Radiol',
+    year: 2021,
+    volume: '22(3)',
+    pages: '454-463',
+    urls: ['https://kjronline.org/DOIx.php?id=10.3348/kjr.2020.0191']
+  },
   {
     id: 'spagnolo2021',
     title: 'Mechanisms of progressive fibrosis in connective tissue disease (CTD)-associated interstitial lung diseases (ILDs).',

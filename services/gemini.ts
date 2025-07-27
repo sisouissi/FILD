@@ -2,6 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import type { PatientData } from '../components/AcrGuidelineTool/types';
 import { connectiviteTypes, riskFactors, symptoms } from '../components/AcrGuidelineTool/constants';
 import { SARD_LABELS } from '../data/acr_treatment_data';
+import type { ILAAlgorithmAnswers } from '../components/ILAAlgorithmTool';
 
 let ai: GoogleGenAI | null = null;
 let initError: string | null = null;
@@ -93,7 +94,7 @@ export const generateTreatmentSummary = async (sard: string, context: string): P
 
     try {
         const response = await aiService.models.generateContent({
-            model: 'gem-2.5-flash',
+            model: 'gemini-2.5-flash',
             contents: prompt,
             config: {
                 systemInstruction: systemInstruction,
@@ -102,6 +103,57 @@ export const generateTreatmentSummary = async (sard: string, context: string): P
         return response.text;
     } catch (error) {
         console.error("Error generating treatment summary with Gemini API:", error);
+        throw new Error("The AI summary could not be generated. There might be an issue with the AI service or the request.");
+    }
+};
+
+// --- API for ILA Tool ---
+export const generateILAmanagementSummary = async (answers: ILAAlgorithmAnswers, finalRecommendation: string): Promise<string> => {
+    const aiService = getAIService();
+    
+    const contextLabels: Record<string, string> = {
+        symptoms: 'Evaluation for respiratory symptoms',
+        lcs: 'Lung Cancer Screening program',
+        incidental: 'Incidental finding on non-dedicated CT',
+    };
+
+    const patientInfoLabels: Record<string, string> = {
+        history: 'Significant medical history',
+        symptoms: 'Presence of respiratory symptoms',
+        sard: 'Features of Systemic Autoimmune Rheumatic Disease (SARD)',
+        family: 'Family history of pulmonary fibrosis',
+    };
+
+    const answerContext = contextLabels[answers.context] || 'Not specified';
+    const patientContext = answers.patientInfo.length > 0 
+        ? answers.patientInfo.map(pi => patientInfoLabels[pi] || pi).join(', ') 
+        : 'None specified';
+
+    const systemInstruction = "You are an expert assistant in pulmonology, specializing in Interstitial Lung Diseases. You provide clear, evidence-based summaries and management plans for physicians based on the Fleischner Society and other relevant guidelines for ILA.";
+    
+    const prompt = `Generate a concise clinical summary and management plan for a patient with Interstitial Lung Abnormalities (ILA) based on the following algorithm results. Use markdown format with bold titles (**Title**). The response must be exclusively in English.
+
+**Patient Profile from ILA Algorithm:**
+- **Context of Discovery:** ${answerContext}
+- **Additional Clinical Context:** ${patientContext}
+- **Final Recommendation from Algorithm:** ${finalRecommendation}
+
+**Task:**
+1.  Write a **Clinical Summary** of the patient's ILA profile and risk stratification based on the provided context and final recommendation.
+2.  Provide a detailed **Management Plan** based on the final recommendation. Elaborate on what the recommendation entails (e.g., what "individualised surveillance" involves in terms of specific tests and frequencies; what "discharge to GP" means in terms of instructions for the GP and patient).
+3.  Include a section on **Key Discussion Points** for the multidisciplinary team (MDD) or the pulmonologist, highlighting the most critical aspects to consider for this patient.`;
+
+    try {
+        const response = await aiService.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+            config: {
+                systemInstruction: systemInstruction,
+            }
+        });
+        return response.text;
+    } catch (error) {
+        console.error("Error generating ILA summary with Gemini API:", error);
         throw new Error("The AI summary could not be generated. There might be an issue with the AI service or the request.");
     }
 };

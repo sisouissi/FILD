@@ -11,121 +11,121 @@ type SARDType = 'SSc' | 'RA' | 'MII' | 'SjD' | 'MCTD' | 'Autre';
 type TreatmentContext = 'firstLine' | 'progression' | 'rp-ild';
 
 export const SARD_LABELS: Record<string, string> = {
-    SSc: 'Systemic Sclerosis (SSc)',
-    RA: 'Rheumatoid Arthritis (RA)',
-    MII: 'Inflammatory Myopathies (IIM)',
-    SjD: "Sjögren's Disease (SjD)",
-    MCTD: 'Mixed Connective Tissue Disease (MCTD)',
-    Autre: 'Other SARD-ILD'
+    SSc: 'Sclérodermie Systémique (SSc)',
+    RA: 'Polyarthrite Rhumatoïde (PR)',
+    MII: 'Myopathies Inflammatoires (MII)',
+    SjD: "Syndrome de Sjögren (SjD)",
+    MCTD: 'Connectivite Mixte (MCTD)',
+    Autre: 'Autre SARD-PID'
 };
 
 export const TREATMENT_DATA: Record<TreatmentContext, Record<SARDType, RecommendationDetails>> = {
     firstLine: {
         SSc: {
-            title: "First-line treatment for SSc-ILD",
-            options: ["Mycophenolate (MMF)", "Tocilizumab", "Rituximab", "Nintedanib"],
-            strong_against: "Glucocorticoids (risk of renal crisis)",
-            note: "MMF is often preferred. Nintedanib is an option, especially if the pattern is fibrotic."
+            title: "Traitement de 1ère ligne pour la SSc-PID",
+            options: ["Mycophénolate (MMF)", "Tocilizumab", "Rituximab", "Nintedanib"],
+            strong_against: "Glucocorticoïdes (risque de crise rénale)",
+            note: "Le MMF est souvent préféré. Le Nintedanib est une option, surtout si le pattern est fibrotique."
         },
         RA: {
-            title: "First-line treatment for RA-ILD",
-            options: ["Mycophenolate (MMF)", "Azathioprine", "Rituximab"],
-            against: ["Leflunomide, Methotrexate, anti-TNF", "Pirfenidone"],
-            note: "Consensus was not reached to recommend Nintedanib as a first-line treatment."
+            title: "Traitement de 1ère ligne pour la PR-PID",
+            options: ["Mycophénolate (MMF)", "Azathioprine", "Rituximab"],
+            against: ["Léflunomide, Méthotrexate, anti-TNF", "Pirfénidone"],
+            note: "Le consensus n'a pas été atteint pour recommander le Nintedanib en 1ère ligne."
         },
         MII: {
-            title: "First-line treatment for IIM-ILD",
-            options: ["Mycophenolate (MMF)", "Azathioprine", "Rituximab", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
+            title: "Traitement de 1ère ligne pour la PID des MII",
+            options: ["Mycophénolate (MMF)", "Azathioprine", "Rituximab", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
             against: ["Nintedanib"],
         },
         SjD: {
-            title: "First-line treatment for Sjögren's-ILD",
-            options: ["Mycophenolate (MMF)", "Azathioprine", "Rituximab", "Glucocorticoids"],
+            title: "Traitement de 1ère ligne pour la PID du Sjögren",
+            options: ["Mycophénolate (MMF)", "Azathioprine", "Rituximab", "Glucocorticoïdes"],
              against: ["Nintedanib"],
         },
         MCTD: {
-            title: "First-line treatment for MCTD-ILD",
-            options: ["Mycophenolate (MMF)", "Azathioprine", "Rituximab", "Tocilizumab", "Glucocorticoids"],
+            title: "Traitement de 1ère ligne pour la PID de la Connectivite Mixte",
+            options: ["Mycophénolate (MMF)", "Azathioprine", "Rituximab", "Tocilizumab", "Glucocorticoïdes"],
             against: ["Nintedanib"],
         },
         Autre: {
-            title: "First-line treatment for other SARD-ILDs",
-            recommended: "Glucocorticoids",
-            options: ["Mycophenolate (MMF)", "Azathioprine", "Rituximab", "Cyclophosphamide"],
-            against: ["Leflunomide, Methotrexate, anti-TNF", "JAK inhibitors (except IIM)", "Pirfenidone"],
+            title: "Traitement de 1ère ligne pour les autres SARD-PID",
+            recommended: "Glucocorticoïdes",
+            options: ["Mycophénolate (MMF)", "Azathioprine", "Rituximab", "Cyclophosphamide"],
+            against: ["Léflunomide, Méthotrexate, anti-TNF", "Inhibiteurs de JAK (sauf MII)", "Pirfénidone"],
         }
     },
     progression: {
         SSc: {
-            title: "Progression of SSc-ILD on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab"],
-            strong_against: "Long-term glucocorticoids",
-            note: "A switch or addition of treatment is recommended. Referral for transplantation should be discussed."
+            title: "Progression de la SSc-PID sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab"],
+            strong_against: "Glucocorticoïdes au long cours",
+            note: "Un switch ou un ajout de traitement est recommandé. Une orientation en transplantation doit être discutée."
         },
         RA: {
-            title: "Progression of RA-ILD on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab", "Pirfenidone (add-on)"],
-            against: ["Long-term glucocorticoids"],
+            title: "Progression de la PR-PID sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab", "Pirfénidone (ajout)"],
+            against: ["Glucocorticoïdes au long cours"],
         },
         MII: {
-            title: "Progression of IIM-ILD on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)", "IVIG"],
-            against: ["Long-term glucocorticoids"],
+            title: "Progression de la PID des MII sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)", "IVIG"],
+            against: ["Glucocorticoïdes au long cours"],
         },
         SjD: {
-            title: "Progression of Sjögren's-ILD on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib"],
-            against: ["Long-term glucocorticoids", "Tocilizumab"],
+            title: "Progression de la PID du Sjögren sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib"],
+            against: ["Glucocorticoïdes au long cours", "Tocilizumab"],
         },
         MCTD: {
-            title: "Progression of MCTD-ILD on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab", "IVIG"],
-            against: ["Long-term glucocorticoids"],
+            title: "Progression de la PID de la MCTD sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib", "Tocilizumab", "IVIG"],
+            against: ["Glucocorticoïdes au long cours"],
         },
         Autre: {
-            title: "Progression of other SARD-ILDs on treatment",
-            options: ["Mycophenolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib"],
-            against: ["Long-term glucocorticoids", "Pirfenidone (add-on)", "Tocilizumab (except SSc, MCTD, RA)"],
+            title: "Progression des autres SARD-PID sous traitement",
+            options: ["Mycophénolate (MMF)", "Rituximab", "Cyclophosphamide", "Nintedanib"],
+            against: ["Glucocorticoïdes au long cours", "Pirfénidone (ajout)", "Tocilizumab (sauf SSc, MCTD, RA)"],
         }
     },
     'rp-ild': {
         SSc: {
-            title: "Rapidly Progressive ILD (RP-ILD) in SSc",
-            recommended: "Combination therapy (double or triple therapy)",
-            options: ["IV Methylprednisolone pulse (with caution)", "Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
-            note: "The use of corticosteroids is very controversial (risk of renal crisis). Discussion in an expert center is essential."
+            title: "PID Rapidement Progressive (RP-ILD) dans la SSc",
+            recommended: "Traitement combiné (double ou triple thérapie)",
+            options: ["Pulse IV de Méthylprednisolone (avec prudence)", "Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
+            note: "L'usage des corticoïdes est très controversé (risque de crise rénale). Une discussion en centre expert est indispensable."
         },
         RA: {
-             title: "Rapidly Progressive ILD (RP-ILD) in RA",
-            recommended: "IV Methylprednisolone pulse",
-            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
+             title: "PID Rapidement Progressive (RP-ILD) dans la PR",
+            recommended: "Pulse IV de Méthylprednisolone",
+            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
         },
         MII: {
-             title: "Rapidly Progressive ILD (RP-ILD) in IIM",
-            recommended: "IV Methylprednisolone pulse",
-            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
-             note: "Triple therapy is recommended if anti-MDA5 antibodies are suspected or confirmed."
+             title: "PID Rapidement Progressive (RP-ILD) dans les MII",
+            recommended: "Pulse IV de Méthylprednisolone",
+            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
+             note: "La trithérapie est recommandée si suspicion ou confirmation d'Ac anti-MDA5."
         },
         SjD: {
-             title: "Rapidly Progressive ILD (RP-ILD) in Sjögren's",
-            recommended: "IV Methylprednisolone pulse",
-            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
+             title: "PID Rapidement Progressive (RP-ILD) dans le Sjögren",
+            recommended: "Pulse IV de Méthylprednisolone",
+            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
         },
         MCTD: {
-             title: "Rapidly Progressive ILD (RP-ILD) in MCTD",
-            recommended: "IV Methylprednisolone pulse",
-            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
+             title: "PID Rapidement Progressive (RP-ILD) dans la MCTD",
+            recommended: "Pulse IV de Méthylprednisolone",
+            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
         },
         Autre: {
-             title: "Rapidly Progressive ILD (RP-ILD) in other SARDs",
-            recommended: "IV Methylprednisolone pulse",
-            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophenolate", "Calcineurin Inhibitors (CNI)", "JAK inhibitors (JAKi)"],
-            against: ["Methotrexate, Leflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfenidone"],
+             title: "PID Rapidement Progressive (RP-ILD) dans les autres SARD",
+            recommended: "Pulse IV de Méthylprednisolone",
+            options: ["Rituximab", "Cyclophosphamide", "IVIG", "Mycophénolate", "Inhibiteurs de Calcineurine (CNI)", "Inhibiteurs de JAK (JAKi)"],
+            against: ["Méthotrexate, Léflunomide, anti-TNF, Abatacept, Tocilizumab, Nintedanib, Pirfénidone"],
         }
     }
 };

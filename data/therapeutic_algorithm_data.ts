@@ -5,30 +5,30 @@ import { TherapeuticAlgorithmData, TreatmentStep } from '../types';
 export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     {
         id: 'ipf',
-        label: 'Idiopathic Pulmonary Fibrosis (IPF)',
+        label: 'Fibrose Pulmonaire Idiopathique (FPI)',
         pathway: [
             {
-                title: 'First-Line Treatment',
-                treatments: ['Antifibrotic agents', 'Pirfenidone or Nintedanib'],
+                title: 'Traitement de Première Ligne',
+                treatments: ['Agents antifibrotiques', 'Pirfénidone ou Nintedanib'],
                 icon: Pill,
                 color: 'red',
-                note: 'Antifibrotic therapy is recommended at the time of diagnosis.'
+                note: 'Le traitement antifibrotique est recommandé dès le diagnostic.'
             },
         ]
     },
     {
         id: 'ssc-ild',
-        label: 'Systemic Sclerosis-Associated ILD (SSc-ILD)',
+        label: 'PID associée à la Sclérodermie Systémique (SSc-ILD)',
         pathway: [
             {
-                title: 'First-Line Immunomodulation',
-                treatments: ['MMF, CPM, TCL', '(Alternative: AZA, RTX)'],
+                title: 'Immunomodulation de Première Ligne',
+                treatments: ['MMF, CPM, TCL', '(Alternative : AZA, RTX)'],
                 icon: Shield,
                 color: 'blue',
             },
             {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -36,17 +36,17 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     },
     {
         id: 'ra-ild',
-        label: 'Rheumatoid Arthritis-Associated ILD (RA-ILD)',
+        label: 'PID associée à la Polyarthrite Rhumatoïde (RA-ILD)',
         pathway: [
             {
-                title: 'First-Line Immunomodulation',
-                treatments: ['Glucocorticoids', 'Then: RTX, ABA, MMF'],
+                title: 'Immunomodulation de Première Ligne',
+                treatments: ['Glucocorticoïdes', 'Puis : RTX, ABA, MMF'],
                 icon: Shield,
                 color: 'blue',
             },
             {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -54,17 +54,17 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     },
     {
         id: 'sarcoidosis',
-        label: 'Fibrotic Sarcoidosis',
+        label: 'Sarcoïdose Fibrosante',
         pathway: [
             {
-                title: 'First-Line Immunomodulation',
-                treatments: ['Glucocorticoids', 'Then: MTX', '(Alternative: AZA, IFX, ADA)'],
+                title: 'Immunomodulation de Première Ligne',
+                treatments: ['Glucocorticoïdes', 'Puis : MTX', '(Alternative : AZA, IFX, ADA)'],
                 icon: Shield,
                 color: 'blue',
             },
              {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -72,23 +72,23 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     },
     {
         id: 'phs',
-        label: "Chronic Fibrotic Hypersensitivity Pneumonitis",
+        label: "Pneumopathie d'Hypersensibilité Chronique Fibrosante",
         pathway: [
             {
-                title: "Step 1: Antigen Avoidance",
-                treatments: ["Identification and avoidance of the causative agent"],
+                title: "Étape 1 : Éviction de l'Antigène",
+                treatments: ["Identification et éviction de l'agent causal"],
                 icon: Wind,
                 color: 'orange'
             },
             {
                 title: 'Immunomodulation',
-                treatments: ['Glucocorticoids', 'Then: MMF', '(Alternative: AZA)'],
+                treatments: ['Glucocorticoïdes', 'Puis : MMF', '(Alternative : AZA)'],
                 icon: Shield,
                 color: 'blue',
             },
              {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -96,17 +96,17 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     },
     {
         id: 'insip',
-        label: 'Idiopathic Nonspecific Interstitial Pneumonia (NSIP)',
+        label: 'Pneumopathie Interstitielle Non Spécifique (PINS) Idiopathique',
         pathway: [
             {
                 title: 'Immunomodulation',
-                treatments: ['Glucocorticoids', 'Then: MMF, AZA, or other immunosuppressants'],
+                treatments: ['Glucocorticoïdes', 'Puis : MMF, AZA, ou autres immunosuppresseurs'],
                 icon: Shield,
                 color: 'purple',
             },
              {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -114,17 +114,17 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
     },
     {
         id: 'unclassifiable',
-        label: 'Unclassifiable ILD',
+        label: 'PID Inclassable',
         pathway: [
             {
                 title: 'Immunomodulation',
-                treatments: ['Glucocorticoids', 'Then: MMF, AZA, or other immunosuppressants'],
+                treatments: ['Glucocorticoïdes', 'Puis : MMF, AZA, ou autres immunosuppresseurs'],
                 icon: Shield,
                 color: 'purple',
             },
              {
-                title: 'In Case of Progression',
-                treatments: ['Consider antifibrotic agents', 'Nintedanib'],
+                title: 'En Cas de Progression',
+                treatments: ['Considérer les agents antifibrotiques', 'Nintedanib'],
                 icon: PlusCircle,
                 color: 'green',
             }
@@ -133,14 +133,14 @@ export const THERAPEUTIC_ALGORITHM_DATA: TherapeuticAlgorithmData = [
 ];
 
 export const NON_PHARMACOLOGIC_TREATMENT: TreatmentStep = {
-    title: 'Non-Pharmacologic Management (for all ILDs)',
+    title: 'Prise en Charge Non-Pharmacologique (pour toutes les PID)',
     treatments: [
-        'Supplemental oxygen therapy',
-        'Psychosocial support',
-        'Smoking cessation',
-        'Pulmonary rehabilitation',
-        'Palliative care',
-        'End-of-life care'
+        'Oxygénothérapie supplémentaire',
+        'Support psychosocial',
+        'Arrêt du tabac',
+        'Réhabilitation respiratoire',
+        'Soins palliatifs',
+        'Soins de fin de vie'
     ],
     icon: HandHeart,
     color: 'teal'
